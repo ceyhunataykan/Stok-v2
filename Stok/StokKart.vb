@@ -155,28 +155,35 @@ Public Class StokKart
         End If
     End Sub
     Private Sub btnSec_Click(sender As Object, e As EventArgs) Handles btnSec.Click
-        If giris = True Then
-
-            Dim sg As StokGiris = New StokGiris()
-            sg.Show()
-            Dim uID As Integer = Convert.ToInt32(dgListe.CurrentRow.Cells(0).Value)
-            Dim urunSec = (From u In db.Urun
-                           Join b In db.Birim On u.Birim_ID Equals b.Birim_ID
-                           Where u.Urun_ID = uID
-                           Select
+        Dim uID As Integer = Convert.ToInt32(dgListe.CurrentRow.Cells(0).Value)
+        Dim urunSec = (From u In db.Urun
+                       Join b In db.Birim On u.Birim_ID Equals b.Birim_ID
+                       Where u.Urun_ID = uID
+                       Select
                                  stokID = u.Urun_ID,
                                  stokKodu = u.Stok_Kodu,
                                  stokAdi = u.Stok_Adi,
                                  stokMiktar = u.Stok_Miktar,
-                                 stokBirim = b.Birim_Adi,
+                                 stokBirim_ID = b.Birim_ID,
+                                 stokBfiyat = u.Stok_SFiyati,
                                  stokTseviye = u.Stok_TSeviye).FirstOrDefault()
-            sg.txtStokKodu.Text = urunSec.stokKodu
-        ElseIf cikis = True Then
+        If giris = True Then
+            Me.Hide()
+            StokGiris.Show()
 
-            Dim sc As StokGiris = New StokGiris()
-            uID = Convert.ToString(dgListe.CurrentRow.Cells(0).Value)
-            sc.lblid.Text = uID
-            Me.Close()
+            StokGiris.txtStokKodu.Text = urunSec.stokKodu
+            StokGiris.txtStokAdi.Text = urunSec.stokAdi
+            StokGiris.cmbBirim.SelectedValue = urunSec.stokBirim_ID
+            StokGiris.txtBirimFiyat.Text = urunSec.stokBfiyat
+
+        ElseIf cikis = True Then
+            Me.Hide()
+            StokCikis.Show()
+
+            StokCikis.txtStokKodu.Text = urunSec.stokKodu
+            StokCikis.txtStokAdi.Text = urunSec.stokAdi
+            StokCikis.cmbBirim.SelectedValue = urunSec.stokBirim_ID
+            StokCikis.txtBirimFiyat.Text = urunSec.stokBfiyat
         End If
 
     End Sub

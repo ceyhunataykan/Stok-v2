@@ -59,8 +59,8 @@ Partial Class StokKartEkle
         Me.nudMiktar = New System.Windows.Forms.NumericUpDown()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
         Me.btnAc = New DevExpress.XtraEditors.SimpleButton()
+        Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
         Me.OpenFileDialog1 = New System.Windows.Forms.OpenFileDialog()
         Me.GroupBox1.SuspendLayout()
         CType(Me.nudTSeviye, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -426,6 +426,7 @@ Partial Class StokKartEkle
         'nudMiktar
         '
         Me.nudMiktar.Location = New System.Drawing.Point(102, 188)
+        Me.nudMiktar.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
         Me.nudMiktar.Name = "nudMiktar"
         Me.nudMiktar.Size = New System.Drawing.Size(88, 21)
         Me.nudMiktar.TabIndex = 39
@@ -454,20 +455,6 @@ Partial Class StokKartEkle
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Ürün Resmi"
         '
-        'SimpleButton1
-        '
-        Me.SimpleButton1.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.SimpleButton1.Appearance.Options.UseForeColor = True
-        Me.SimpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
-        Me.SimpleButton1.Image = CType(resources.GetObject("SimpleButton1.Image"), System.Drawing.Image)
-        Me.SimpleButton1.Location = New System.Drawing.Point(277, 257)
-        Me.SimpleButton1.Name = "SimpleButton1"
-        Me.SimpleButton1.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.SimpleButton1.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.[False]
-        Me.SimpleButton1.Size = New System.Drawing.Size(50, 26)
-        Me.SimpleButton1.TabIndex = 46
-        Me.SimpleButton1.Text = "Sil"
-        '
         'btnAc
         '
         Me.btnAc.Appearance.ForeColor = System.Drawing.Color.Black
@@ -481,6 +468,20 @@ Partial Class StokKartEkle
         Me.btnAc.Size = New System.Drawing.Size(50, 26)
         Me.btnAc.TabIndex = 47
         Me.btnAc.Text = "Aç"
+        '
+        'SimpleButton1
+        '
+        Me.SimpleButton1.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.SimpleButton1.Appearance.Options.UseForeColor = True
+        Me.SimpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
+        Me.SimpleButton1.Image = CType(resources.GetObject("SimpleButton1.Image"), System.Drawing.Image)
+        Me.SimpleButton1.Location = New System.Drawing.Point(277, 257)
+        Me.SimpleButton1.Name = "SimpleButton1"
+        Me.SimpleButton1.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.SimpleButton1.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.[False]
+        Me.SimpleButton1.Size = New System.Drawing.Size(50, 26)
+        Me.SimpleButton1.TabIndex = 46
+        Me.SimpleButton1.Text = "Sil"
         '
         'OpenFileDialog1
         '

@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class StokCikis
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class StokCikis
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(StokCikis))
         Me.Panel1 = New System.Windows.Forms.Panel()
@@ -40,14 +40,12 @@ Partial Class StokCikis
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtBirimFiyat = New System.Windows.Forms.TextBox()
-        Me.txtMiktar = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.cmbBirim = New System.Windows.Forms.ComboBox()
         Me.txtAciklama = New System.Windows.Forms.TextBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.btnSil = New DevExpress.XtraEditors.SimpleButton()
-        Me.btnDuzenle = New DevExpress.XtraEditors.SimpleButton()
         Me.dgFisListe = New System.Windows.Forms.DataGridView()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -71,14 +69,14 @@ Partial Class StokCikis
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cmbDepo = New System.Windows.Forms.ComboBox()
         Me.cmbBolum = New System.Windows.Forms.ComboBox()
-        Me.lblid = New System.Windows.Forms.Label()
-        Me.Panel2.SuspendLayout()
+        Me.nudMiktar = New System.Windows.Forms.NumericUpDown()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         CType(Me.dgFisListe, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
+        CType(Me.nudMiktar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Panel1
@@ -93,7 +91,6 @@ Partial Class StokCikis
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.DimGray
-        Me.Panel2.Controls.Add(Me.lblid)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
@@ -128,6 +125,7 @@ Partial Class StokCikis
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.nudMiktar)
         Me.GroupBox2.Controls.Add(Me.btnListeEkle)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.txtStokKodu)
@@ -140,7 +138,6 @@ Partial Class StokCikis
         Me.GroupBox2.Controls.Add(Me.Label10)
         Me.GroupBox2.Controls.Add(Me.Label7)
         Me.GroupBox2.Controls.Add(Me.txtBirimFiyat)
-        Me.GroupBox2.Controls.Add(Me.txtMiktar)
         Me.GroupBox2.Controls.Add(Me.Label9)
         Me.GroupBox2.Controls.Add(Me.Label8)
         Me.GroupBox2.Controls.Add(Me.cmbBirim)
@@ -270,13 +267,6 @@ Partial Class StokCikis
         Me.txtBirimFiyat.Size = New System.Drawing.Size(95, 21)
         Me.txtBirimFiyat.TabIndex = 18
         '
-        'txtMiktar
-        '
-        Me.txtMiktar.Location = New System.Drawing.Point(87, 75)
-        Me.txtMiktar.Name = "txtMiktar"
-        Me.txtMiktar.Size = New System.Drawing.Size(78, 21)
-        Me.txtMiktar.TabIndex = 14
-        '
         'Label9
         '
         Me.Label9.AutoSize = True
@@ -293,7 +283,7 @@ Partial Class StokCikis
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.DimGray
-        Me.Label8.Location = New System.Drawing.Point(39, 104)
+        Me.Label8.Location = New System.Drawing.Point(39, 106)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(42, 13)
         Me.Label8.TabIndex = 15
@@ -302,7 +292,7 @@ Partial Class StokCikis
         'cmbBirim
         '
         Me.cmbBirim.FormattingEnabled = True
-        Me.cmbBirim.Location = New System.Drawing.Point(87, 101)
+        Me.cmbBirim.Location = New System.Drawing.Point(87, 103)
         Me.cmbBirim.Name = "cmbBirim"
         Me.cmbBirim.Size = New System.Drawing.Size(121, 21)
         Me.cmbBirim.TabIndex = 16
@@ -318,7 +308,6 @@ Partial Class StokCikis
         'GroupBox4
         '
         Me.GroupBox4.Controls.Add(Me.btnSil)
-        Me.GroupBox4.Controls.Add(Me.btnDuzenle)
         Me.GroupBox4.Controls.Add(Me.dgFisListe)
         Me.GroupBox4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.GroupBox4.ForeColor = System.Drawing.Color.DimGray
@@ -341,19 +330,6 @@ Partial Class StokCikis
         Me.btnSil.Size = New System.Drawing.Size(85, 26)
         Me.btnSil.TabIndex = 15
         Me.btnSil.Text = "Sil"
-        '
-        'btnDuzenle
-        '
-        Me.btnDuzenle.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.btnDuzenle.Appearance.Options.UseForeColor = True
-        Me.btnDuzenle.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
-        Me.btnDuzenle.Image = CType(resources.GetObject("btnDuzenle.Image"), System.Drawing.Image)
-        Me.btnDuzenle.Location = New System.Drawing.Point(374, 133)
-        Me.btnDuzenle.Name = "btnDuzenle"
-        Me.btnDuzenle.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.btnDuzenle.Size = New System.Drawing.Size(85, 26)
-        Me.btnDuzenle.TabIndex = 14
-        Me.btnDuzenle.Text = "Düzenle"
         '
         'dgFisListe
         '
@@ -502,9 +478,10 @@ Partial Class StokCikis
         '
         'dtpFisTarihi
         '
+        Me.dtpFisTarihi.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
         Me.dtpFisTarihi.Location = New System.Drawing.Point(87, 22)
         Me.dtpFisTarihi.Name = "dtpFisTarihi"
-        Me.dtpFisTarihi.Size = New System.Drawing.Size(197, 21)
+        Me.dtpFisTarihi.Size = New System.Drawing.Size(151, 21)
         Me.dtpFisTarihi.TabIndex = 1
         '
         'Label2
@@ -522,7 +499,7 @@ Partial Class StokCikis
         '
         Me.txtFisNo.Location = New System.Drawing.Point(87, 49)
         Me.txtFisNo.Name = "txtFisNo"
-        Me.txtFisNo.Size = New System.Drawing.Size(100, 21)
+        Me.txtFisNo.Size = New System.Drawing.Size(151, 21)
         Me.txtFisNo.TabIndex = 3
         '
         'Label3
@@ -563,14 +540,13 @@ Partial Class StokCikis
         Me.cmbBolum.Size = New System.Drawing.Size(121, 21)
         Me.cmbBolum.TabIndex = 7
         '
-        'lblid
+        'nudMiktar
         '
-        Me.lblid.AutoSize = True
-        Me.lblid.Location = New System.Drawing.Point(268, 8)
-        Me.lblid.Name = "lblid"
-        Me.lblid.Size = New System.Drawing.Size(45, 13)
-        Me.lblid.TabIndex = 1
-        Me.lblid.Text = "Label15"
+        Me.nudMiktar.Location = New System.Drawing.Point(87, 76)
+        Me.nudMiktar.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
+        Me.nudMiktar.Name = "nudMiktar"
+        Me.nudMiktar.Size = New System.Drawing.Size(88, 21)
+        Me.nudMiktar.TabIndex = 40
         '
         'StokCikis
         '
@@ -591,8 +567,6 @@ Partial Class StokCikis
         Me.Name = "StokCikis"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "StokCikis"
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
@@ -603,6 +577,7 @@ Partial Class StokCikis
         Me.GroupBox5.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
+        CType(Me.nudMiktar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -624,14 +599,12 @@ Partial Class StokCikis
     Friend WithEvents Label10 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents txtBirimFiyat As TextBox
-    Friend WithEvents txtMiktar As TextBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents cmbBirim As ComboBox
     Friend WithEvents txtAciklama As TextBox
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents btnSil As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents btnDuzenle As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents dgFisListe As DataGridView
     Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents Column2 As DataGridViewTextBoxColumn
@@ -655,5 +628,5 @@ Partial Class StokCikis
     Friend WithEvents Label4 As Label
     Friend WithEvents cmbDepo As ComboBox
     Friend WithEvents cmbBolum As ComboBox
-    Public WithEvents lblid As Label
+    Friend WithEvents nudMiktar As NumericUpDown
 End Class

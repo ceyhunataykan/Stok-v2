@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class StokGiris
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class StokGiris
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(StokGiris))
         Me.cmbDepo = New System.Windows.Forms.ComboBox()
@@ -49,7 +49,6 @@ Partial Class StokGiris
         Me.btnSil = New DevExpress.XtraEditors.SimpleButton()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
-        Me.lblid = New System.Windows.Forms.Label()
         Me.btnIptal = New DevExpress.XtraEditors.SimpleButton()
         Me.btnKaydet = New DevExpress.XtraEditors.SimpleButton()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
@@ -65,19 +64,19 @@ Partial Class StokGiris
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtBirimFiyat = New System.Windows.Forms.TextBox()
-        Me.txtMiktar = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.cmbBirim = New System.Windows.Forms.ComboBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.dgFisListe = New System.Windows.Forms.DataGridView()
+        Me.nudMiktar = New System.Windows.Forms.NumericUpDown()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
-        Me.Panel2.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox4.SuspendLayout()
         CType(Me.dgFisListe, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.nudMiktar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cmbDepo
@@ -312,21 +311,11 @@ Partial Class StokGiris
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.DimGray
-        Me.Panel2.Controls.Add(Me.lblid)
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
         Me.Panel2.Size = New System.Drawing.Size(580, 28)
         Me.Panel2.TabIndex = 59
-        '
-        'lblid
-        '
-        Me.lblid.AutoSize = True
-        Me.lblid.Location = New System.Drawing.Point(251, 9)
-        Me.lblid.Name = "lblid"
-        Me.lblid.Size = New System.Drawing.Size(45, 13)
-        Me.lblid.TabIndex = 0
-        Me.lblid.Text = "Label15"
         '
         'btnIptal
         '
@@ -356,6 +345,7 @@ Partial Class StokGiris
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.nudMiktar)
         Me.GroupBox2.Controls.Add(Me.btnListeEkle)
         Me.GroupBox2.Controls.Add(Me.Label5)
         Me.GroupBox2.Controls.Add(Me.txtStokKodu)
@@ -368,7 +358,6 @@ Partial Class StokGiris
         Me.GroupBox2.Controls.Add(Me.Label10)
         Me.GroupBox2.Controls.Add(Me.Label7)
         Me.GroupBox2.Controls.Add(Me.txtBirimFiyat)
-        Me.GroupBox2.Controls.Add(Me.txtMiktar)
         Me.GroupBox2.Controls.Add(Me.Label9)
         Me.GroupBox2.Controls.Add(Me.Label8)
         Me.GroupBox2.Controls.Add(Me.cmbBirim)
@@ -498,13 +487,6 @@ Partial Class StokGiris
         Me.txtBirimFiyat.Size = New System.Drawing.Size(95, 21)
         Me.txtBirimFiyat.TabIndex = 18
         '
-        'txtMiktar
-        '
-        Me.txtMiktar.Location = New System.Drawing.Point(87, 75)
-        Me.txtMiktar.Name = "txtMiktar"
-        Me.txtMiktar.Size = New System.Drawing.Size(78, 21)
-        Me.txtMiktar.TabIndex = 14
-        '
         'Label9
         '
         Me.Label9.AutoSize = True
@@ -521,7 +503,7 @@ Partial Class StokGiris
         Me.Label8.AutoSize = True
         Me.Label8.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.Label8.ForeColor = System.Drawing.Color.DimGray
-        Me.Label8.Location = New System.Drawing.Point(39, 104)
+        Me.Label8.Location = New System.Drawing.Point(39, 106)
         Me.Label8.Name = "Label8"
         Me.Label8.Size = New System.Drawing.Size(42, 13)
         Me.Label8.TabIndex = 15
@@ -530,7 +512,7 @@ Partial Class StokGiris
         'cmbBirim
         '
         Me.cmbBirim.FormattingEnabled = True
-        Me.cmbBirim.Location = New System.Drawing.Point(87, 101)
+        Me.cmbBirim.Location = New System.Drawing.Point(87, 103)
         Me.cmbBirim.Name = "cmbBirim"
         Me.cmbBirim.Size = New System.Drawing.Size(121, 21)
         Me.cmbBirim.TabIndex = 16
@@ -558,6 +540,14 @@ Partial Class StokGiris
         Me.dgFisListe.Size = New System.Drawing.Size(536, 107)
         Me.dgFisListe.TabIndex = 0
         '
+        'nudMiktar
+        '
+        Me.nudMiktar.Location = New System.Drawing.Point(87, 76)
+        Me.nudMiktar.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
+        Me.nudMiktar.Name = "nudMiktar"
+        Me.nudMiktar.Size = New System.Drawing.Size(88, 21)
+        Me.nudMiktar.TabIndex = 41
+        '
         'StokGiris
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -583,12 +573,11 @@ Partial Class StokGiris
         Me.GroupBox5.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
-        Me.Panel2.ResumeLayout(False)
-        Me.Panel2.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox4.ResumeLayout(False)
         CType(Me.dgFisListe, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.nudMiktar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
@@ -634,11 +623,10 @@ Partial Class StokGiris
     Friend WithEvents Label10 As Label
     Friend WithEvents Label7 As Label
     Friend WithEvents txtBirimFiyat As TextBox
-    Friend WithEvents txtMiktar As TextBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents cmbBirim As ComboBox
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents dgFisListe As DataGridView
-    Public WithEvents lblid As Label
+    Friend WithEvents nudMiktar As NumericUpDown
 End Class
