@@ -116,7 +116,6 @@ C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\bin\Debug\de\DevExpress.Pdf.v
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\bin\Debug\es\DevExpress.Pdf.v16.1.Core.resources.dll
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\bin\Debug\ja\DevExpress.Pdf.v16.1.Core.resources.dll
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\bin\Debug\ru\DevExpress.Pdf.v16.1.Core.resources.dll
-C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.vbprojResolveAssemblyReference.cache
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.Dashboard.resources
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.StokCikis.resources
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.StokGiris.resources

@@ -165,6 +165,7 @@ Public Class StokKart
                                  stokAdi = u.Stok_Adi,
                                  stokMiktar = u.Stok_Miktar,
                                  stokBirim_ID = b.Birim_ID,
+                                 stokBirimAdi = b.Birim_Adi,
                                  stokBfiyat = u.Stok_SFiyati,
                                  stokTseviye = u.Stok_TSeviye).FirstOrDefault()
         If giris = True Then
@@ -173,7 +174,7 @@ Public Class StokKart
 
             StokGiris.txtStokKodu.Text = urunSec.stokKodu
             StokGiris.txtStokAdi.Text = urunSec.stokAdi
-            StokGiris.cmbBirim.SelectedValue = urunSec.stokBirim_ID
+            StokGiris.txtBirim.Text = urunSec.stokBirimAdi
             StokGiris.txtBirimFiyat.Text = urunSec.stokBfiyat
 
         ElseIf cikis = True Then
@@ -182,7 +183,7 @@ Public Class StokKart
 
             StokCikis.txtStokKodu.Text = urunSec.stokKodu
             StokCikis.txtStokAdi.Text = urunSec.stokAdi
-            StokCikis.cmbBirim.SelectedValue = urunSec.stokBirim_ID
+            StokCikis.txtBirim.Text = urunSec.stokBirimAdi
             StokCikis.txtBirimFiyat.Text = urunSec.stokBfiyat
         End If
 

@@ -40,12 +40,13 @@
     <Property Name="Stok_Kodu" Type="int" />
     <Property Name="Stok_Adi" Type="nvarchar" MaxLength="50" />
     <Property Name="Stok_Miktar" Type="int" />
-    <Property Name="Birim_ID" Type="int" />
+    <Property Name="Birim" Type="nvarchar" MaxLength="50" />
     <Property Name="Birim_Fiyat" Type="money" />
     <Property Name="Tutar" Type="money" />
     <Property Name="Depo_ID" Type="int" />
     <Property Name="Bolum_ID" Type="int" />
     <Property Name="Aciklama" Type="nvarchar(max)" />
+    <Property Name="Fis_Tarih" Type="datetime" />
   </EntityType>
   <EntityType Name="Kategori">
     <Key>
@@ -85,18 +86,6 @@
     <Property Name="Stok_Foto" Type="nvarchar(max)" />
     <Property Name="Durum" Type="bit" />
   </EntityType>
-  <Association Name="FK_Fis_Birim">
-    <End Role="Birim" Type="Self.Birim" Multiplicity="0..1" />
-    <End Role="Fis" Type="Self.Fis" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Birim">
-        <PropertyRef Name="Birim_ID" />
-      </Principal>
-      <Dependent Role="Fis">
-        <PropertyRef Name="Birim_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Fis_Bolum">
     <End Role="Bolum" Type="Self.Bolum" Multiplicity="0..1" />
     <End Role="Fis" Type="Self.Fis" Multiplicity="*" />
@@ -196,10 +185,6 @@
     <EntitySet Name="Kategori" EntityType="Self.Kategori" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Urun" EntityType="Self.Urun" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK_Fis_Birim" Association="Self.FK_Fis_Birim">
-      <End Role="Birim" EntitySet="Birim" />
-      <End Role="Fis" EntitySet="Fis" />
-    </AssociationSet>
     <AssociationSet Name="FK_Fis_Bolum" Association="Self.FK_Fis_Bolum">
       <End Role="Bolum" EntitySet="Bolum" />
       <End Role="Fis" EntitySet="Fis" />

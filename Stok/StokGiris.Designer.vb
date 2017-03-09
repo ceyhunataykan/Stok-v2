@@ -35,7 +35,7 @@ Partial Class StokGiris
         Me.Label13 = New System.Windows.Forms.Label()
         Me.txtTopTutar = New System.Windows.Forms.TextBox()
         Me.Label14 = New System.Windows.Forms.Label()
-        Me.txtTopBiyat = New System.Windows.Forms.TextBox()
+        Me.txtTopBirim = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -66,10 +66,10 @@ Partial Class StokGiris
         Me.txtBirimFiyat = New System.Windows.Forms.TextBox()
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.cmbBirim = New System.Windows.Forms.ComboBox()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.dgFisListe = New System.Windows.Forms.DataGridView()
         Me.nudMiktar = New System.Windows.Forms.NumericUpDown()
+        Me.txtBirim = New System.Windows.Forms.TextBox()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -91,26 +91,31 @@ Partial Class StokGiris
         '
         Me.Column2.HeaderText = "Stok Adı"
         Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
         '
         'Column3
         '
         Me.Column3.HeaderText = "Miktar"
         Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
         '
         'Column4
         '
         Me.Column4.HeaderText = "Birim"
         Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
         '
         'Column5
         '
         Me.Column5.HeaderText = "Birim Fiyat"
         Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
         '
         'Column6
         '
         Me.Column6.HeaderText = "Tutar"
         Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
         '
         'GroupBox3
         '
@@ -137,7 +142,7 @@ Partial Class StokGiris
         Me.GroupBox5.Controls.Add(Me.Label13)
         Me.GroupBox5.Controls.Add(Me.txtTopTutar)
         Me.GroupBox5.Controls.Add(Me.Label14)
-        Me.GroupBox5.Controls.Add(Me.txtTopBiyat)
+        Me.GroupBox5.Controls.Add(Me.txtTopBirim)
         Me.GroupBox5.Controls.Add(Me.Label16)
         Me.GroupBox5.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.GroupBox5.ForeColor = System.Drawing.Color.DimGray
@@ -173,16 +178,16 @@ Partial Class StokGiris
         Me.Label14.ForeColor = System.Drawing.Color.DimGray
         Me.Label14.Location = New System.Drawing.Point(12, 56)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(86, 13)
+        Me.Label14.Size = New System.Drawing.Size(89, 13)
         Me.Label14.TabIndex = 26
-        Me.Label14.Text = "Toplam Fiyat :"
+        Me.Label14.Text = "Toplam Tutar :"
         '
-        'txtTopBiyat
+        'txtTopBirim
         '
-        Me.txtTopBiyat.Location = New System.Drawing.Point(105, 27)
-        Me.txtTopBiyat.Name = "txtTopBiyat"
-        Me.txtTopBiyat.Size = New System.Drawing.Size(95, 21)
-        Me.txtTopBiyat.TabIndex = 24
+        Me.txtTopBirim.Location = New System.Drawing.Point(105, 27)
+        Me.txtTopBirim.Name = "txtTopBirim"
+        Me.txtTopBirim.Size = New System.Drawing.Size(95, 21)
+        Me.txtTopBirim.TabIndex = 24
         '
         'Label16
         '
@@ -285,6 +290,7 @@ Partial Class StokGiris
         '
         Me.Column1.HeaderText = "Stok Kodu"
         Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
         '
         'btnSil
         '
@@ -345,6 +351,7 @@ Partial Class StokGiris
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.txtBirim)
         Me.GroupBox2.Controls.Add(Me.nudMiktar)
         Me.GroupBox2.Controls.Add(Me.btnListeEkle)
         Me.GroupBox2.Controls.Add(Me.Label5)
@@ -360,7 +367,6 @@ Partial Class StokGiris
         Me.GroupBox2.Controls.Add(Me.txtBirimFiyat)
         Me.GroupBox2.Controls.Add(Me.Label9)
         Me.GroupBox2.Controls.Add(Me.Label8)
-        Me.GroupBox2.Controls.Add(Me.cmbBirim)
         Me.GroupBox2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.Color.DimGray
         Me.GroupBox2.Location = New System.Drawing.Point(12, 132)
@@ -393,6 +399,7 @@ Partial Class StokGiris
         '
         'txtStokKodu
         '
+        Me.txtStokKodu.Enabled = False
         Me.txtStokKodu.Location = New System.Drawing.Point(87, 23)
         Me.txtStokKodu.Name = "txtStokKodu"
         Me.txtStokKodu.Size = New System.Drawing.Size(151, 21)
@@ -453,6 +460,7 @@ Partial Class StokGiris
         '
         'txtStokAdi
         '
+        Me.txtStokAdi.Enabled = False
         Me.txtStokAdi.Location = New System.Drawing.Point(87, 49)
         Me.txtStokAdi.Name = "txtStokAdi"
         Me.txtStokAdi.Size = New System.Drawing.Size(151, 21)
@@ -482,6 +490,7 @@ Partial Class StokGiris
         '
         'txtBirimFiyat
         '
+        Me.txtBirimFiyat.Enabled = False
         Me.txtBirimFiyat.Location = New System.Drawing.Point(413, 23)
         Me.txtBirimFiyat.Name = "txtBirimFiyat"
         Me.txtBirimFiyat.Size = New System.Drawing.Size(95, 21)
@@ -509,14 +518,6 @@ Partial Class StokGiris
         Me.Label8.TabIndex = 15
         Me.Label8.Text = "Birim :"
         '
-        'cmbBirim
-        '
-        Me.cmbBirim.FormattingEnabled = True
-        Me.cmbBirim.Location = New System.Drawing.Point(87, 103)
-        Me.cmbBirim.Name = "cmbBirim"
-        Me.cmbBirim.Size = New System.Drawing.Size(121, 21)
-        Me.cmbBirim.TabIndex = 16
-        '
         'GroupBox4
         '
         Me.GroupBox4.Controls.Add(Me.btnSil)
@@ -532,11 +533,15 @@ Partial Class StokGiris
         '
         'dgFisListe
         '
+        Me.dgFisListe.AllowUserToAddRows = False
+        Me.dgFisListe.AllowUserToDeleteRows = False
         Me.dgFisListe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgFisListe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgFisListe.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6})
         Me.dgFisListe.Location = New System.Drawing.Point(14, 20)
         Me.dgFisListe.Name = "dgFisListe"
+        Me.dgFisListe.ReadOnly = True
+        Me.dgFisListe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgFisListe.Size = New System.Drawing.Size(536, 107)
         Me.dgFisListe.TabIndex = 0
         '
@@ -547,6 +552,14 @@ Partial Class StokGiris
         Me.nudMiktar.Name = "nudMiktar"
         Me.nudMiktar.Size = New System.Drawing.Size(88, 21)
         Me.nudMiktar.TabIndex = 41
+        '
+        'txtBirim
+        '
+        Me.txtBirim.Enabled = False
+        Me.txtBirim.Location = New System.Drawing.Point(87, 103)
+        Me.txtBirim.Name = "txtBirim"
+        Me.txtBirim.Size = New System.Drawing.Size(88, 21)
+        Me.txtBirim.TabIndex = 42
         '
         'StokGiris
         '
@@ -566,7 +579,7 @@ Partial Class StokGiris
         Me.MaximizeBox = False
         Me.Name = "StokGiris"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "StokGiris"
+        Me.Text = "Stok Giriş Fişi"
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         Me.GroupBox5.ResumeLayout(False)
@@ -594,7 +607,7 @@ Partial Class StokGiris
     Friend WithEvents Label13 As Label
     Friend WithEvents txtTopTutar As TextBox
     Friend WithEvents Label14 As Label
-    Friend WithEvents txtTopBiyat As TextBox
+    Friend WithEvents txtTopBirim As TextBox
     Friend WithEvents Label16 As Label
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Label1 As Label
@@ -625,8 +638,8 @@ Partial Class StokGiris
     Friend WithEvents txtBirimFiyat As TextBox
     Friend WithEvents Label9 As Label
     Friend WithEvents Label8 As Label
-    Friend WithEvents cmbBirim As ComboBox
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents dgFisListe As DataGridView
     Friend WithEvents nudMiktar As NumericUpDown
+    Friend WithEvents txtBirim As TextBox
 End Class

@@ -1,98 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="StokModelStoreContainer" CdmEntityContainer="StokEntities">
-    <EntitySetMapping Name="Birim">
-      <EntityTypeMapping TypeName="StokModel.Birim">
-        <MappingFragment StoreEntitySet="Birim">
-          <ScalarProperty Name="Birim_ID" ColumnName="Birim_ID" />
-          <ScalarProperty Name="Birim_Adi" ColumnName="Birim_Adi" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Bolum">
-      <EntityTypeMapping TypeName="StokModel.Bolum">
-        <MappingFragment StoreEntitySet="Bolum">
-          <ScalarProperty Name="Bolum_ID" ColumnName="Bolum_ID" />
-          <ScalarProperty Name="Bolum_Adi" ColumnName="Bolum_Adi" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Depo">
-      <EntityTypeMapping TypeName="StokModel.Depo">
-        <MappingFragment StoreEntitySet="Depo">
-          <ScalarProperty Name="Depo_ID" ColumnName="Depo_ID" />
-          <ScalarProperty Name="Depo_Kodu" ColumnName="Depo_Kodu" />
-          <ScalarProperty Name="Depo_Adi" ColumnName="Depo_Adi" />
-          <ScalarProperty Name="Depo_Adres" ColumnName="Depo_Adres" />
-          <ScalarProperty Name="ilce_ID" ColumnName="ilce_ID" />
-          <ScalarProperty Name="il_ID" ColumnName="il_ID" />
-          <ScalarProperty Name="Depo_Yetkili" ColumnName="Depo_Yetkili" />
-          <ScalarProperty Name="Depo_Tel" ColumnName="Depo_Tel" />
-          <ScalarProperty Name="Depo_Fax" ColumnName="Depo_Fax" />
-          <ScalarProperty Name="Depo_Mail" ColumnName="Depo_Mail" />
-          <ScalarProperty Name="Durum" ColumnName="Durum" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Fis">
-      <EntityTypeMapping TypeName="StokModel.Fis">
-        <MappingFragment StoreEntitySet="Fis">
-          <ScalarProperty Name="Fis_ID" ColumnName="Fis_ID" />
-          <ScalarProperty Name="Fis_No" ColumnName="Fis_No" />
-          <ScalarProperty Name="Fis_Türü" ColumnName="Fis_Türü" />
-          <ScalarProperty Name="Stok_Kodu" ColumnName="Stok_Kodu" />
-          <ScalarProperty Name="Stok_Adi" ColumnName="Stok_Adi" />
-          <ScalarProperty Name="Stok_Miktar" ColumnName="Stok_Miktar" />
-          <ScalarProperty Name="Birim_ID" ColumnName="Birim_ID" />
-          <ScalarProperty Name="Birim_Fiyat" ColumnName="Birim_Fiyat" />
-          <ScalarProperty Name="Tutar" ColumnName="Tutar" />
-          <ScalarProperty Name="Depo_ID" ColumnName="Depo_ID" />
-          <ScalarProperty Name="Bolum_ID" ColumnName="Bolum_ID" />
-          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Kategori">
-      <EntityTypeMapping TypeName="StokModel.Kategori">
-        <MappingFragment StoreEntitySet="Kategori">
-          <ScalarProperty Name="Kategori_ID" ColumnName="Kategori_ID" />
-          <ScalarProperty Name="Kategori_Kodu" ColumnName="Kategori_Kodu" />
-          <ScalarProperty Name="Kategori_Adi" ColumnName="Kategori_Adi" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="StokModel.sysdiagrams">
-        <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="name" ColumnName="name" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="definition" ColumnName="definition" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Urun">
-      <EntityTypeMapping TypeName="StokModel.Urun">
-        <MappingFragment StoreEntitySet="Urun">
-          <ScalarProperty Name="Urun_ID" ColumnName="Urun_ID" />
-          <ScalarProperty Name="Stok_Kodu" ColumnName="Stok_Kodu" />
-          <ScalarProperty Name="Stok_Adi" ColumnName="Stok_Adi" />
-          <ScalarProperty Name="Kategori_ID" ColumnName="Kategori_ID" />
-          <ScalarProperty Name="Stok_Barkod" ColumnName="Stok_Barkod" />
-          <ScalarProperty Name="Stok_Miktar" ColumnName="Stok_Miktar" />
-          <ScalarProperty Name="Birim_ID" ColumnName="Birim_ID" />
-          <ScalarProperty Name="Stok_TSeviye" ColumnName="Stok_TSeviye" />
-          <ScalarProperty Name="Depo_ID" ColumnName="Depo_ID" />
-          <ScalarProperty Name="Stok_AFiyati" ColumnName="Stok_AFiyati" />
-          <ScalarProperty Name="Stok_SFiyati" ColumnName="Stok_SFiyati" />
-          <ScalarProperty Name="Stok_Kdv" ColumnName="Stok_Kdv" />
-          <ScalarProperty Name="Stok_KayitTarihi" ColumnName="Stok_KayitTarihi" />
-          <ScalarProperty Name="Stok_Foto" ColumnName="Stok_Foto" />
-          <ScalarProperty Name="Durum" ColumnName="Durum" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="StokModel.Store.sp_alterdiagram" />
     <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="StokModel.Store.sp_creatediagram" />
     <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="StokModel.Store.sp_dropdiagram" />
@@ -117,5 +25,98 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="StokModel.Store.sp_renamediagram" />
     <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="StokModel.Store.sp_upgraddiagrams" />
+    <EntitySetMapping Name="Birim">
+      <EntityTypeMapping TypeName="StokModel.Birim">
+        <MappingFragment StoreEntitySet="Birim">
+          <ScalarProperty Name="Birim_Adi" ColumnName="Birim_Adi" />
+          <ScalarProperty Name="Birim_ID" ColumnName="Birim_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bolum">
+      <EntityTypeMapping TypeName="StokModel.Bolum">
+        <MappingFragment StoreEntitySet="Bolum">
+          <ScalarProperty Name="Bolum_Adi" ColumnName="Bolum_Adi" />
+          <ScalarProperty Name="Bolum_ID" ColumnName="Bolum_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Depo">
+      <EntityTypeMapping TypeName="StokModel.Depo">
+        <MappingFragment StoreEntitySet="Depo">
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+          <ScalarProperty Name="Depo_Mail" ColumnName="Depo_Mail" />
+          <ScalarProperty Name="Depo_Fax" ColumnName="Depo_Fax" />
+          <ScalarProperty Name="Depo_Tel" ColumnName="Depo_Tel" />
+          <ScalarProperty Name="Depo_Yetkili" ColumnName="Depo_Yetkili" />
+          <ScalarProperty Name="il_ID" ColumnName="il_ID" />
+          <ScalarProperty Name="ilce_ID" ColumnName="ilce_ID" />
+          <ScalarProperty Name="Depo_Adres" ColumnName="Depo_Adres" />
+          <ScalarProperty Name="Depo_Adi" ColumnName="Depo_Adi" />
+          <ScalarProperty Name="Depo_Kodu" ColumnName="Depo_Kodu" />
+          <ScalarProperty Name="Depo_ID" ColumnName="Depo_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fis">
+      <EntityTypeMapping TypeName="StokModel.Fis">
+        <MappingFragment StoreEntitySet="Fis">
+          <ScalarProperty Name="Fis_Tarih" ColumnName="Fis_Tarih" />
+          <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+          <ScalarProperty Name="Bolum_ID" ColumnName="Bolum_ID" />
+          <ScalarProperty Name="Depo_ID" ColumnName="Depo_ID" />
+          <ScalarProperty Name="Tutar" ColumnName="Tutar" />
+          <ScalarProperty Name="Birim_Fiyat" ColumnName="Birim_Fiyat" />
+          <ScalarProperty Name="Birim" ColumnName="Birim" />
+          <ScalarProperty Name="Stok_Miktar" ColumnName="Stok_Miktar" />
+          <ScalarProperty Name="Stok_Adi" ColumnName="Stok_Adi" />
+          <ScalarProperty Name="Stok_Kodu" ColumnName="Stok_Kodu" />
+          <ScalarProperty Name="Fis_Türü" ColumnName="Fis_Türü" />
+          <ScalarProperty Name="Fis_No" ColumnName="Fis_No" />
+          <ScalarProperty Name="Fis_ID" ColumnName="Fis_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kategori">
+      <EntityTypeMapping TypeName="StokModel.Kategori">
+        <MappingFragment StoreEntitySet="Kategori">
+          <ScalarProperty Name="Kategori_Adi" ColumnName="Kategori_Adi" />
+          <ScalarProperty Name="Kategori_Kodu" ColumnName="Kategori_Kodu" />
+          <ScalarProperty Name="Kategori_ID" ColumnName="Kategori_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="StokModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Urun">
+      <EntityTypeMapping TypeName="StokModel.Urun">
+        <MappingFragment StoreEntitySet="Urun">
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+          <ScalarProperty Name="Stok_Foto" ColumnName="Stok_Foto" />
+          <ScalarProperty Name="Stok_KayitTarihi" ColumnName="Stok_KayitTarihi" />
+          <ScalarProperty Name="Stok_Kdv" ColumnName="Stok_Kdv" />
+          <ScalarProperty Name="Stok_SFiyati" ColumnName="Stok_SFiyati" />
+          <ScalarProperty Name="Stok_AFiyati" ColumnName="Stok_AFiyati" />
+          <ScalarProperty Name="Depo_ID" ColumnName="Depo_ID" />
+          <ScalarProperty Name="Stok_TSeviye" ColumnName="Stok_TSeviye" />
+          <ScalarProperty Name="Birim_ID" ColumnName="Birim_ID" />
+          <ScalarProperty Name="Stok_Miktar" ColumnName="Stok_Miktar" />
+          <ScalarProperty Name="Stok_Barkod" ColumnName="Stok_Barkod" />
+          <ScalarProperty Name="Kategori_ID" ColumnName="Kategori_ID" />
+          <ScalarProperty Name="Stok_Adi" ColumnName="Stok_Adi" />
+          <ScalarProperty Name="Stok_Kodu" ColumnName="Stok_Kodu" />
+          <ScalarProperty Name="Urun_ID" ColumnName="Urun_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

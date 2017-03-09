@@ -22,14 +22,9 @@ Partial Class StokHareket
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(StokHareket))
         Me.dgFisl = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cmbDepo = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -46,6 +41,11 @@ Partial Class StokHareket
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgFisl, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -53,44 +53,19 @@ Partial Class StokHareket
         '
         'dgFisl
         '
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gray
-        Me.dgFisl.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gray
+        Me.dgFisl.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
         Me.dgFisl.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgFisl.BackgroundColor = System.Drawing.Color.DarkGray
         Me.dgFisl.BorderStyle = System.Windows.Forms.BorderStyle.None
         Me.dgFisl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgFisl.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5})
+        Me.dgFisl.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column2, Me.Column5, Me.Column1, Me.Column3, Me.Column4})
         Me.dgFisl.GridColor = System.Drawing.Color.LightGray
         Me.dgFisl.Location = New System.Drawing.Point(12, 21)
         Me.dgFisl.Name = "dgFisl"
         Me.dgFisl.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgFisl.Size = New System.Drawing.Size(757, 252)
         Me.dgFisl.TabIndex = 9
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Tarih"
-        Me.Column1.Name = "Column1"
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "Fiş No"
-        Me.Column2.Name = "Column2"
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "Depo"
-        Me.Column3.Name = "Column3"
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "Bölüm"
-        Me.Column4.Name = "Column4"
-        '
-        'Column5
-        '
-        Me.Column5.HeaderText = "Ürünler"
-        Me.Column5.Name = "Column5"
         '
         'Label2
         '
@@ -116,11 +91,11 @@ Partial Class StokHareket
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.DimGray
-        Me.Label1.Location = New System.Drawing.Point(309, 26)
+        Me.Label1.Location = New System.Drawing.Point(334, 26)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(70, 13)
+        Me.Label1.Size = New System.Drawing.Size(45, 13)
         Me.Label1.TabIndex = 15
-        Me.Label1.Text = "Stok Kodu :"
+        Me.Label1.Text = "Fiş No :"
         '
         'txtAra
         '
@@ -268,6 +243,31 @@ Partial Class StokHareket
         Me.Panel2.Size = New System.Drawing.Size(808, 28)
         Me.Panel2.TabIndex = 26
         '
+        'Column2
+        '
+        Me.Column2.HeaderText = "Fiş No"
+        Me.Column2.Name = "Column2"
+        '
+        'Column5
+        '
+        Me.Column5.HeaderText = "Fiş Türü"
+        Me.Column5.Name = "Column5"
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Tarih"
+        Me.Column1.Name = "Column1"
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "Depo"
+        Me.Column3.Name = "Column3"
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "Bölüm"
+        Me.Column4.Name = "Column4"
+        '
         'StokHareket
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -285,7 +285,7 @@ Partial Class StokHareket
         Me.MaximizeBox = False
         Me.Name = "StokHareket"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Stok Giriş - Çıkış İşlemleri"
+        Me.Text = "Stok Giriş - Çıkış Fişleri"
         CType(Me.dgFisl, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
@@ -295,11 +295,6 @@ Partial Class StokHareket
     End Sub
 
     Friend WithEvents dgFisl As DataGridView
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
     Friend WithEvents Label2 As Label
     Friend WithEvents cmbDepo As ComboBox
     Friend WithEvents Label1 As Label
@@ -316,4 +311,9 @@ Partial Class StokHareket
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
 End Class

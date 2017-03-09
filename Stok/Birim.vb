@@ -14,7 +14,6 @@ Partial Public Class Birim
     Public Property Birim_ID As Integer
     Public Property Birim_Adi As String
 
-    Public Overridable Property Fis As ICollection(Of Fis) = New HashSet(Of Fis)
     Public Overridable Property Urun As ICollection(Of Urun) = New HashSet(Of Urun)
 
 End Class

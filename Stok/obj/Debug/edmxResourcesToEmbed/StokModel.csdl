@@ -1,206 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="StokModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="Birim">
-    <Key>
-      <PropertyRef Name="Birim_ID" />
-    </Key>
-    <Property Name="Birim_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Birim_Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Fis" Relationship="Self.FK_Fis_Birim" FromRole="Birim" ToRole="Fis" />
-    <NavigationProperty Name="Urun" Relationship="Self.FK_Urun_Birim" FromRole="Birim" ToRole="Urun" />
-  </EntityType>
-  <EntityType Name="Bolum">
-    <Key>
-      <PropertyRef Name="Bolum_ID" />
-    </Key>
-    <Property Name="Bolum_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Bolum_Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Fis" Relationship="Self.FK_Fis_Bolum" FromRole="Bolum" ToRole="Fis" />
-  </EntityType>
-  <EntityType Name="Depo">
-    <Key>
-      <PropertyRef Name="Depo_ID" />
-    </Key>
-    <Property Name="Depo_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Depo_Kodu" Type="Int32" />
-    <Property Name="Depo_Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Depo_Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="ilce_ID" Type="Int32" />
-    <Property Name="il_ID" Type="Int32" />
-    <Property Name="Depo_Yetkili" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Depo_Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Depo_Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Depo_Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Durum" Type="Boolean" />
-    <NavigationProperty Name="Fis" Relationship="Self.FK_Fis_Depo" FromRole="Depo" ToRole="Fis" />
-    <NavigationProperty Name="Urun" Relationship="Self.FK_Urun_Depo" FromRole="Depo" ToRole="Urun" />
-  </EntityType>
-  <EntityType Name="Fis">
-    <Key>
-      <PropertyRef Name="Fis_ID" />
-    </Key>
-    <Property Name="Fis_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Fis_No" Type="Int32" />
-    <Property Name="Fis_Türü" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Stok_Kodu" Type="Int32" />
-    <Property Name="Stok_Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Stok_Miktar" Type="Int32" />
-    <Property Name="Birim_ID" Type="Int32" />
-    <Property Name="Birim_Fiyat" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="Tutar" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="Depo_ID" Type="Int32" />
-    <Property Name="Bolum_ID" Type="Int32" />
-    <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Birim" Relationship="Self.FK_Fis_Birim" FromRole="Fis" ToRole="Birim" />
-    <NavigationProperty Name="Bolum" Relationship="Self.FK_Fis_Bolum" FromRole="Fis" ToRole="Bolum" />
-    <NavigationProperty Name="Depo" Relationship="Self.FK_Fis_Depo" FromRole="Fis" ToRole="Depo" />
-  </EntityType>
-  <EntityType Name="Kategori">
-    <Key>
-      <PropertyRef Name="Kategori_ID" />
-    </Key>
-    <Property Name="Kategori_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Kategori_Kodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Kategori_Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Urun" Relationship="Self.FK_Urun_Kategori" FromRole="Kategori" ToRole="Urun" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
-  <EntityType Name="Urun">
-    <Key>
-      <PropertyRef Name="Urun_ID" />
-    </Key>
-    <Property Name="Urun_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="Stok_Kodu" Type="Int32" />
-    <Property Name="Stok_Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Kategori_ID" Type="Int32" />
-    <Property Name="Stok_Barkod" Type="Int32" />
-    <Property Name="Stok_Miktar" Type="Int32" />
-    <Property Name="Birim_ID" Type="Int32" />
-    <Property Name="Stok_TSeviye" Type="Int32" />
-    <Property Name="Depo_ID" Type="Int32" />
-    <Property Name="Stok_AFiyati" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="Stok_SFiyati" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="Stok_Kdv" Type="Int32" />
-    <Property Name="Stok_KayitTarihi" Type="DateTime" Precision="3" />
-    <Property Name="Stok_Foto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Durum" Type="Boolean" />
-    <NavigationProperty Name="Birim" Relationship="Self.FK_Urun_Birim" FromRole="Urun" ToRole="Birim" />
-    <NavigationProperty Name="Depo" Relationship="Self.FK_Urun_Depo" FromRole="Urun" ToRole="Depo" />
-    <NavigationProperty Name="Kategori" Relationship="Self.FK_Urun_Kategori" FromRole="Urun" ToRole="Kategori" />
-  </EntityType>
-  <Association Name="FK_Fis_Birim">
-    <End Role="Birim" Type="Self.Birim" Multiplicity="0..1" />
-    <End Role="Fis" Type="Self.Fis" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Birim">
-        <PropertyRef Name="Birim_ID" />
-      </Principal>
-      <Dependent Role="Fis">
-        <PropertyRef Name="Birim_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Urun_Birim">
-    <End Role="Birim" Type="Self.Birim" Multiplicity="0..1" />
-    <End Role="Urun" Type="Self.Urun" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Birim">
-        <PropertyRef Name="Birim_ID" />
-      </Principal>
-      <Dependent Role="Urun">
-        <PropertyRef Name="Birim_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Fis_Bolum">
-    <End Role="Bolum" Type="Self.Bolum" Multiplicity="0..1" />
-    <End Role="Fis" Type="Self.Fis" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Bolum">
-        <PropertyRef Name="Bolum_ID" />
-      </Principal>
-      <Dependent Role="Fis">
-        <PropertyRef Name="Bolum_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Fis_Depo">
-    <End Role="Depo" Type="Self.Depo" Multiplicity="0..1" />
-    <End Role="Fis" Type="Self.Fis" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Depo">
-        <PropertyRef Name="Depo_ID" />
-      </Principal>
-      <Dependent Role="Fis">
-        <PropertyRef Name="Depo_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Urun_Depo">
-    <End Role="Depo" Type="Self.Depo" Multiplicity="0..1" />
-    <End Role="Urun" Type="Self.Urun" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Depo">
-        <PropertyRef Name="Depo_ID" />
-      </Principal>
-      <Dependent Role="Urun">
-        <PropertyRef Name="Depo_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Urun_Kategori">
-    <End Role="Kategori" Type="Self.Kategori" Multiplicity="0..1" />
-    <End Role="Urun" Type="Self.Urun" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Kategori">
-        <PropertyRef Name="Kategori_ID" />
-      </Principal>
-      <Dependent Role="Urun">
-        <PropertyRef Name="Kategori_ID" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <EntityContainer Name="StokEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Birim" EntityType="Self.Birim" />
-    <EntitySet Name="Bolum" EntityType="Self.Bolum" />
-    <EntitySet Name="Depo" EntityType="Self.Depo" />
-    <EntitySet Name="Fis" EntityType="Self.Fis" />
-    <EntitySet Name="Kategori" EntityType="Self.Kategori" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
-    <EntitySet Name="Urun" EntityType="Self.Urun" />
-    <AssociationSet Name="FK_Fis_Birim" Association="Self.FK_Fis_Birim">
-      <End Role="Birim" EntitySet="Birim" />
-      <End Role="Fis" EntitySet="Fis" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Urun_Birim" Association="Self.FK_Urun_Birim">
-      <End Role="Birim" EntitySet="Birim" />
-      <End Role="Urun" EntitySet="Urun" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Fis_Bolum" Association="Self.FK_Fis_Bolum">
-      <End Role="Bolum" EntitySet="Bolum" />
-      <End Role="Fis" EntitySet="Fis" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Fis_Depo" Association="Self.FK_Fis_Depo">
-      <End Role="Depo" EntitySet="Depo" />
-      <End Role="Fis" EntitySet="Fis" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Urun_Depo" Association="Self.FK_Urun_Depo">
-      <End Role="Depo" EntitySet="Depo" />
-      <End Role="Urun" EntitySet="Urun" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Urun_Kategori" Association="Self.FK_Urun_Kategori">
-      <End Role="Kategori" EntitySet="Kategori" />
-      <End Role="Urun" EntitySet="Urun" />
-    </AssociationSet>
     <FunctionImport Name="sp_alterdiagram">
       <Parameter Name="diagramname" Mode="In" Type="String" />
       <Parameter Name="owner_id" Mode="In" Type="Int32" />
@@ -231,6 +31,33 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="Birim" EntityType="StokModel.Birim" />
+    <EntitySet Name="Bolum" EntityType="StokModel.Bolum" />
+    <EntitySet Name="Depo" EntityType="StokModel.Depo" />
+    <EntitySet Name="Fis" EntityType="StokModel.Fis" />
+    <EntitySet Name="Kategori" EntityType="StokModel.Kategori" />
+    <EntitySet Name="sysdiagrams" EntityType="StokModel.sysdiagrams" />
+    <EntitySet Name="Urun" EntityType="StokModel.Urun" />
+    <AssociationSet Name="FK_Urun_Birim" Association="StokModel.FK_Urun_Birim">
+      <End Role="Birim" EntitySet="Birim" />
+      <End Role="Urun" EntitySet="Urun" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fis_Bolum" Association="StokModel.FK_Fis_Bolum">
+      <End Role="Bolum" EntitySet="Bolum" />
+      <End Role="Fis" EntitySet="Fis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Fis_Depo" Association="StokModel.FK_Fis_Depo">
+      <End Role="Depo" EntitySet="Depo" />
+      <End Role="Fis" EntitySet="Fis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Urun_Depo" Association="StokModel.FK_Urun_Depo">
+      <End Role="Depo" EntitySet="Depo" />
+      <End Role="Urun" EntitySet="Urun" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Urun_Kategori" Association="StokModel.FK_Urun_Kategori">
+      <End Role="Kategori" EntitySet="Kategori" />
+      <End Role="Urun" EntitySet="Urun" />
+    </AssociationSet>
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -243,4 +70,160 @@
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
+  <EntityType Name="Birim">
+    <Key>
+      <PropertyRef Name="Birim_ID" />
+    </Key>
+    <Property Name="Birim_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Birim_Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Urun" Relationship="StokModel.FK_Urun_Birim" FromRole="Birim" ToRole="Urun" />
+  </EntityType>
+  <EntityType Name="Bolum">
+    <Key>
+      <PropertyRef Name="Bolum_ID" />
+    </Key>
+    <Property Name="Bolum_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Bolum_Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Fis" Relationship="StokModel.FK_Fis_Bolum" FromRole="Bolum" ToRole="Fis" />
+  </EntityType>
+  <EntityType Name="Depo">
+    <Key>
+      <PropertyRef Name="Depo_ID" />
+    </Key>
+    <Property Name="Depo_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Depo_Kodu" Type="Int32" />
+    <Property Name="Depo_Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Depo_Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ilce_ID" Type="Int32" />
+    <Property Name="il_ID" Type="Int32" />
+    <Property Name="Depo_Yetkili" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Depo_Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Depo_Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Depo_Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Durum" Type="Boolean" />
+    <NavigationProperty Name="Fis" Relationship="StokModel.FK_Fis_Depo" FromRole="Depo" ToRole="Fis" />
+    <NavigationProperty Name="Urun" Relationship="StokModel.FK_Urun_Depo" FromRole="Depo" ToRole="Urun" />
+  </EntityType>
+  <EntityType Name="Fis">
+    <Key>
+      <PropertyRef Name="Fis_ID" />
+    </Key>
+    <Property Name="Fis_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fis_No" Type="Int32" />
+    <Property Name="Fis_Türü" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Stok_Kodu" Type="Int32" />
+    <Property Name="Stok_Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Stok_Miktar" Type="Int32" />
+    <Property Name="Birim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Birim_Fiyat" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Tutar" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Depo_ID" Type="Int32" />
+    <Property Name="Bolum_ID" Type="Int32" />
+    <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Fis_Tarih" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Bolum" Relationship="StokModel.FK_Fis_Bolum" FromRole="Fis" ToRole="Bolum" />
+    <NavigationProperty Name="Depo" Relationship="StokModel.FK_Fis_Depo" FromRole="Fis" ToRole="Depo" />
+  </EntityType>
+  <EntityType Name="Kategori">
+    <Key>
+      <PropertyRef Name="Kategori_ID" />
+    </Key>
+    <Property Name="Kategori_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Kategori_Kodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Kategori_Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Urun" Relationship="StokModel.FK_Urun_Kategori" FromRole="Kategori" ToRole="Urun" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Urun">
+    <Key>
+      <PropertyRef Name="Urun_ID" />
+    </Key>
+    <Property Name="Urun_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Stok_Kodu" Type="Int32" />
+    <Property Name="Stok_Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Kategori_ID" Type="Int32" />
+    <Property Name="Stok_Barkod" Type="Int32" />
+    <Property Name="Stok_Miktar" Type="Int32" />
+    <Property Name="Birim_ID" Type="Int32" />
+    <Property Name="Stok_TSeviye" Type="Int32" />
+    <Property Name="Depo_ID" Type="Int32" />
+    <Property Name="Stok_AFiyati" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Stok_SFiyati" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Stok_Kdv" Type="Int32" />
+    <Property Name="Stok_KayitTarihi" Type="DateTime" Precision="3" />
+    <Property Name="Stok_Foto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Durum" Type="Boolean" />
+    <NavigationProperty Name="Birim" Relationship="StokModel.FK_Urun_Birim" FromRole="Urun" ToRole="Birim" />
+    <NavigationProperty Name="Depo" Relationship="StokModel.FK_Urun_Depo" FromRole="Urun" ToRole="Depo" />
+    <NavigationProperty Name="Kategori" Relationship="StokModel.FK_Urun_Kategori" FromRole="Urun" ToRole="Kategori" />
+  </EntityType>
+  <Association Name="FK_Urun_Birim">
+    <End Type="StokModel.Birim" Role="Birim" Multiplicity="0..1" />
+    <End Type="StokModel.Urun" Role="Urun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Birim">
+        <PropertyRef Name="Birim_ID" />
+      </Principal>
+      <Dependent Role="Urun">
+        <PropertyRef Name="Birim_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fis_Bolum">
+    <End Type="StokModel.Bolum" Role="Bolum" Multiplicity="0..1" />
+    <End Type="StokModel.Fis" Role="Fis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bolum">
+        <PropertyRef Name="Bolum_ID" />
+      </Principal>
+      <Dependent Role="Fis">
+        <PropertyRef Name="Bolum_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Fis_Depo">
+    <End Type="StokModel.Depo" Role="Depo" Multiplicity="0..1" />
+    <End Type="StokModel.Fis" Role="Fis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Depo">
+        <PropertyRef Name="Depo_ID" />
+      </Principal>
+      <Dependent Role="Fis">
+        <PropertyRef Name="Depo_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Urun_Depo">
+    <End Type="StokModel.Depo" Role="Depo" Multiplicity="0..1" />
+    <End Type="StokModel.Urun" Role="Urun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Depo">
+        <PropertyRef Name="Depo_ID" />
+      </Principal>
+      <Dependent Role="Urun">
+        <PropertyRef Name="Depo_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Urun_Kategori">
+    <End Type="StokModel.Kategori" Role="Kategori" Multiplicity="0..1" />
+    <End Type="StokModel.Urun" Role="Urun" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kategori">
+        <PropertyRef Name="Kategori_ID" />
+      </Principal>
+      <Dependent Role="Urun">
+        <PropertyRef Name="Kategori_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

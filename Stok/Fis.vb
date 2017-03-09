@@ -17,14 +17,14 @@ Partial Public Class Fis
     Public Property Stok_Kodu As Nullable(Of Integer)
     Public Property Stok_Adi As String
     Public Property Stok_Miktar As Nullable(Of Integer)
-    Public Property Birim_ID As Nullable(Of Integer)
+    Public Property Birim As String
     Public Property Birim_Fiyat As Nullable(Of Decimal)
     Public Property Tutar As Nullable(Of Decimal)
     Public Property Depo_ID As Nullable(Of Integer)
     Public Property Bolum_ID As Nullable(Of Integer)
     Public Property Aciklama As String
+    Public Property Fis_Tarih As Nullable(Of Date)
 
-    Public Overridable Property Birim As Birim
     Public Overridable Property Bolum As Bolum
     Public Overridable Property Depo As Depo
 
