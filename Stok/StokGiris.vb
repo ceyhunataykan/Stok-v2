@@ -12,29 +12,58 @@
         giris = True
     End Sub
 
+    Dim stokAdi As String
+    Dim stokKodu As String
+    Dim stokMiktar As String
+    Dim stokBirim As String
+    Dim stokBFiyat As String
+    Dim stokTutar As String
     Private Sub btnKaydet_Click(sender As Object, e As EventArgs) Handles btnKaydet.Click
         Dim gfEkle As New Fis
         If dgFisListe.Rows.Count > 0 Then
             For i = 0 To dgFisListe.Rows.Count - 1 Step 1
-                gfEkle.Fis_No = Convert.ToInt32(txtFisNo.Text)
-                gfEkle.Fis_Türü = "Stok Giriş"
-                gfEkle.Fis_Tarih = dtpFisTarihi.Value
-                gfEkle.Stok_Kodu = Convert.ToInt32(dgFisListe.Rows(i).Cells(0).Value)
-                gfEkle.Stok_Adi = dgFisListe.Rows(i).Cells(1).Value
-                gfEkle.Stok_Miktar = Convert.ToInt32(dgFisListe.Rows(i).Cells(2).Value)
-                gfEkle.Birim = dgFisListe.Rows(i).Cells(3).Value
-                gfEkle.Birim_Fiyat = Convert.ToDecimal(dgFisListe.Rows(i).Cells(4).Value)
-                gfEkle.Tutar = Convert.ToDecimal(dgFisListe.Rows(i).Cells(5).Value)
-                db.Fis.Add(gfEkle)
+                If Not i = dgFisListe.Rows.Count - 1 Then
+                    stokKodu += dgFisListe.Rows(i).Cells(0).Value & ","
+                    stokAdi += dgFisListe.Rows(i).Cells(1).Value & ","
+                    stokMiktar += dgFisListe.Rows(i).Cells(2).Value & ","
+                    stokBirim += dgFisListe.Rows(i).Cells(3).Value & ","
+                    stokBFiyat += dgFisListe.Rows(i).Cells(4).Value & ","
+                    stokTutar += dgFisListe.Rows(i).Cells(5).Value & ","
+                Else
+                    stokKodu += dgFisListe.Rows(i).Cells(0).Value
+                    stokAdi += dgFisListe.Rows(i).Cells(1).Value
+                    stokMiktar += dgFisListe.Rows(i).Cells(2).Value
+                    stokBirim += dgFisListe.Rows(i).Cells(3).Value
+                    stokBFiyat += dgFisListe.Rows(i).Cells(4).Value
+                    stokTutar += dgFisListe.Rows(i).Cells(5).Value
+                End If
+                Dim id As Integer = Convert.ToInt32(dgFisListe.Rows(i).Cells(6).Value)
+                Dim bul = db.Urun.Where(Function(u) u.Urun_ID = id).FirstOrDefault()
+                Dim sm As Integer = bul.Stok_Miktar
+                bul.Stok_Miktar = sm + Convert.ToInt32(dgFisListe.Rows(i).Cells(2).Value)
                 db.SaveChanges()
-
-                Me.Close()
             Next
         End If
+        gfEkle.Fis_No = Convert.ToInt32(txtFisNo.Text)
+        gfEkle.Fis_Türü = "Stok Giriş"
+        gfEkle.Fis_Tarih = dtpFisTarihi.Value
+        gfEkle.Depo_ID = cmbBolum.SelectedValue
+        gfEkle.Bolum_ID = cmbBolum.SelectedValue
+        gfEkle.Stok_Kodu = stokKodu
+        gfEkle.Stok_Adi = stokAdi
+        gfEkle.Stok_Miktar = stokMiktar
+        gfEkle.Birim = stokBirim
+        gfEkle.Birim_Fiyat = stokBFiyat
+        gfEkle.Tutar = stokTutar
+        gfEkle.Aciklama = txtAciklama.Text
+        db.Fis.Add(gfEkle)
+        db.SaveChanges()
+        MsgBox("Stok giriş fişi başarıyla oluşturuldu.", MsgBoxStyle.Information, "Bilgi")
+        Me.Close()
     End Sub
 
     Private Sub btnListeEkle_Click(sender As Object, e As EventArgs) Handles btnListeEkle.Click
-        dgFisListe.Rows.Add(txtStokKodu.Text, txtStokAdi.Text, nudMiktar.Value, txtBirim.Text, txtBirimFiyat.Text, txtTutar.Text)
+        dgFisListe.Rows.Add(txtStokKodu.Text, txtStokAdi.Text, nudMiktar.Value, txtBirim.Text, txtBirimFiyat.Text, txtTutar.Text, lblid.Text)
         temizle()
         If dgFisListe.Rows.Count > 0 Then
             Dim miktar As Integer = 0

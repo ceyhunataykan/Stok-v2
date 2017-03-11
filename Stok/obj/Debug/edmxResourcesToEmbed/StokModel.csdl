@@ -110,17 +110,17 @@
     </Key>
     <Property Name="Fis_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Fis_No" Type="Int32" />
-    <Property Name="Fis_Türü" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Stok_Kodu" Type="Int32" />
-    <Property Name="Stok_Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Stok_Miktar" Type="Int32" />
-    <Property Name="Birim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Birim_Fiyat" Type="Decimal" Precision="19" Scale="4" />
-    <Property Name="Tutar" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Fis_Tarih" Type="DateTime" Precision="3" />
+    <Property Name="Fis_Türü" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Stok_Kodu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Stok_Adi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Stok_Miktar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Birim" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Birim_Fiyat" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Tutar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Depo_ID" Type="Int32" />
     <Property Name="Bolum_ID" Type="Int32" />
     <Property Name="Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="Fis_Tarih" Type="DateTime" Precision="3" />
     <NavigationProperty Name="Bolum" Relationship="StokModel.FK_Fis_Bolum" FromRole="Fis" ToRole="Bolum" />
     <NavigationProperty Name="Depo" Relationship="StokModel.FK_Fis_Depo" FromRole="Fis" ToRole="Depo" />
   </EntityType>

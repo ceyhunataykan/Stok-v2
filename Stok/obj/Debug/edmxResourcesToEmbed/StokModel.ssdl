@@ -36,17 +36,17 @@
     </Key>
     <Property Name="Fis_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Fis_No" Type="int" />
-    <Property Name="Fis_Türü" Type="nvarchar" MaxLength="50" />
-    <Property Name="Stok_Kodu" Type="int" />
-    <Property Name="Stok_Adi" Type="nvarchar" MaxLength="50" />
-    <Property Name="Stok_Miktar" Type="int" />
-    <Property Name="Birim" Type="nvarchar" MaxLength="50" />
-    <Property Name="Birim_Fiyat" Type="money" />
-    <Property Name="Tutar" Type="money" />
+    <Property Name="Fis_Tarih" Type="datetime" />
+    <Property Name="Fis_Türü" Type="nvarchar" MaxLength="15" />
+    <Property Name="Stok_Kodu" Type="nvarchar(max)" />
+    <Property Name="Stok_Adi" Type="nvarchar(max)" />
+    <Property Name="Stok_Miktar" Type="nvarchar(max)" />
+    <Property Name="Birim" Type="nvarchar(max)" />
+    <Property Name="Birim_Fiyat" Type="nvarchar(max)" />
+    <Property Name="Tutar" Type="nvarchar(max)" />
     <Property Name="Depo_ID" Type="int" />
     <Property Name="Bolum_ID" Type="int" />
     <Property Name="Aciklama" Type="nvarchar(max)" />
-    <Property Name="Fis_Tarih" Type="datetime" />
   </EntityType>
   <EntityType Name="Kategori">
     <Key>

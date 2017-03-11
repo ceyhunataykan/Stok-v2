@@ -24,11 +24,6 @@ Partial Class StokGiris
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(StokGiris))
         Me.cmbDepo = New System.Windows.Forms.ComboBox()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.txtAciklama = New System.Windows.Forms.TextBox()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
@@ -45,13 +40,15 @@ Partial Class StokGiris
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cmbBolum = New System.Windows.Forms.ComboBox()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.btnSil = New DevExpress.XtraEditors.SimpleButton()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.btnIptal = New DevExpress.XtraEditors.SimpleButton()
         Me.btnKaydet = New DevExpress.XtraEditors.SimpleButton()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.lblid = New System.Windows.Forms.Label()
+        Me.txtBirim = New System.Windows.Forms.TextBox()
+        Me.nudMiktar = New System.Windows.Forms.NumericUpDown()
         Me.btnListeEkle = New DevExpress.XtraEditors.SimpleButton()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.txtStokKodu = New System.Windows.Forms.TextBox()
@@ -68,15 +65,20 @@ Partial Class StokGiris
         Me.Label8 = New System.Windows.Forms.Label()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.dgFisListe = New System.Windows.Forms.DataGridView()
-        Me.nudMiktar = New System.Windows.Forms.NumericUpDown()
-        Me.txtBirim = New System.Windows.Forms.TextBox()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.nudMiktar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
         CType(Me.dgFisListe, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.nudMiktar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'cmbDepo
@@ -86,36 +88,6 @@ Partial Class StokGiris
         Me.cmbDepo.Name = "cmbDepo"
         Me.cmbDepo.Size = New System.Drawing.Size(121, 21)
         Me.cmbDepo.TabIndex = 6
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "Stok Adı"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "Miktar"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "Birim"
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        '
-        'Column5
-        '
-        Me.Column5.HeaderText = "Birim Fiyat"
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        '
-        'Column6
-        '
-        Me.Column6.HeaderText = "Tutar"
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
         '
         'GroupBox3
         '
@@ -286,12 +258,6 @@ Partial Class StokGiris
         Me.cmbBolum.Size = New System.Drawing.Size(121, 21)
         Me.cmbBolum.TabIndex = 7
         '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Stok Kodu"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        '
         'btnSil
         '
         Me.btnSil.Appearance.ForeColor = System.Drawing.Color.Black
@@ -351,6 +317,7 @@ Partial Class StokGiris
         '
         'GroupBox2
         '
+        Me.GroupBox2.Controls.Add(Me.lblid)
         Me.GroupBox2.Controls.Add(Me.txtBirim)
         Me.GroupBox2.Controls.Add(Me.nudMiktar)
         Me.GroupBox2.Controls.Add(Me.btnListeEkle)
@@ -375,6 +342,31 @@ Partial Class StokGiris
         Me.GroupBox2.TabIndex = 54
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Ürün Bilgileri"
+        '
+        'lblid
+        '
+        Me.lblid.AutoSize = True
+        Me.lblid.Location = New System.Drawing.Point(210, 106)
+        Me.lblid.Name = "lblid"
+        Me.lblid.Size = New System.Drawing.Size(50, 13)
+        Me.lblid.TabIndex = 43
+        Me.lblid.Text = "Ürün ID"
+        '
+        'txtBirim
+        '
+        Me.txtBirim.Enabled = False
+        Me.txtBirim.Location = New System.Drawing.Point(87, 103)
+        Me.txtBirim.Name = "txtBirim"
+        Me.txtBirim.Size = New System.Drawing.Size(88, 21)
+        Me.txtBirim.TabIndex = 42
+        '
+        'nudMiktar
+        '
+        Me.nudMiktar.Location = New System.Drawing.Point(87, 76)
+        Me.nudMiktar.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
+        Me.nudMiktar.Name = "nudMiktar"
+        Me.nudMiktar.Size = New System.Drawing.Size(88, 21)
+        Me.nudMiktar.TabIndex = 41
         '
         'btnListeEkle
         '
@@ -537,7 +529,7 @@ Partial Class StokGiris
         Me.dgFisListe.AllowUserToDeleteRows = False
         Me.dgFisListe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgFisListe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgFisListe.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6})
+        Me.dgFisListe.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.id})
         Me.dgFisListe.Location = New System.Drawing.Point(14, 20)
         Me.dgFisListe.Name = "dgFisListe"
         Me.dgFisListe.ReadOnly = True
@@ -545,21 +537,47 @@ Partial Class StokGiris
         Me.dgFisListe.Size = New System.Drawing.Size(536, 107)
         Me.dgFisListe.TabIndex = 0
         '
-        'nudMiktar
+        'Column1
         '
-        Me.nudMiktar.Location = New System.Drawing.Point(87, 76)
-        Me.nudMiktar.Maximum = New Decimal(New Integer() {100000, 0, 0, 0})
-        Me.nudMiktar.Name = "nudMiktar"
-        Me.nudMiktar.Size = New System.Drawing.Size(88, 21)
-        Me.nudMiktar.TabIndex = 41
+        Me.Column1.HeaderText = "Stok Kodu"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
         '
-        'txtBirim
+        'Column2
         '
-        Me.txtBirim.Enabled = False
-        Me.txtBirim.Location = New System.Drawing.Point(87, 103)
-        Me.txtBirim.Name = "txtBirim"
-        Me.txtBirim.Size = New System.Drawing.Size(88, 21)
-        Me.txtBirim.TabIndex = 42
+        Me.Column2.HeaderText = "Stok Adı"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "Miktar"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "Birim"
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        '
+        'Column5
+        '
+        Me.Column5.HeaderText = "Birim Fiyat"
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        '
+        'Column6
+        '
+        Me.Column6.HeaderText = "Tutar"
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        '
+        'id
+        '
+        Me.id.HeaderText = "id"
+        Me.id.Name = "id"
+        Me.id.ReadOnly = True
         '
         'StokGiris
         '
@@ -588,19 +606,14 @@ Partial Class StokGiris
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
+        CType(Me.nudMiktar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox4.ResumeLayout(False)
         CType(Me.dgFisListe, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.nudMiktar, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
 
     Friend WithEvents cmbDepo As ComboBox
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
-    Friend WithEvents Column6 As DataGridViewTextBoxColumn
     Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents txtAciklama As TextBox
     Friend WithEvents GroupBox5 As GroupBox
@@ -617,7 +630,6 @@ Partial Class StokGiris
     Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents cmbBolum As ComboBox
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents btnSil As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
@@ -642,4 +654,12 @@ Partial Class StokGiris
     Friend WithEvents dgFisListe As DataGridView
     Friend WithEvents nudMiktar As NumericUpDown
     Friend WithEvents txtBirim As TextBox
+    Friend WithEvents lblid As Label
+    Friend WithEvents Column1 As DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As DataGridViewTextBoxColumn
+    Friend WithEvents Column4 As DataGridViewTextBoxColumn
+    Friend WithEvents Column5 As DataGridViewTextBoxColumn
+    Friend WithEvents Column6 As DataGridViewTextBoxColumn
+    Friend WithEvents id As DataGridViewTextBoxColumn
 End Class

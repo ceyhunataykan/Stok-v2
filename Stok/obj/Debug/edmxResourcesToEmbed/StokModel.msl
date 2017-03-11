@@ -61,7 +61,6 @@
     <EntitySetMapping Name="Fis">
       <EntityTypeMapping TypeName="StokModel.Fis">
         <MappingFragment StoreEntitySet="Fis">
-          <ScalarProperty Name="Fis_Tarih" ColumnName="Fis_Tarih" />
           <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
           <ScalarProperty Name="Bolum_ID" ColumnName="Bolum_ID" />
           <ScalarProperty Name="Depo_ID" ColumnName="Depo_ID" />
@@ -72,6 +71,7 @@
           <ScalarProperty Name="Stok_Adi" ColumnName="Stok_Adi" />
           <ScalarProperty Name="Stok_Kodu" ColumnName="Stok_Kodu" />
           <ScalarProperty Name="Fis_Türü" ColumnName="Fis_Türü" />
+          <ScalarProperty Name="Fis_Tarih" ColumnName="Fis_Tarih" />
           <ScalarProperty Name="Fis_No" ColumnName="Fis_No" />
           <ScalarProperty Name="Fis_ID" ColumnName="Fis_ID" />
         </MappingFragment>

@@ -172,6 +172,7 @@ Public Class StokKart
             Me.Hide()
             StokGiris.Show()
 
+            StokGiris.lblid.Text = urunSec.stokID
             StokGiris.txtStokKodu.Text = urunSec.stokKodu
             StokGiris.txtStokAdi.Text = urunSec.stokAdi
             StokGiris.txtBirim.Text = urunSec.stokBirimAdi
