@@ -65,6 +65,7 @@ Partial Class StokGirisDuzenle
         Me.txtTopBirim = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.lblFisId = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtpFisTarihi = New System.Windows.Forms.DateTimePicker()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -72,7 +73,6 @@ Partial Class StokGirisDuzenle
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cmbBolum = New System.Windows.Forms.ComboBox()
-        Me.lblFisId = New System.Windows.Forms.Label()
         CType(Me.dgFisListe, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -515,6 +515,16 @@ Partial Class StokGirisDuzenle
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Fiş Bilgileri"
         '
+        'lblFisId
+        '
+        Me.lblFisId.AutoSize = True
+        Me.lblFisId.Location = New System.Drawing.Point(244, 22)
+        Me.lblFisId.Name = "lblFisId"
+        Me.lblFisId.Size = New System.Drawing.Size(36, 13)
+        Me.lblFisId.TabIndex = 44
+        Me.lblFisId.Text = "fis ID"
+        Me.lblFisId.Visible = False
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -581,16 +591,6 @@ Partial Class StokGirisDuzenle
         Me.cmbBolum.Name = "cmbBolum"
         Me.cmbBolum.Size = New System.Drawing.Size(121, 21)
         Me.cmbBolum.TabIndex = 7
-        '
-        'lblFisId
-        '
-        Me.lblFisId.AutoSize = True
-        Me.lblFisId.Location = New System.Drawing.Point(244, 22)
-        Me.lblFisId.Name = "lblFisId"
-        Me.lblFisId.Size = New System.Drawing.Size(36, 13)
-        Me.lblFisId.TabIndex = 44
-        Me.lblFisId.Text = "fis ID"
-        Me.lblFisId.Visible = False
         '
         'StokGirisDuzenle
         '

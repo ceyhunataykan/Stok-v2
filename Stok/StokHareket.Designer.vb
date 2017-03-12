@@ -22,7 +22,7 @@ Partial Class StokHareket
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(StokHareket))
         Me.dgFisListe = New System.Windows.Forms.DataGridView()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -41,6 +41,7 @@ Partial Class StokHareket
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
+        Me.btnDetay = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.dgFisListe, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -50,8 +51,8 @@ Partial Class StokHareket
         '
         Me.dgFisListe.AllowUserToAddRows = False
         Me.dgFisListe.AllowUserToDeleteRows = False
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray
-        Me.dgFisListe.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gray
+        Me.dgFisListe.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgFisListe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgFisListe.BackgroundColor = System.Drawing.Color.DarkGray
         Me.dgFisListe.BorderStyle = System.Windows.Forms.BorderStyle.None
@@ -240,12 +241,27 @@ Partial Class StokHareket
         Me.Panel2.Size = New System.Drawing.Size(808, 28)
         Me.Panel2.TabIndex = 26
         '
+        'btnDetay
+        '
+        Me.btnDetay.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.btnDetay.Appearance.Options.UseForeColor = True
+        Me.btnDetay.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
+        Me.btnDetay.Image = CType(resources.GetObject("btnDetay.Image"), System.Drawing.Image)
+        Me.btnDetay.Location = New System.Drawing.Point(528, 416)
+        Me.btnDetay.Name = "btnDetay"
+        Me.btnDetay.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.btnDetay.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.[False]
+        Me.btnDetay.Size = New System.Drawing.Size(85, 26)
+        Me.btnDetay.TabIndex = 30
+        Me.btnDetay.Text = "Detay"
+        '
         'StokHareket
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Silver
         Me.ClientSize = New System.Drawing.Size(808, 487)
+        Me.Controls.Add(Me.btnDetay)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.GroupBox2)
@@ -283,4 +299,5 @@ Partial Class StokHareket
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
+    Friend WithEvents btnDetay As DevExpress.XtraEditors.SimpleButton
 End Class

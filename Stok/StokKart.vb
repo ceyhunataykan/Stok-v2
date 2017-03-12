@@ -178,15 +178,29 @@ Public Class StokKart
             StokGiris.txtBirim.Text = urunSec.stokBirimAdi
             StokGiris.txtBirimFiyat.Text = urunSec.stokBfiyat
 
+            giris = False
         ElseIf cikis = True Then
             Me.Hide()
             StokCikis.Show()
 
+            StokCikis.lblid.Text = urunSec.stokID
             StokCikis.txtStokKodu.Text = urunSec.stokKodu
             StokCikis.txtStokAdi.Text = urunSec.stokAdi
             StokCikis.txtBirim.Text = urunSec.stokBirimAdi
             StokCikis.txtBirimFiyat.Text = urunSec.stokBfiyat
+
+            cikis = False
         End If
 
+    End Sub
+
+    Private Sub btnSil_Click(sender As Object, e As EventArgs) Handles btnSil.Click
+        If dgListe.Rows.Count > 0 Then
+            Dim uID As Integer = Convert.ToInt32(dgListe.CurrentRow.Cells("stokID").Value)
+            Dim sil = db.Urun.Where(Function(u) u.Urun_ID = uID).FirstOrDefault()
+            db.Urun.Remove(sil)
+            db.SaveChanges()
+        End If
+        listele()
     End Sub
 End Class

@@ -1,6 +1,10 @@
-﻿Public Class StokGirisDuzenle
+﻿Public Class StokCikisDuzenle
     Dim db As StokEntities = New StokEntities()
-    Private Sub StokGirisDuzenle_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub btnStokKart_Click(sender As Object, e As EventArgs) Handles btnStokKart.Click
+
+    End Sub
+
+    Private Sub StokCikisDuzenle_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim depoListe As IList(Of Depo) = db.Depo.ToList()
         cmbDepo.DataSource = depoListe
         cmbDepo.DisplayMember = "Depo_Adi"
@@ -23,10 +27,6 @@
         End If
 
         dgFisListe.Columns(6).Visible = False
-    End Sub
-
-    Private Sub btnIptal_Click(sender As Object, e As EventArgs) Handles btnIptal.Click
-        Me.Close()
     End Sub
 
     Private Sub btnListeEkle_Click(sender As Object, e As EventArgs) Handles btnListeEkle.Click
@@ -66,7 +66,7 @@
             Dim id As Integer = Convert.ToInt32(dgFisListe.CurrentRow.Cells(6).Value)
             Dim bul = db.Urun.Where(Function(u) u.Urun_ID = id).FirstOrDefault()
             Dim sm As Integer = bul.Stok_Miktar
-            bul.Stok_Miktar = sm - Convert.ToInt32(dgFisListe.CurrentRow.Cells(2).Value)
+            bul.Stok_Miktar = sm + Convert.ToInt32(dgFisListe.CurrentRow.Cells(2).Value)
             db.SaveChanges()
             For Each row As DataGridViewRow In dgFisListe.SelectedRows
                 dgFisListe.Rows.Remove(row)
@@ -90,7 +90,7 @@
             Next
         End If
         gfEkle.Fis_No = Convert.ToInt32(txtFisNo.Text)
-        gfEkle.Fis_Türü = "Stok Giriş"
+        gfEkle.Fis_Türü = "Stok Çıkış"
         gfEkle.Fis_Tarih = dtpFisTarihi.Value
         gfEkle.Depo_ID = cmbBolum.SelectedValue
         gfEkle.Bolum_ID = cmbBolum.SelectedValue
@@ -102,12 +102,16 @@
         gfEkle.Tutar = stokTutar
         gfEkle.Aciklama = txtAciklama.Text
         db.SaveChanges()
-        MsgBox("Urun Başarıyla Silindi.", MsgBoxStyle.Information, "Bilgi")
+        MsgBox("Urun Silindi.", MsgBoxStyle.Information, "Bilgi")
+    End Sub
+
+    Private Sub btnIptal_Click(sender As Object, e As EventArgs) Handles btnIptal.Click
+        Me.Close()
     End Sub
 
     Private Sub btnKaydet_Click(sender As Object, e As EventArgs) Handles btnKaydet.Click
         Dim fID As Integer = Convert.ToInt32(lblFisId.Text)
-        Dim gfEkle = db.Fis.Where(Function(f) f.Fis_ID = fID).FirstOrDefault()
+        Dim cfEkle = db.Fis.Where(Function(f) f.Fis_ID = fID).FirstOrDefault()
         If dgFisListe.Rows.Count > 0 Then
             For i = 0 To dgFisListe.Rows.Count - 1 Step 1
                 If Not i = dgFisListe.Rows.Count - 1 Then
@@ -128,28 +132,24 @@
                 Dim gID As Integer = Convert.ToInt32(dgFisListe.Rows(i).Cells(6).Value)
                 Dim gBul = db.Urun.Where(Function(u) u.Urun_ID = gID).FirstOrDefault()
                 Dim gSm As Integer = gBul.Stok_Miktar
-                gBul.Stok_Miktar = gSm + Convert.ToInt32(dgFisListe.Rows(i).Cells(2).Value)
+                gBul.Stok_Miktar = gSm - Convert.ToInt32(dgFisListe.Rows(i).Cells(2).Value)
                 db.SaveChanges()
             Next
         End If
-        gfEkle.Fis_No = Convert.ToInt32(txtFisNo.Text)
-        gfEkle.Fis_Türü = "Stok Giriş"
-        gfEkle.Fis_Tarih = dtpFisTarihi.Value
-        gfEkle.Depo_ID = cmbBolum.SelectedValue
-        gfEkle.Bolum_ID = cmbBolum.SelectedValue
-        gfEkle.Stok_Kodu = stokKodu
-        gfEkle.Stok_Adi = stokAdi
-        gfEkle.Stok_Miktar = stokMiktar
-        gfEkle.Birim = stokBirim
-        gfEkle.Birim_Fiyat = stokBFiyat
-        gfEkle.Tutar = stokTutar
-        gfEkle.Aciklama = txtAciklama.Text
+        cfEkle.Fis_No = Convert.ToInt32(txtFisNo.Text)
+        cfEkle.Fis_Türü = "Stok Çıkış"
+        cfEkle.Fis_Tarih = dtpFisTarihi.Value
+        cfEkle.Depo_ID = cmbBolum.SelectedValue
+        cfEkle.Bolum_ID = cmbBolum.SelectedValue
+        cfEkle.Stok_Kodu = stokKodu
+        cfEkle.Stok_Adi = stokAdi
+        cfEkle.Stok_Miktar = stokMiktar
+        cfEkle.Birim = stokBirim
+        cfEkle.Birim_Fiyat = stokBFiyat
+        cfEkle.Tutar = stokTutar
+        cfEkle.Aciklama = txtAciklama.Text
         db.SaveChanges()
         MsgBox("Fis Güncelleme Başarılı.", MsgBoxStyle.Information, "Bilgi")
         Me.Close()
-    End Sub
-
-    Private Sub btnStokKart_Click(sender As Object, e As EventArgs) Handles btnStokKart.Click
-
     End Sub
 End Class

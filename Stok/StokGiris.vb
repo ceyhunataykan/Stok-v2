@@ -7,9 +7,9 @@
     End Sub
 
     Private Sub btnStokKart_Click(sender As Object, e As EventArgs) Handles btnStokKart.Click
-        StokKart.Show()
         gizleSec = True
         giris = True
+        StokKart.Show()
     End Sub
 
     Dim stokAdi As String
@@ -50,7 +50,7 @@
         gfEkle.Fis_No = Convert.ToInt32(txtFisNo.Text)
         gfEkle.Fis_Türü = "Stok Giriş"
         gfEkle.Fis_Tarih = dtpFisTarihi.Value
-        gfEkle.Depo_ID = cmbBolum.SelectedValue
+        gfEkle.Depo_ID = cmbDepo.SelectedValue
         gfEkle.Bolum_ID = cmbBolum.SelectedValue
         gfEkle.Stok_Urun_ID = stokUrunID
         gfEkle.Stok_Kodu = stokKodu
@@ -62,7 +62,7 @@
         gfEkle.Aciklama = txtAciklama.Text
         db.Fis.Add(gfEkle)
         db.SaveChanges()
-        MsgBox("Stok giriş fişi başarıyla oluşturuldu.", MsgBoxStyle.Information, "Bilgi")
+        MsgBox("Stok Giriş Fişi Oluşturuldu.", MsgBoxStyle.Information, "Bilgi")
         Me.Close()
     End Sub
 
@@ -99,6 +99,8 @@
         cmbBolum.DataSource = bolumListe
         cmbBolum.DisplayMember = "Bolum_Adi"
         cmbBolum.ValueMember = "Bolum_ID"
+
+        dgFisListe.Columns(6).Visible = False
     End Sub
 
     Private Sub nudMiktar_ValueChanged(sender As Object, e As EventArgs) Handles nudMiktar.ValueChanged

@@ -61,22 +61,52 @@
                           fisBFiyat = f.Birim_Fiyat,
                           fisTutar = f.Tutar,
                           fisAciklama = f.Aciklama).FirstOrDefault()
-        StokGirisDuzenle.Show()
-        Dim say() = Split(fisSec.fisStokKodu, ";")
-        For i = 0 To say.Count - 1 Step 1
-            Dim sk() = Split(fisSec.fisStokKodu, ";")
-            Dim sa() = Split(fisSec.fisStokAdi, ";")
-            Dim sm() = Split(fisSec.fisStokMiktar, ";")
-            Dim b() = Split(fisSec.fisBirim, ";")
-            Dim bf() = Split(fisSec.fisBFiyat, ";")
-            Dim t() = Split(fisSec.fisTutar, ";")
-            Dim id() = Split(fisSec.fisStokUrunID, ";")
-            StokGirisDuzenle.dgFisListe.Rows.Add(sk(i), sa(i), sm(i), b(i), bf(i), t(i), id(i))
-        Next
-        StokGirisDuzenle.txtFisNo.Text = fisSec.fisNo
-        StokGirisDuzenle.lblFisId.Text = fisSec.fisID
-        StokGirisDuzenle.cmbDepo.SelectedValue = fisSec.fisDepo
-        StokGirisDuzenle.cmbBolum.SelectedValue = fisSec.fisBolum
+        If dgFisListe.CurrentRow.Cells("fisTur").Value = "Stok Giriş" Then
+            StokGirisDuzenle.Show()
+            Dim say() = Split(fisSec.fisStokKodu, ";")
+            For i = 0 To say.Count - 1 Step 1
+                Dim sk() = Split(fisSec.fisStokKodu, ";")
+                Dim sa() = Split(fisSec.fisStokAdi, ";")
+                Dim sm() = Split(fisSec.fisStokMiktar, ";")
+                Dim b() = Split(fisSec.fisBirim, ";")
+                Dim bf() = Split(fisSec.fisBFiyat, ";")
+                Dim t() = Split(fisSec.fisTutar, ";")
+                Dim id() = Split(fisSec.fisStokUrunID, ";")
+                StokGirisDuzenle.dgFisListe.Rows.Add(sk(i), sa(i), sm(i), b(i), bf(i), t(i), id(i))
+            Next
+            StokGirisDuzenle.txtFisNo.Text = fisSec.fisNo
+            StokGirisDuzenle.lblFisId.Text = fisSec.fisID
+            StokGirisDuzenle.cmbDepo.SelectedValue = fisSec.fisDepo
+            StokGirisDuzenle.cmbBolum.SelectedValue = fisSec.fisBolum
+        ElseIf dgFisListe.CurrentRow.Cells("fisTur").Value = "Stok Çıkış" Then
+            StokCikisDuzenle.Show()
+            Dim say() = Split(fisSec.fisStokKodu, ";")
+            For i = 0 To say.Count - 1 Step 1
+                Dim sk() = Split(fisSec.fisStokKodu, ";")
+                Dim sa() = Split(fisSec.fisStokAdi, ";")
+                Dim sm() = Split(fisSec.fisStokMiktar, ";")
+                Dim b() = Split(fisSec.fisBirim, ";")
+                Dim bf() = Split(fisSec.fisBFiyat, ";")
+                Dim t() = Split(fisSec.fisTutar, ";")
+                Dim id() = Split(fisSec.fisStokUrunID, ";")
+                StokCikisDuzenle.dgFisListe.Rows.Add(sk(i), sa(i), sm(i), b(i), bf(i), t(i), id(i))
+            Next
+            StokCikisDuzenle.txtFisNo.Text = fisSec.fisNo
+            StokCikisDuzenle.lblFisId.Text = fisSec.fisID
+            StokCikisDuzenle.cmbDepo.SelectedValue = fisSec.fisDepo
+            StokCikisDuzenle.cmbBolum.SelectedValue = fisSec.fisBolum
+        End If
 
+
+    End Sub
+
+    Private Sub btnSil_Click(sender As Object, e As EventArgs) Handles btnSil.Click
+        If dgFisListe.Rows.Count > 0 Then
+            Dim fID As Integer = Convert.ToInt32(dgFisListe.CurrentRow.Cells("fisID").Value)
+            Dim sil = db.Fis.Where(Function(f) f.Fis_ID = fID).FirstOrDefault()
+            db.Fis.Remove(sil)
+            db.SaveChanges()
+        End If
+        listele()
     End Sub
 End Class
