@@ -18,24 +18,27 @@
     Dim stokBirim As String
     Dim stokBFiyat As String
     Dim stokTutar As String
+    Dim stokUrunID As String
     Private Sub btnKaydet_Click(sender As Object, e As EventArgs) Handles btnKaydet.Click
         Dim gfEkle As New Fis
         If dgFisListe.Rows.Count > 0 Then
             For i = 0 To dgFisListe.Rows.Count - 1 Step 1
                 If Not i = dgFisListe.Rows.Count - 1 Then
-                    stokKodu += dgFisListe.Rows(i).Cells(0).Value & ","
-                    stokAdi += dgFisListe.Rows(i).Cells(1).Value & ","
-                    stokMiktar += dgFisListe.Rows(i).Cells(2).Value & ","
-                    stokBirim += dgFisListe.Rows(i).Cells(3).Value & ","
-                    stokBFiyat += dgFisListe.Rows(i).Cells(4).Value & ","
-                    stokTutar += dgFisListe.Rows(i).Cells(5).Value & ","
+                    stokKodu += Convert.ToString(dgFisListe.Rows(i).Cells(0).Value & ";")
+                    stokAdi += Convert.ToString(dgFisListe.Rows(i).Cells(1).Value & ";")
+                    stokMiktar += Convert.ToString(dgFisListe.Rows(i).Cells(2).Value & ";")
+                    stokBirim += Convert.ToString(dgFisListe.Rows(i).Cells(3).Value & ";")
+                    stokBFiyat += Convert.ToString(dgFisListe.Rows(i).Cells(4).Value & ";")
+                    stokTutar += Convert.ToString(dgFisListe.Rows(i).Cells(5).Value & ";")
+                    stokUrunID += Convert.ToString(dgFisListe.Rows(i).Cells(6).Value & ";")
                 Else
-                    stokKodu += dgFisListe.Rows(i).Cells(0).Value
-                    stokAdi += dgFisListe.Rows(i).Cells(1).Value
-                    stokMiktar += dgFisListe.Rows(i).Cells(2).Value
-                    stokBirim += dgFisListe.Rows(i).Cells(3).Value
-                    stokBFiyat += dgFisListe.Rows(i).Cells(4).Value
-                    stokTutar += dgFisListe.Rows(i).Cells(5).Value
+                    stokKodu += Convert.ToString(dgFisListe.Rows(i).Cells(0).Value)
+                    stokAdi += Convert.ToString(dgFisListe.Rows(i).Cells(1).Value)
+                    stokMiktar += Convert.ToString(dgFisListe.Rows(i).Cells(2).Value)
+                    stokBirim += Convert.ToString(dgFisListe.Rows(i).Cells(3).Value)
+                    stokBFiyat += Convert.ToString(dgFisListe.Rows(i).Cells(4).Value)
+                    stokTutar += Convert.ToString(dgFisListe.Rows(i).Cells(5).Value)
+                    stokUrunID += Convert.ToString(dgFisListe.Rows(i).Cells(6).Value)
                 End If
                 Dim id As Integer = Convert.ToInt32(dgFisListe.Rows(i).Cells(6).Value)
                 Dim bul = db.Urun.Where(Function(u) u.Urun_ID = id).FirstOrDefault()
@@ -49,6 +52,7 @@
         gfEkle.Fis_Tarih = dtpFisTarihi.Value
         gfEkle.Depo_ID = cmbBolum.SelectedValue
         gfEkle.Bolum_ID = cmbBolum.SelectedValue
+        gfEkle.Stok_Urun_ID = stokUrunID
         gfEkle.Stok_Kodu = stokKodu
         gfEkle.Stok_Adi = stokAdi
         gfEkle.Stok_Miktar = stokMiktar

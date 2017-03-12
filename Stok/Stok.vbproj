@@ -134,6 +134,12 @@
     <Compile Include="StokGiris.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="StokGirisDuzenle.Designer.vb">
+      <DependentUpon>StokGirisDuzenle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="StokGirisDuzenle.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="StokHareket.Designer.vb">
       <DependentUpon>StokHareket.vb</DependentUpon>
     </Compile>
@@ -206,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StokGiris.resx">
       <DependentUpon>StokGiris.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StokGirisDuzenle.resx">
+      <DependentUpon>StokGirisDuzenle.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StokHareket.resx">
       <DependentUpon>StokHareket.vb</DependentUpon>

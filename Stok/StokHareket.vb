@@ -42,4 +42,41 @@
         dgFisListe.Columns("fisBolum").HeaderText = "Bölüm"
         dgFisListe.Columns("fisUrun").HeaderText = "Ürünler"
     End Sub
+
+    Private Sub btnDuzenle_Click(sender As Object, e As EventArgs) Handles btnDuzenle.Click
+        Dim fID As Integer = Convert.ToInt32(dgFisListe.CurrentRow.Cells("fisID").Value)
+        Dim fisSec = (From f In db.Fis
+                      Where f.Fis_ID = fID
+                      Select
+                          fisID = f.Fis_ID,
+                          fisNo = f.Fis_No,
+                          fisTarih = f.Fis_Tarih,
+                          fisDepo = f.Depo_ID,
+                          fisBolum = f.Bolum_ID,
+                          fisStokUrunID = f.Stok_Urun_ID,
+                          fisStokKodu = f.Stok_Kodu,
+                          fisStokAdi = f.Stok_Adi,
+                          fisStokMiktar = f.Stok_Miktar,
+                          fisBirim = f.Birim,
+                          fisBFiyat = f.Birim_Fiyat,
+                          fisTutar = f.Tutar,
+                          fisAciklama = f.Aciklama).FirstOrDefault()
+        StokGirisDuzenle.Show()
+        Dim say() = Split(fisSec.fisStokKodu, ";")
+        For i = 0 To say.Count - 1 Step 1
+            Dim sk() = Split(fisSec.fisStokKodu, ";")
+            Dim sa() = Split(fisSec.fisStokAdi, ";")
+            Dim sm() = Split(fisSec.fisStokMiktar, ";")
+            Dim b() = Split(fisSec.fisBirim, ";")
+            Dim bf() = Split(fisSec.fisBFiyat, ";")
+            Dim t() = Split(fisSec.fisTutar, ";")
+            Dim id() = Split(fisSec.fisStokUrunID, ";")
+            StokGirisDuzenle.dgFisListe.Rows.Add(sk(i), sa(i), sm(i), b(i), bf(i), t(i), id(i))
+        Next
+        StokGirisDuzenle.txtFisNo.Text = fisSec.fisNo
+        StokGirisDuzenle.lblFisId.Text = fisSec.fisID
+        StokGirisDuzenle.cmbDepo.SelectedValue = fisSec.fisDepo
+        StokGirisDuzenle.cmbBolum.SelectedValue = fisSec.fisBolum
+
+    End Sub
 End Class

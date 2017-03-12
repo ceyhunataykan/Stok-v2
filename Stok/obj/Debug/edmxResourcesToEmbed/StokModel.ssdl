@@ -38,6 +38,7 @@
     <Property Name="Fis_No" Type="int" />
     <Property Name="Fis_Tarih" Type="datetime" />
     <Property Name="Fis_Türü" Type="nvarchar" MaxLength="15" />
+    <Property Name="Stok_Urun_ID" Type="nvarchar(max)" />
     <Property Name="Stok_Kodu" Type="nvarchar(max)" />
     <Property Name="Stok_Adi" Type="nvarchar(max)" />
     <Property Name="Stok_Miktar" Type="nvarchar(max)" />

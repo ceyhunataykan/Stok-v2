@@ -43,6 +43,7 @@
           <Property Name="Fis_No" Type="int" />
           <Property Name="Fis_Tarih" Type="datetime" />
           <Property Name="Fis_Türü" Type="nvarchar" MaxLength="15" />
+          <Property Name="Stok_Urun_ID" Type="nvarchar(max)" />
           <Property Name="Stok_Kodu" Type="nvarchar(max)" />
           <Property Name="Stok_Adi" Type="nvarchar(max)" />
           <Property Name="Stok_Miktar" Type="nvarchar(max)" />
@@ -327,6 +328,7 @@
           <Property Name="Fis_No" Type="Int32" />
           <Property Name="Fis_Tarih" Type="DateTime" Precision="3" />
           <Property Name="Fis_Türü" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Stok_Urun_ID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Stok_Kodu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Stok_Adi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Stok_Miktar" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -516,6 +518,7 @@
                 <ScalarProperty Name="Stok_Miktar" ColumnName="Stok_Miktar" />
                 <ScalarProperty Name="Stok_Adi" ColumnName="Stok_Adi" />
                 <ScalarProperty Name="Stok_Kodu" ColumnName="Stok_Kodu" />
+                <ScalarProperty Name="Stok_Urun_ID" ColumnName="Stok_Urun_ID" />
                 <ScalarProperty Name="Fis_Türü" ColumnName="Fis_Türü" />
                 <ScalarProperty Name="Fis_Tarih" ColumnName="Fis_Tarih" />
                 <ScalarProperty Name="Fis_No" ColumnName="Fis_No" />

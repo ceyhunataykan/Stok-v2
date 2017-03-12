@@ -22,7 +22,7 @@ Partial Class StokHareket
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(StokHareket))
         Me.dgFisListe = New System.Windows.Forms.DataGridView()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -50,8 +50,8 @@ Partial Class StokHareket
         '
         Me.dgFisListe.AllowUserToAddRows = False
         Me.dgFisListe.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gray
-        Me.dgFisListe.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray
+        Me.dgFisListe.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dgFisListe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgFisListe.BackgroundColor = System.Drawing.Color.DarkGray
         Me.dgFisListe.BorderStyle = System.Windows.Forms.BorderStyle.None

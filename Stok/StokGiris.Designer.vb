@@ -351,6 +351,7 @@ Partial Class StokGiris
         Me.lblid.Size = New System.Drawing.Size(50, 13)
         Me.lblid.TabIndex = 43
         Me.lblid.Text = "Ürün ID"
+        Me.lblid.Visible = False
         '
         'txtBirim
         '
