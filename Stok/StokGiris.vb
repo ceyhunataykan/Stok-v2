@@ -21,25 +21,23 @@
     Dim stokUrunID As String
     Private Sub btnKaydet_Click(sender As Object, e As EventArgs) Handles btnKaydet.Click
         Dim gfEkle As New Fis
+        gfEkle.Fis_Türü = "Stok Giriş"
+        gfEkle.Fis_Tarih = dtpFisTarihi.Value
+        gfEkle.Fis_No = Convert.ToInt32(txtFisNo.Text)
+        gfEkle.Depo_ID = cmbDepo.SelectedValue
+        gfEkle.Bolum_ID = cmbBolum.SelectedValue
+        db.Fis.Add(gfEkle)
+        db.SaveChanges()
+        Dim fdEkle As New Fis_Detay
         If dgFisListe.Rows.Count > 0 Then
-            For i = 0 To dgFisListe.Rows.Count - 1 Step 1
-                If Not i = dgFisListe.Rows.Count - 1 Then
-                    stokKodu += Convert.ToString(dgFisListe.Rows(i).Cells(0).Value & ";")
-                    stokAdi += Convert.ToString(dgFisListe.Rows(i).Cells(1).Value & ";")
-                    stokMiktar += Convert.ToString(dgFisListe.Rows(i).Cells(2).Value & ";")
-                    stokBirim += Convert.ToString(dgFisListe.Rows(i).Cells(3).Value & ";")
-                    stokBFiyat += Convert.ToString(dgFisListe.Rows(i).Cells(4).Value & ";")
-                    stokTutar += Convert.ToString(dgFisListe.Rows(i).Cells(5).Value & ";")
-                    stokUrunID += Convert.ToString(dgFisListe.Rows(i).Cells(6).Value & ";")
-                Else
-                    stokKodu += Convert.ToString(dgFisListe.Rows(i).Cells(0).Value)
-                    stokAdi += Convert.ToString(dgFisListe.Rows(i).Cells(1).Value)
-                    stokMiktar += Convert.ToString(dgFisListe.Rows(i).Cells(2).Value)
-                    stokBirim += Convert.ToString(dgFisListe.Rows(i).Cells(3).Value)
-                    stokBFiyat += Convert.ToString(dgFisListe.Rows(i).Cells(4).Value)
-                    stokTutar += Convert.ToString(dgFisListe.Rows(i).Cells(5).Value)
-                    stokUrunID += Convert.ToString(dgFisListe.Rows(i).Cells(6).Value)
-                End If
+            For i = 0 To dgFisListe.RowCount - 1
+                fdEkle.Fis_ID = gfEkle.Fis_ID
+                fdEkle.Urun_ID = Convert.ToInt32(dgFisListe.Rows(i).Cells(6).Value)
+                fdEkle.Miktar = Convert.ToInt32(dgFisListe.Rows(i).Cells(2).Value)
+                fdEkle.Fiyat = Convert.ToDecimal(dgFisListe.Rows(i).Cells(4).Value)
+                fdEkle.Tutar = fdEkle.Miktar * fdEkle.Fiyat
+                db.Fis_Detay.Add(fdEkle)
+                db.SaveChanges()
                 Dim id As Integer = Convert.ToInt32(dgFisListe.Rows(i).Cells(6).Value)
                 Dim bul = db.Urun.Where(Function(u) u.Urun_ID = id).FirstOrDefault()
                 Dim sm As Integer = bul.Stok_Miktar
@@ -47,21 +45,6 @@
                 db.SaveChanges()
             Next
         End If
-        gfEkle.Fis_No = Convert.ToInt32(txtFisNo.Text)
-        gfEkle.Fis_Türü = "Stok Giriş"
-        gfEkle.Fis_Tarih = dtpFisTarihi.Value
-        gfEkle.Depo_ID = cmbDepo.SelectedValue
-        gfEkle.Bolum_ID = cmbBolum.SelectedValue
-        gfEkle.Stok_Urun_ID = stokUrunID
-        gfEkle.Stok_Kodu = stokKodu
-        gfEkle.Stok_Adi = stokAdi
-        gfEkle.Stok_Miktar = stokMiktar
-        gfEkle.Birim = stokBirim
-        gfEkle.Birim_Fiyat = stokBFiyat
-        gfEkle.Tutar = stokTutar
-        gfEkle.Aciklama = txtAciklama.Text
-        db.Fis.Add(gfEkle)
-        db.SaveChanges()
         MsgBox("Stok Giriş Fişi Oluşturuldu.", MsgBoxStyle.Information, "Bilgi")
         Me.Close()
     End Sub
@@ -111,5 +94,10 @@
         For Each row As DataGridViewRow In dgFisListe.SelectedRows
             dgFisListe.Rows.Remove(row)
         Next
+    End Sub
+
+    Private Sub StokGiris_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        dgFisListe.Rows.Clear()
+        Me.Dispose()
     End Sub
 End Class

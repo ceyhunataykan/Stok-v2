@@ -51,9 +51,9 @@ Public Class StokKartEkle
 
         db.Urun.Add(urunEkle)
         db.SaveChanges()
-
+        temizle()
         Me.Close()
-
+        StokKart.btnYenile.PerformClick()
     End Sub
 
     Private Sub StokKartEkle_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -71,5 +71,18 @@ Public Class StokKartEkle
         cmbDepo.DataSource = depoListe
         cmbDepo.DisplayMember = "Depo_Adi"
         cmbDepo.ValueMember = "Depo_ID"
+    End Sub
+
+    Private Sub temizle()
+        txtStokKodu.Text = String.Empty
+        txtStokAdi.Text = String.Empty
+        txtBarkod.Text = String.Empty
+        txtAlisFiyati.Text = String.Empty
+        txtSatisFiyati.Text = String.Empty
+        txtKdv.Text = String.Empty
+        nudMiktar.Value = 0
+        nudTSeviye.Value = 0
+        PictureBox1.Image = Nothing
+        ckbAktif.Checked = False
     End Sub
 End Class

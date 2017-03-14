@@ -23,7 +23,7 @@ Partial Class StokKart
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(StokKart))
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.btnSec = New DevExpress.XtraEditors.SimpleButton()
         Me.btnEkle = New DevExpress.XtraEditors.SimpleButton()
         Me.btnDuzenle = New DevExpress.XtraEditors.SimpleButton()
@@ -38,6 +38,7 @@ Partial Class StokKart
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnDetay = New DevExpress.XtraEditors.SimpleButton()
+        Me.btnYenile = New DevExpress.XtraEditors.SimpleButton()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgListe, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -168,8 +169,8 @@ Partial Class StokKart
         '
         Me.dgListe.AllowUserToAddRows = False
         Me.dgListe.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gray
-        Me.dgListe.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray
+        Me.dgListe.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
         Me.dgListe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgListe.BackgroundColor = System.Drawing.Color.DarkGray
         Me.dgListe.BorderStyle = System.Windows.Forms.BorderStyle.None
@@ -214,12 +215,28 @@ Partial Class StokKart
         Me.btnDetay.TabIndex = 29
         Me.btnDetay.Text = "Detay"
         '
+        'btnYenile
+        '
+        Me.btnYenile.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.btnYenile.Appearance.Options.UseForeColor = True
+        Me.btnYenile.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
+        Me.btnYenile.Image = CType(resources.GetObject("btnYenile.Image"), System.Drawing.Image)
+        Me.btnYenile.Location = New System.Drawing.Point(241, 457)
+        Me.btnYenile.Name = "btnYenile"
+        Me.btnYenile.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.btnYenile.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.[False]
+        Me.btnYenile.Size = New System.Drawing.Size(64, 26)
+        Me.btnYenile.TabIndex = 30
+        Me.btnYenile.Text = "Yenile"
+        Me.btnYenile.Visible = False
+        '
         'StokKart
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Silver
         Me.ClientSize = New System.Drawing.Size(703, 527)
+        Me.Controls.Add(Me.btnYenile)
         Me.Controls.Add(Me.btnDetay)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel2)
@@ -255,4 +272,5 @@ Partial Class StokKart
     Friend WithEvents Panel1 As Panel
     Friend WithEvents btnDetay As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents dgListe As DataGridView
+    Friend WithEvents btnYenile As DevExpress.XtraEditors.SimpleButton
 End Class

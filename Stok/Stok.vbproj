@@ -112,6 +112,9 @@
     <Compile Include="Fis.vb">
       <DependentUpon>StokModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Fis_Detay.vb">
+      <DependentUpon>StokModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Kategori.vb">
       <DependentUpon>StokModel.tt</DependentUpon>
     </Compile>

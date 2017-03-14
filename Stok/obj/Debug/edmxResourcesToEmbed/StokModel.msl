@@ -64,17 +64,23 @@
           <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
           <ScalarProperty Name="Bolum_ID" ColumnName="Bolum_ID" />
           <ScalarProperty Name="Depo_ID" ColumnName="Depo_ID" />
-          <ScalarProperty Name="Tutar" ColumnName="Tutar" />
-          <ScalarProperty Name="Birim_Fiyat" ColumnName="Birim_Fiyat" />
-          <ScalarProperty Name="Birim" ColumnName="Birim" />
-          <ScalarProperty Name="Stok_Miktar" ColumnName="Stok_Miktar" />
-          <ScalarProperty Name="Stok_Adi" ColumnName="Stok_Adi" />
-          <ScalarProperty Name="Stok_Kodu" ColumnName="Stok_Kodu" />
-          <ScalarProperty Name="Stok_Urun_ID" ColumnName="Stok_Urun_ID" />
           <ScalarProperty Name="Fis_Türü" ColumnName="Fis_Türü" />
           <ScalarProperty Name="Fis_Tarih" ColumnName="Fis_Tarih" />
           <ScalarProperty Name="Fis_No" ColumnName="Fis_No" />
           <ScalarProperty Name="Fis_ID" ColumnName="Fis_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fis_Detay">
+      <EntityTypeMapping TypeName="StokModel.Fis_Detay">
+        <MappingFragment StoreEntitySet="Fis_Detay">
+          <ScalarProperty Name="Tutar" ColumnName="Tutar" />
+          <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+          <ScalarProperty Name="Birim_ID" ColumnName="Birim_ID" />
+          <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+          <ScalarProperty Name="Urun_ID" ColumnName="Urun_ID" />
+          <ScalarProperty Name="Fis_ID" ColumnName="Fis_ID" />
+          <ScalarProperty Name="Detay_ID" ColumnName="Detay_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

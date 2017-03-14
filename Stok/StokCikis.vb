@@ -22,23 +22,6 @@
         Dim cfEkle As New Fis
         If dgFisListe.Rows.Count > 0 Then
             For i = 0 To dgFisListe.Rows.Count - 1 Step 1
-                If Not i = dgFisListe.Rows.Count - 1 Then
-                    stokKodu += Convert.ToString(dgFisListe.Rows(i).Cells(0).Value & ";")
-                    stokAdi += Convert.ToString(dgFisListe.Rows(i).Cells(1).Value & ";")
-                    stokMiktar += Convert.ToString(dgFisListe.Rows(i).Cells(2).Value & ";")
-                    stokBirim += Convert.ToString(dgFisListe.Rows(i).Cells(3).Value & ";")
-                    stokBFiyat += Convert.ToString(dgFisListe.Rows(i).Cells(4).Value & ";")
-                    stokTutar += Convert.ToString(dgFisListe.Rows(i).Cells(5).Value & ";")
-                    stokUrunID += Convert.ToString(dgFisListe.Rows(i).Cells(6).Value & ";")
-                Else
-                    stokKodu += Convert.ToString(dgFisListe.Rows(i).Cells(0).Value)
-                    stokAdi += Convert.ToString(dgFisListe.Rows(i).Cells(1).Value)
-                    stokMiktar += Convert.ToString(dgFisListe.Rows(i).Cells(2).Value)
-                    stokBirim += Convert.ToString(dgFisListe.Rows(i).Cells(3).Value)
-                    stokBFiyat += Convert.ToString(dgFisListe.Rows(i).Cells(4).Value)
-                    stokTutar += Convert.ToString(dgFisListe.Rows(i).Cells(5).Value)
-                    stokUrunID += Convert.ToString(dgFisListe.Rows(i).Cells(6).Value)
-                End If
                 Dim id As Integer = Convert.ToInt32(dgFisListe.Rows(i).Cells(6).Value)
                 Dim bul = db.Urun.Where(Function(u) u.Urun_ID = id).FirstOrDefault()
                 Dim sm As Integer = bul.Stok_Miktar
@@ -46,21 +29,6 @@
                 db.SaveChanges()
             Next
         End If
-        cfEkle.Fis_No = Convert.ToInt32(txtFisNo.Text)
-        cfEkle.Fis_Türü = "Stok Çıkış"
-        cfEkle.Fis_Tarih = dtpFisTarihi.Value
-        cfEkle.Depo_ID = cmbDepo.SelectedValue
-        cfEkle.Bolum_ID = cmbBolum.SelectedValue
-        cfEkle.Stok_Urun_ID = stokUrunID
-        cfEkle.Stok_Kodu = stokKodu
-        cfEkle.Stok_Adi = stokAdi
-        cfEkle.Stok_Miktar = stokMiktar
-        cfEkle.Birim = stokBirim
-        cfEkle.Birim_Fiyat = stokBFiyat
-        cfEkle.Tutar = stokTutar
-        cfEkle.Aciklama = txtAciklama.Text
-        db.Fis.Add(cfEkle)
-        db.SaveChanges()
         MsgBox("Stok Çıkış Fişi Oluşturuldu.", MsgBoxStyle.Information, "Bilgi")
         Me.Close()
     End Sub

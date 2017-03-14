@@ -15,18 +15,12 @@ Partial Public Class Fis
     Public Property Fis_No As Nullable(Of Integer)
     Public Property Fis_Tarih As Nullable(Of Date)
     Public Property Fis_Türü As String
-    Public Property Stok_Urun_ID As String
-    Public Property Stok_Kodu As String
-    Public Property Stok_Adi As String
-    Public Property Stok_Miktar As String
-    Public Property Birim As String
-    Public Property Birim_Fiyat As String
-    Public Property Tutar As String
     Public Property Depo_ID As Nullable(Of Integer)
     Public Property Bolum_ID As Nullable(Of Integer)
     Public Property Aciklama As String
 
     Public Overridable Property Bolum As Bolum
     Public Overridable Property Depo As Depo
+    Public Overridable Property Fis_Detay As ICollection(Of Fis_Detay) = New HashSet(Of Fis_Detay)
 
 End Class

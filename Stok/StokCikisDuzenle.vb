@@ -89,19 +89,6 @@
                 End If
             Next
         End If
-        gfEkle.Fis_No = Convert.ToInt32(txtFisNo.Text)
-        gfEkle.Fis_Türü = "Stok Çıkış"
-        gfEkle.Fis_Tarih = dtpFisTarihi.Value
-        gfEkle.Depo_ID = cmbBolum.SelectedValue
-        gfEkle.Bolum_ID = cmbBolum.SelectedValue
-        gfEkle.Stok_Kodu = stokKodu
-        gfEkle.Stok_Adi = stokAdi
-        gfEkle.Stok_Miktar = stokMiktar
-        gfEkle.Birim = stokBirim
-        gfEkle.Birim_Fiyat = stokBFiyat
-        gfEkle.Tutar = stokTutar
-        gfEkle.Aciklama = txtAciklama.Text
-        db.SaveChanges()
         MsgBox("Urun Silindi.", MsgBoxStyle.Information, "Bilgi")
     End Sub
 
@@ -136,19 +123,6 @@
                 db.SaveChanges()
             Next
         End If
-        cfEkle.Fis_No = Convert.ToInt32(txtFisNo.Text)
-        cfEkle.Fis_Türü = "Stok Çıkış"
-        cfEkle.Fis_Tarih = dtpFisTarihi.Value
-        cfEkle.Depo_ID = cmbBolum.SelectedValue
-        cfEkle.Bolum_ID = cmbBolum.SelectedValue
-        cfEkle.Stok_Kodu = stokKodu
-        cfEkle.Stok_Adi = stokAdi
-        cfEkle.Stok_Miktar = stokMiktar
-        cfEkle.Birim = stokBirim
-        cfEkle.Birim_Fiyat = stokBFiyat
-        cfEkle.Tutar = stokTutar
-        cfEkle.Aciklama = txtAciklama.Text
-        db.SaveChanges()
         MsgBox("Fis Güncelleme Başarılı.", MsgBoxStyle.Information, "Bilgi")
         Me.Close()
     End Sub

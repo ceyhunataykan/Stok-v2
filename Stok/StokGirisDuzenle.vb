@@ -21,8 +21,6 @@
             txtTopBirim.Text = miktar.ToString()
             txtTopTutar.Text = toplam.ToString()
         End If
-
-        dgFisListe.Columns(6).Visible = False
     End Sub
 
     Private Sub btnIptal_Click(sender As Object, e As EventArgs) Handles btnIptal.Click
@@ -89,19 +87,6 @@
                 End If
             Next
         End If
-        gfEkle.Fis_No = Convert.ToInt32(txtFisNo.Text)
-        gfEkle.Fis_Türü = "Stok Giriş"
-        gfEkle.Fis_Tarih = dtpFisTarihi.Value
-        gfEkle.Depo_ID = cmbBolum.SelectedValue
-        gfEkle.Bolum_ID = cmbBolum.SelectedValue
-        gfEkle.Stok_Kodu = stokKodu
-        gfEkle.Stok_Adi = stokAdi
-        gfEkle.Stok_Miktar = stokMiktar
-        gfEkle.Birim = stokBirim
-        gfEkle.Birim_Fiyat = stokBFiyat
-        gfEkle.Tutar = stokTutar
-        gfEkle.Aciklama = txtAciklama.Text
-        db.SaveChanges()
         MsgBox("Urun Başarıyla Silindi.", MsgBoxStyle.Information, "Bilgi")
     End Sub
 
@@ -132,19 +117,6 @@
                 db.SaveChanges()
             Next
         End If
-        gfEkle.Fis_No = Convert.ToInt32(txtFisNo.Text)
-        gfEkle.Fis_Türü = "Stok Giriş"
-        gfEkle.Fis_Tarih = dtpFisTarihi.Value
-        gfEkle.Depo_ID = cmbBolum.SelectedValue
-        gfEkle.Bolum_ID = cmbBolum.SelectedValue
-        gfEkle.Stok_Kodu = stokKodu
-        gfEkle.Stok_Adi = stokAdi
-        gfEkle.Stok_Miktar = stokMiktar
-        gfEkle.Birim = stokBirim
-        gfEkle.Birim_Fiyat = stokBFiyat
-        gfEkle.Tutar = stokTutar
-        gfEkle.Aciklama = txtAciklama.Text
-        db.SaveChanges()
         MsgBox("Fis Güncelleme Başarılı.", MsgBoxStyle.Information, "Bilgi")
         Me.Close()
     End Sub

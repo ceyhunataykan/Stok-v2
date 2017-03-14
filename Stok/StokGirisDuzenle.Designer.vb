@@ -23,14 +23,7 @@ Partial Class StokGirisDuzenle
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(StokGirisDuzenle))
-        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.dgFisListe = New System.Windows.Forms.DataGridView()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.btnSil = New DevExpress.XtraEditors.SimpleButton()
         Me.lblid = New System.Windows.Forms.Label()
@@ -82,61 +75,18 @@ Partial Class StokGirisDuzenle
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
         '
-        'id
-        '
-        Me.id.HeaderText = "id"
-        Me.id.Name = "id"
-        Me.id.ReadOnly = True
-        '
-        'Column5
-        '
-        Me.Column5.HeaderText = "Birim Fiyat"
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "Birim"
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "Miktar"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "Stok Adı"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Stok Kodu"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        '
         'dgFisListe
         '
         Me.dgFisListe.AllowUserToAddRows = False
         Me.dgFisListe.AllowUserToDeleteRows = False
         Me.dgFisListe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgFisListe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgFisListe.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3, Me.Column4, Me.Column5, Me.Column6, Me.id})
         Me.dgFisListe.Location = New System.Drawing.Point(14, 20)
         Me.dgFisListe.Name = "dgFisListe"
         Me.dgFisListe.ReadOnly = True
         Me.dgFisListe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgFisListe.Size = New System.Drawing.Size(536, 107)
         Me.dgFisListe.TabIndex = 0
-        '
-        'Column6
-        '
-        Me.Column6.HeaderText = "Tutar"
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
         '
         'GroupBox4
         '
@@ -624,15 +574,7 @@ Partial Class StokGirisDuzenle
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents id As DataGridViewTextBoxColumn
-    Friend WithEvents Column5 As DataGridViewTextBoxColumn
-    Friend WithEvents Column4 As DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As DataGridViewTextBoxColumn
-    Friend WithEvents Column2 As DataGridViewTextBoxColumn
-    Friend WithEvents Column1 As DataGridViewTextBoxColumn
     Friend WithEvents dgFisListe As DataGridView
-    Friend WithEvents Column6 As DataGridViewTextBoxColumn
     Friend WithEvents GroupBox4 As GroupBox
     Friend WithEvents btnSil As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents lblid As Label

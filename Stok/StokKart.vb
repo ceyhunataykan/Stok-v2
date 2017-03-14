@@ -3,9 +3,8 @@ Imports System.Data.Linq.SqlClient
 
 Public Class StokKart
     Dim db As StokEntities = New StokEntities()
-    Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub StokKart_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         listele()
-
     End Sub
 
     Private Sub btnEkle_Click(sender As Object, e As EventArgs) Handles btnEkle.Click
@@ -102,7 +101,6 @@ Public Class StokKart
             dgListe.Columns("stokTseviye").Visible = False
             renklendir()
         End If
-
     End Sub
 
     Private Sub txtAra_TextChanged(sender As Object, e As EventArgs) Handles txtAra.TextChanged
@@ -137,10 +135,6 @@ Public Class StokKart
         If Not (Char.IsNumber(e.KeyChar) = True) And e.KeyChar <> ChrW(Keys.Back) Then
             e.Handled = True
         End If
-    End Sub
-
-    Private Sub StokKart_Disposed(sender As Object, e As EventArgs) Handles Me.Disposed
-
     End Sub
 
     Private Sub StokKart_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
@@ -201,6 +195,10 @@ Public Class StokKart
             db.Urun.Remove(sil)
             db.SaveChanges()
         End If
+        listele()
+    End Sub
+
+    Private Sub btnYenile_Click(sender As Object, e As EventArgs) Handles btnYenile.Click
         listele()
     End Sub
 End Class

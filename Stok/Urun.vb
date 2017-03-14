@@ -29,6 +29,7 @@ Partial Public Class Urun
 
     Public Overridable Property Birim As Birim
     Public Overridable Property Depo As Depo
+    Public Overridable Property Fis_Detay As ICollection(Of Fis_Detay) = New HashSet(Of Fis_Detay)
     Public Overridable Property Kategori As Kategori
 
 End Class
