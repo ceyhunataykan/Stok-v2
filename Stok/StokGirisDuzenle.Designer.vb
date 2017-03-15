@@ -65,7 +65,7 @@ Partial Class StokGirisDuzenle
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cmbBolum = New System.Windows.Forms.ComboBox()
-        Me.lblHesId = New System.Windows.Forms.Label()
+        Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.dgFisListe, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -94,7 +94,7 @@ Partial Class StokGirisDuzenle
         Me.GroupBox4.Controls.Add(Me.dgFisListe)
         Me.GroupBox4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.GroupBox4.ForeColor = System.Drawing.Color.DimGray
-        Me.GroupBox4.Location = New System.Drawing.Point(12, 274)
+        Me.GroupBox4.Location = New System.Drawing.Point(12, 313)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(556, 172)
         Me.GroupBox4.TabIndex = 70
@@ -107,10 +107,10 @@ Partial Class StokGirisDuzenle
         Me.btnSil.Appearance.Options.UseForeColor = True
         Me.btnSil.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
         Me.btnSil.Image = CType(resources.GetObject("btnSil.Image"), System.Drawing.Image)
-        Me.btnSil.Location = New System.Drawing.Point(465, 133)
+        Me.btnSil.Location = New System.Drawing.Point(448, 133)
         Me.btnSil.Name = "btnSil"
         Me.btnSil.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.btnSil.Size = New System.Drawing.Size(85, 26)
+        Me.btnSil.Size = New System.Drawing.Size(102, 26)
         Me.btnSil.TabIndex = 15
         Me.btnSil.Text = "Kaldır"
         '
@@ -128,7 +128,7 @@ Partial Class StokGirisDuzenle
         '
         Me.Panel1.BackColor = System.Drawing.Color.DimGray
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel1.Location = New System.Drawing.Point(0, 605)
+        Me.Panel1.Location = New System.Drawing.Point(0, 641)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(580, 28)
         Me.Panel1.TabIndex = 69
@@ -148,7 +148,7 @@ Partial Class StokGirisDuzenle
         Me.btnIptal.Appearance.Options.UseForeColor = True
         Me.btnIptal.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
         Me.btnIptal.Image = CType(resources.GetObject("btnIptal.Image"), System.Drawing.Image)
-        Me.btnIptal.Location = New System.Drawing.Point(248, 562)
+        Me.btnIptal.Location = New System.Drawing.Point(259, 600)
         Me.btnIptal.Name = "btnIptal"
         Me.btnIptal.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.btnIptal.Size = New System.Drawing.Size(85, 26)
@@ -176,7 +176,7 @@ Partial Class StokGirisDuzenle
         Me.GroupBox2.Controls.Add(Me.Label8)
         Me.GroupBox2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.Color.DimGray
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 132)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 171)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(556, 136)
         Me.GroupBox2.TabIndex = 63
@@ -203,11 +203,11 @@ Partial Class StokGirisDuzenle
         '
         Me.btnListeEkle.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
         Me.btnListeEkle.Image = CType(resources.GetObject("btnListeEkle.Image"), System.Drawing.Image)
-        Me.btnListeEkle.Location = New System.Drawing.Point(432, 99)
+        Me.btnListeEkle.Location = New System.Drawing.Point(405, 101)
         Me.btnListeEkle.Name = "btnListeEkle"
-        Me.btnListeEkle.Size = New System.Drawing.Size(102, 23)
+        Me.btnListeEkle.Size = New System.Drawing.Size(145, 23)
         Me.btnListeEkle.TabIndex = 23
-        Me.btnListeEkle.Text = "Listeye Ekle"
+        Me.btnListeEkle.Text = "Fiş'e Yeni Ürün Ekle"
         '
         'Label5
         '
@@ -354,7 +354,7 @@ Partial Class StokGirisDuzenle
         Me.GroupBox3.Controls.Add(Me.txtAciklama)
         Me.GroupBox3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.GroupBox3.ForeColor = System.Drawing.Color.DimGray
-        Me.GroupBox3.Location = New System.Drawing.Point(12, 452)
+        Me.GroupBox3.Location = New System.Drawing.Point(12, 491)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(302, 92)
         Me.GroupBox3.TabIndex = 64
@@ -371,7 +371,6 @@ Partial Class StokGirisDuzenle
         '
         'GroupBox5
         '
-        Me.GroupBox5.Controls.Add(Me.lblHesId)
         Me.GroupBox5.Controls.Add(Me.Label13)
         Me.GroupBox5.Controls.Add(Me.txtTopTutar)
         Me.GroupBox5.Controls.Add(Me.Label14)
@@ -379,7 +378,7 @@ Partial Class StokGirisDuzenle
         Me.GroupBox5.Controls.Add(Me.Label16)
         Me.GroupBox5.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.GroupBox5.ForeColor = System.Drawing.Color.DimGray
-        Me.GroupBox5.Location = New System.Drawing.Point(320, 452)
+        Me.GroupBox5.Location = New System.Drawing.Point(320, 491)
         Me.GroupBox5.Name = "GroupBox5"
         Me.GroupBox5.Size = New System.Drawing.Size(248, 92)
         Me.GroupBox5.TabIndex = 65
@@ -435,6 +434,7 @@ Partial Class StokGirisDuzenle
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.SimpleButton1)
         Me.GroupBox1.Controls.Add(Me.lblFisId)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.dtpFisTarihi)
@@ -448,7 +448,7 @@ Partial Class StokGirisDuzenle
         Me.GroupBox1.ForeColor = System.Drawing.Color.DimGray
         Me.GroupBox1.Location = New System.Drawing.Point(12, 42)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(556, 84)
+        Me.GroupBox1.Size = New System.Drawing.Size(556, 123)
         Me.GroupBox1.TabIndex = 62
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Fiş Bilgileri"
@@ -530,21 +530,22 @@ Partial Class StokGirisDuzenle
         Me.cmbBolum.Size = New System.Drawing.Size(121, 21)
         Me.cmbBolum.TabIndex = 7
         '
-        'lblHesId
+        'SimpleButton1
         '
-        Me.lblHesId.AutoSize = True
-        Me.lblHesId.Location = New System.Drawing.Point(105, 14)
-        Me.lblHesId.Name = "lblHesId"
-        Me.lblHesId.Size = New System.Drawing.Size(51, 13)
-        Me.lblHesId.TabIndex = 29
-        Me.lblHesId.Text = "Label15"
+        Me.SimpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
+        Me.SimpleButton1.Image = CType(resources.GetObject("SimpleButton1.Image"), System.Drawing.Image)
+        Me.SimpleButton1.Location = New System.Drawing.Point(448, 88)
+        Me.SimpleButton1.Name = "SimpleButton1"
+        Me.SimpleButton1.Size = New System.Drawing.Size(102, 23)
+        Me.SimpleButton1.TabIndex = 44
+        Me.SimpleButton1.Text = "Fiş Düzenle"
         '
         'StokGirisDuzenle
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Silver
-        Me.ClientSize = New System.Drawing.Size(580, 633)
+        Me.ClientSize = New System.Drawing.Size(580, 669)
         Me.Controls.Add(Me.GroupBox4)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel2)
@@ -612,5 +613,5 @@ Partial Class StokGirisDuzenle
     Friend WithEvents Label4 As Label
     Friend WithEvents cmbBolum As ComboBox
     Friend WithEvents lblFisId As Label
-    Friend WithEvents lblHesId As Label
+    Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
 End Class

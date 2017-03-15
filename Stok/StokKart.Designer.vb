@@ -33,10 +33,10 @@ Partial Class StokKart
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.dgListe = New System.Windows.Forms.DataGridView()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnDetay = New DevExpress.XtraEditors.SimpleButton()
-        Me.dgListe = New System.Windows.Forms.DataGridView()
         Me.btnYenile = New DevExpress.XtraEditors.SimpleButton()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -164,6 +164,23 @@ Partial Class StokKart
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Stok Kartları"
         '
+        'dgListe
+        '
+        Me.dgListe.AllowUserToAddRows = False
+        Me.dgListe.AllowUserToDeleteRows = False
+        Me.dgListe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgListe.BackgroundColor = System.Drawing.Color.DarkGray
+        Me.dgListe.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.dgListe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgListe.GridColor = System.Drawing.Color.LightGray
+        Me.dgListe.Location = New System.Drawing.Point(14, 20)
+        Me.dgListe.MultiSelect = False
+        Me.dgListe.Name = "dgListe"
+        Me.dgListe.ReadOnly = True
+        Me.dgListe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgListe.Size = New System.Drawing.Size(652, 296)
+        Me.dgListe.TabIndex = 0
+        '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.DimGray
@@ -195,23 +212,6 @@ Partial Class StokKart
         Me.btnDetay.Size = New System.Drawing.Size(85, 26)
         Me.btnDetay.TabIndex = 29
         Me.btnDetay.Text = "Detay"
-        '
-        'dgListe
-        '
-        Me.dgListe.AllowUserToAddRows = False
-        Me.dgListe.AllowUserToDeleteRows = False
-        Me.dgListe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgListe.BackgroundColor = System.Drawing.Color.DarkGray
-        Me.dgListe.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.dgListe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgListe.GridColor = System.Drawing.Color.LightGray
-        Me.dgListe.Location = New System.Drawing.Point(14, 20)
-        Me.dgListe.MultiSelect = False
-        Me.dgListe.Name = "dgListe"
-        Me.dgListe.ReadOnly = True
-        Me.dgListe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgListe.Size = New System.Drawing.Size(652, 296)
-        Me.dgListe.TabIndex = 0
         '
         'btnYenile
         '

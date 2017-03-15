@@ -131,13 +131,6 @@ Public Class StokKart
     Private Sub StokKart_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Me.Dispose()
     End Sub
-    Private Sub dgListe_CellClick(sender As Object, e As DataGridViewCellEventArgs)
-        If gizleSec = True Then
-            btnSec.Enabled = True
-        Else
-            btnSec.Enabled = False
-        End If
-    End Sub
     Private Sub btnSec_Click(sender As Object, e As EventArgs) Handles btnSec.Click
         Dim uID As Integer = Convert.ToInt32(dgListe.CurrentRow.Cells(0).Value)
         Dim urunSec = (From u In db.Urun
@@ -205,5 +198,13 @@ Public Class StokKart
     End Sub
     Private Sub btnYenile_Click(sender As Object, e As EventArgs) Handles btnYenile.Click
         listele()
+    End Sub
+
+    Private Sub dgListe_CellClick_1(sender As Object, e As DataGridViewCellEventArgs) Handles dgListe.CellClick
+        If gizleSec = True Then
+            btnSec.Enabled = True
+        Else
+            btnSec.Enabled = False
+        End If
     End Sub
 End Class

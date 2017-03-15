@@ -42,6 +42,10 @@
     End Sub
 
     Private Sub btnDuzenle_Click(sender As Object, e As EventArgs) Handles btnDuzenle.Click
+        If dgFisListe.SelectedRows.Count = 0 Then
+            MsgBox("Düzenlemek için bir kayıt seçiniz", MsgBoxStyle.Exclamation, "Hata")
+            Return
+        End If
         Dim fID As Integer = Convert.ToInt32(dgFisListe.CurrentRow.Cells("fisID").Value)
         Dim fisSec = (From f In db.Fis
                       Where f.Fis_ID = fID
