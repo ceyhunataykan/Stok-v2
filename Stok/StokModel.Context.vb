@@ -30,6 +30,8 @@ Partial Public Class StokEntities
     Public Overridable Property Fis() As DbSet(Of Fis)
     Public Overridable Property Fis_Detay() As DbSet(Of Fis_Detay)
     Public Overridable Property Kategori() As DbSet(Of Kategori)
+    Public Overridable Property Kullanici() As DbSet(Of Kullanici)
+    Public Overridable Property Rol() As DbSet(Of Rol)
     Public Overridable Property sysdiagrams() As DbSet(Of sysdiagrams)
     Public Overridable Property Urun() As DbSet(Of Urun)
 

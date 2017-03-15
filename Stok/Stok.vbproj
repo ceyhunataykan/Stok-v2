@@ -94,6 +94,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin.Designer.vb">
+      <DependentUpon>Admin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Admin.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Birim.vb">
       <DependentUpon>StokModel.tt</DependentUpon>
     </Compile>
@@ -118,7 +124,19 @@
     <Compile Include="Kategori.vb">
       <DependentUpon>StokModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Kullanici.vb">
+      <DependentUpon>StokModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Login.Designer.vb">
+      <DependentUpon>Login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Login.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ortak.vb" />
+    <Compile Include="Rol.vb">
+      <DependentUpon>StokModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="sp_helpdiagramdefinition_Result.vb">
       <DependentUpon>StokModel.tt</DependentUpon>
     </Compile>
@@ -220,6 +238,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
     <EmbeddedResource Include="StokCikis.resx">

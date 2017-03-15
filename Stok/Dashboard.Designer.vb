@@ -26,8 +26,6 @@ Partial Class Dashboard
         Me.btnStokHareket = New DevExpress.XtraEditors.SimpleButton()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.lblTarih = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -74,43 +72,19 @@ Partial Class Dashboard
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.DimGray
-        Me.Panel1.Controls.Add(Me.lblTarih)
-        Me.Panel1.Controls.Add(Me.Label3)
         Me.Panel1.Controls.Add(Me.Label1)
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel1.Location = New System.Drawing.Point(0, 449)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(661, 61)
+        Me.Panel1.Size = New System.Drawing.Size(653, 61)
         Me.Panel1.TabIndex = 4
-        '
-        'lblTarih
-        '
-        Me.lblTarih.AutoSize = True
-        Me.lblTarih.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
-        Me.lblTarih.ForeColor = System.Drawing.Color.LightGray
-        Me.lblTarih.Location = New System.Drawing.Point(562, 24)
-        Me.lblTarih.Name = "lblTarih"
-        Me.lblTarih.Size = New System.Drawing.Size(69, 13)
-        Me.lblTarih.TabIndex = 2
-        Me.lblTarih.Text = "02.03.2017"
-        '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.LightGray
-        Me.Label3.Location = New System.Drawing.Point(514, 24)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(42, 13)
-        Me.Label3.TabIndex = 1
-        Me.Label3.Text = "Tarih :"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.LightGray
-        Me.Label1.Location = New System.Drawing.Point(19, 24)
+        Me.Label1.Location = New System.Drawing.Point(242, 27)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(173, 13)
         Me.Label1.TabIndex = 0
@@ -124,7 +98,7 @@ Partial Class Dashboard
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(661, 87)
+        Me.Panel2.Size = New System.Drawing.Size(653, 87)
         Me.Panel2.TabIndex = 5
         '
         'Label4
@@ -270,7 +244,7 @@ Partial Class Dashboard
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Silver
-        Me.ClientSize = New System.Drawing.Size(661, 510)
+        Me.ClientSize = New System.Drawing.Size(653, 510)
         Me.Controls.Add(Me.SimpleButton5)
         Me.Controls.Add(Me.SimpleButton6)
         Me.Controls.Add(Me.SimpleButton7)
@@ -307,7 +281,5 @@ Partial Class Dashboard
     Friend WithEvents SimpleButton6 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents SimpleButton7 As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents Label1 As Label
-    Friend WithEvents lblTarih As Label
-    Friend WithEvents Label3 As Label
     Friend WithEvents Label4 As Label
 End Class

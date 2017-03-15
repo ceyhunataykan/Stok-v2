@@ -26,7 +26,9 @@ Public Class StokKartEkle
         Dim rasgele As New Random()
         Dim sayi As Integer = rasgele.Next(1, 100000)
         Dim yol As String = Application.StartupPath & "\UrunResim\" & "res-" & sayi & ".jpeg"
-        PictureBox1.Image.Save(yol, ImageFormat.Jpeg)
+        If Not PictureBox1.Image Is Nothing Then
+            PictureBox1.Image.Save(yol, ImageFormat.Jpeg)
+        End If
 
         Dim urunEkle As Urun = New Urun()
 

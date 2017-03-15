@@ -69,6 +69,7 @@
             StokGirisDuzenle.dgFisListe.DataSource = fisDetay
             StokGirisDuzenle.dgFisListe.Columns("detayID").Visible = False
             StokGirisDuzenle.dgFisListe.Columns("urunID").Visible = False
+            StokGirisDuzenle.dgFisListe.Columns("fisID").Visible = False
             StokGirisDuzenle.dgFisListe.Columns("stokKodu").HeaderText = "Stok Kodu"
             StokGirisDuzenle.dgFisListe.Columns("stokAdi").HeaderText = "Stok Adı"
             StokGirisDuzenle.dgFisListe.Columns("stokMiktar").HeaderText = "Miktar"
@@ -86,6 +87,7 @@
             StokCikisDuzenle.dgFisListe.DataSource = fisDetay
             StokCikisDuzenle.dgFisListe.Columns("detayID").Visible = False
             StokCikisDuzenle.dgFisListe.Columns("urunID").Visible = False
+            StokGirisDuzenle.dgFisListe.Columns("fisID").Visible = False
             StokCikisDuzenle.dgFisListe.Columns("stokKodu").HeaderText = "Stok Kodu"
             StokCikisDuzenle.dgFisListe.Columns("stokAdi").HeaderText = "Stok Adı"
             StokCikisDuzenle.dgFisListe.Columns("stokMiktar").HeaderText = "Miktar"

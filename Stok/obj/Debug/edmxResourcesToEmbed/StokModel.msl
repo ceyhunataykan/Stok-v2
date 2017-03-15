@@ -93,6 +93,28 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Kullanici">
+      <EntityTypeMapping TypeName="StokModel.Kullanici">
+        <MappingFragment StoreEntitySet="Kullanici">
+          <ScalarProperty Name="Rol_ID" ColumnName="Rol_ID" />
+          <ScalarProperty Name="Parola" ColumnName="Parola" />
+          <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+          <ScalarProperty Name="Kisi_Eposta" ColumnName="Kisi_Eposta" />
+          <ScalarProperty Name="Kisi_Tel" ColumnName="Kisi_Tel" />
+          <ScalarProperty Name="Kisi_Soyadi" ColumnName="Kisi_Soyadi" />
+          <ScalarProperty Name="Kisi_Adi" ColumnName="Kisi_Adi" />
+          <ScalarProperty Name="Kisi_ID" ColumnName="Kisi_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Rol">
+      <EntityTypeMapping TypeName="StokModel.Rol">
+        <MappingFragment StoreEntitySet="Rol">
+          <ScalarProperty Name="Rol_Adi" ColumnName="Rol_Adi" />
+          <ScalarProperty Name="Rol_ID" ColumnName="Rol_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="sysdiagrams">
       <EntityTypeMapping TypeName="StokModel.sysdiagrams">
         <MappingFragment StoreEntitySet="sysdiagrams">

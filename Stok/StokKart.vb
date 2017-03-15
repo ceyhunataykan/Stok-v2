@@ -191,12 +191,16 @@ Public Class StokKart
         End If
     End Sub
     Private Sub btnSil_Click(sender As Object, e As EventArgs) Handles btnSil.Click
-        If dgListe.Rows.Count > 0 Then
-            Dim uID As Integer = Convert.ToInt32(dgListe.CurrentRow.Cells("stokID").Value)
-            Dim sil = db.Urun.Where(Function(u) u.Urun_ID = uID).FirstOrDefault()
-            db.Urun.Remove(sil)
-            db.SaveChanges()
-        End If
+        Try
+            If dgListe.Rows.Count > 0 Then
+                Dim uID As Integer = Convert.ToInt32(dgListe.CurrentRow.Cells("stokID").Value)
+                Dim sil = db.Urun.Where(Function(u) u.Urun_ID = uID).FirstOrDefault()
+                db.Urun.Remove(sil)
+                db.SaveChanges()
+            End If
+        Catch
+            MsgBox("Ürünle ilişkili Fiş Mevcut. Ürünü kaldırmak için önce stok hareketlerinizi düzenleyiniz.", MsgBoxStyle.Exclamation, "Uyarı")
+        End Try
         listele()
     End Sub
     Private Sub btnYenile_Click(sender As Object, e As EventArgs) Handles btnYenile.Click

@@ -8,11 +8,9 @@
     End Sub
 
     Private Sub Dashboard_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        lblTarih.Text = DateTime.Now.Date()
     End Sub
 
     Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles SimpleButton2.Click
         Tanimlar.ShowDialog()
-
     End Sub
 End Class

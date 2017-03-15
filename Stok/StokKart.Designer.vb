@@ -36,8 +36,8 @@ Partial Class StokKart
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnDetay = New DevExpress.XtraEditors.SimpleButton()
-        Me.btnYenile = New DevExpress.XtraEditors.SimpleButton()
         Me.dgListe = New System.Windows.Forms.DataGridView()
+        Me.btnYenile = New DevExpress.XtraEditors.SimpleButton()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgListe, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -196,21 +196,6 @@ Partial Class StokKart
         Me.btnDetay.TabIndex = 29
         Me.btnDetay.Text = "Detay"
         '
-        'btnYenile
-        '
-        Me.btnYenile.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.btnYenile.Appearance.Options.UseForeColor = True
-        Me.btnYenile.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
-        Me.btnYenile.Image = CType(resources.GetObject("btnYenile.Image"), System.Drawing.Image)
-        Me.btnYenile.Location = New System.Drawing.Point(241, 457)
-        Me.btnYenile.Name = "btnYenile"
-        Me.btnYenile.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.btnYenile.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.[False]
-        Me.btnYenile.Size = New System.Drawing.Size(64, 26)
-        Me.btnYenile.TabIndex = 30
-        Me.btnYenile.Text = "Yenile"
-        Me.btnYenile.Visible = False
-        '
         'dgListe
         '
         Me.dgListe.AllowUserToAddRows = False
@@ -227,6 +212,20 @@ Partial Class StokKart
         Me.dgListe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgListe.Size = New System.Drawing.Size(652, 296)
         Me.dgListe.TabIndex = 0
+        '
+        'btnYenile
+        '
+        Me.btnYenile.Appearance.ForeColor = System.Drawing.Color.Black
+        Me.btnYenile.Appearance.Options.UseForeColor = True
+        Me.btnYenile.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
+        Me.btnYenile.Image = CType(resources.GetObject("btnYenile.Image"), System.Drawing.Image)
+        Me.btnYenile.Location = New System.Drawing.Point(762, 258)
+        Me.btnYenile.Name = "btnYenile"
+        Me.btnYenile.RightToLeft = System.Windows.Forms.RightToLeft.No
+        Me.btnYenile.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.[False]
+        Me.btnYenile.Size = New System.Drawing.Size(64, 26)
+        Me.btnYenile.TabIndex = 30
+        Me.btnYenile.Text = "Yenile"
         '
         'StokKart
         '
@@ -269,6 +268,6 @@ Partial Class StokKart
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel1 As Panel
     Friend WithEvents btnDetay As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents btnYenile As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents dgListe As DataGridView
+    Friend WithEvents btnYenile As DevExpress.XtraEditors.SimpleButton
 End Class

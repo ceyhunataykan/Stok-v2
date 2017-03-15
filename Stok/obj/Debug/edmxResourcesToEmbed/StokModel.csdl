@@ -37,6 +37,8 @@
     <EntitySet Name="Fis" EntityType="StokModel.Fis" />
     <EntitySet Name="Fis_Detay" EntityType="StokModel.Fis_Detay" />
     <EntitySet Name="Kategori" EntityType="StokModel.Kategori" />
+    <EntitySet Name="Kullanici" EntityType="StokModel.Kullanici" />
+    <EntitySet Name="Rol" EntityType="StokModel.Rol" />
     <EntitySet Name="sysdiagrams" EntityType="StokModel.sysdiagrams" />
     <EntitySet Name="Urun" EntityType="StokModel.Urun" />
     <AssociationSet Name="FK_Urun_Birim" Association="StokModel.FK_Urun_Birim">
@@ -66,6 +68,10 @@
     <AssociationSet Name="FK_Urun_Kategori" Association="StokModel.FK_Urun_Kategori">
       <End Role="Kategori" EntitySet="Kategori" />
       <End Role="Urun" EntitySet="Urun" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Kullanici_Rol" Association="StokModel.FK_Kullanici_Rol">
+      <End Role="Rol" EntitySet="Rol" />
+      <End Role="Kullanici" EntitySet="Kullanici" />
     </AssociationSet>
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
@@ -150,6 +156,28 @@
     <Property Name="Kategori_Kodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Kategori_Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Urun" Relationship="StokModel.FK_Urun_Kategori" FromRole="Kategori" ToRole="Urun" />
+  </EntityType>
+  <EntityType Name="Kullanici">
+    <Key>
+      <PropertyRef Name="Kisi_ID" />
+    </Key>
+    <Property Name="Kisi_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Kisi_Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Kisi_Soyadi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Kisi_Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Kisi_Eposta" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Parola" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Rol_ID" Type="Int32" />
+    <NavigationProperty Name="Rol" Relationship="StokModel.FK_Kullanici_Rol" FromRole="Kullanici" ToRole="Rol" />
+  </EntityType>
+  <EntityType Name="Rol">
+    <Key>
+      <PropertyRef Name="Rol_ID" />
+    </Key>
+    <Property Name="Rol_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Rol_Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Kullanici" Relationship="StokModel.FK_Kullanici_Rol" FromRole="Rol" ToRole="Kullanici" />
   </EntityType>
   <EntityType Name="sysdiagrams">
     <Key>
@@ -266,6 +294,18 @@
       </Principal>
       <Dependent Role="Urun">
         <PropertyRef Name="Kategori_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Kullanici_Rol">
+    <End Type="StokModel.Rol" Role="Rol" Multiplicity="0..1" />
+    <End Type="StokModel.Kullanici" Role="Kullanici" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rol">
+        <PropertyRef Name="Rol_ID" />
+      </Principal>
+      <Dependent Role="Kullanici">
+        <PropertyRef Name="Rol_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
