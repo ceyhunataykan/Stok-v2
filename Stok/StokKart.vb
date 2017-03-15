@@ -1,16 +1,13 @@
 ﻿Imports System.Data.Entity.SqlServer
 Imports System.Data.Linq.SqlClient
-
 Public Class StokKart
     Dim db As StokEntities = New StokEntities()
     Private Sub StokKart_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         listele()
     End Sub
-
     Private Sub btnEkle_Click(sender As Object, e As EventArgs) Handles btnEkle.Click
         StokKartEkle.ShowDialog()
     End Sub
-
     Private Sub listele()
         Try
             Dim urunListe = (From u In db.Urun
@@ -34,7 +31,6 @@ Public Class StokKart
         End Try
         renklendir()
     End Sub
-
     Private Sub renklendir()
         Try
             For i = 0 To dgListe.Rows.Count - 1 Step 1
@@ -55,9 +51,7 @@ Public Class StokKart
         Catch
 
         End Try
-
     End Sub
-
     Private Sub cmbDurum_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbDurum.SelectedIndexChanged
         If cmbDurum.SelectedItem = "Tümü" Then
             listele()
@@ -102,7 +96,6 @@ Public Class StokKart
             renklendir()
         End If
     End Sub
-
     Private Sub txtAra_TextChanged(sender As Object, e As EventArgs) Handles txtAra.TextChanged
         Try
             Dim kod As Integer = Convert.ToInt32(txtAra.Text)
@@ -130,18 +123,15 @@ Public Class StokKart
             renklendir()
         End Try
     End Sub
-
     Private Sub txtAra_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtAra.KeyPress
         If Not (Char.IsNumber(e.KeyChar) = True) And e.KeyChar <> ChrW(Keys.Back) Then
             e.Handled = True
         End If
     End Sub
-
     Private Sub StokKart_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
         Me.Dispose()
     End Sub
-
-    Private Sub dgListe_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgListe.CellClick
+    Private Sub dgListe_CellClick(sender As Object, e As DataGridViewCellEventArgs)
         If gizleSec = True Then
             btnSec.Enabled = True
         Else
@@ -165,29 +155,41 @@ Public Class StokKart
         If giris = True Then
             Me.Hide()
             StokGiris.Show()
-
             StokGiris.lblid.Text = urunSec.stokID
             StokGiris.txtStokKodu.Text = urunSec.stokKodu
             StokGiris.txtStokAdi.Text = urunSec.stokAdi
             StokGiris.txtBirim.Text = urunSec.stokBirimAdi
             StokGiris.txtBirimFiyat.Text = urunSec.stokBfiyat
-
             giris = False
+        ElseIf girisDuzenle = True Then
+            Me.Hide()
+            StokGirisDuzenle.Show()
+            StokGirisDuzenle.lblid.Text = urunSec.stokID
+            StokGirisDuzenle.txtStokKodu.Text = urunSec.stokKodu
+            StokGirisDuzenle.txtStokAdi.Text = urunSec.stokAdi
+            StokGirisDuzenle.txtBirim.Text = urunSec.stokBirimAdi
+            StokGirisDuzenle.txtBirimFiyat.Text = urunSec.stokBfiyat
+            girisDuzenle = False
         ElseIf cikis = True Then
             Me.Hide()
             StokCikis.Show()
-
             StokCikis.lblid.Text = urunSec.stokID
             StokCikis.txtStokKodu.Text = urunSec.stokKodu
             StokCikis.txtStokAdi.Text = urunSec.stokAdi
             StokCikis.txtBirim.Text = urunSec.stokBirimAdi
             StokCikis.txtBirimFiyat.Text = urunSec.stokBfiyat
-
             cikis = False
+        ElseIf cikisDuzenle = True Then
+            Me.Hide()
+            StokCikisDuzenle.Show()
+            StokCikisDuzenle.lblid.Text = urunSec.stokID
+            StokCikisDuzenle.txtStokKodu.Text = urunSec.stokKodu
+            StokCikisDuzenle.txtStokAdi.Text = urunSec.stokAdi
+            StokCikisDuzenle.txtBirim.Text = urunSec.stokBirimAdi
+            StokCikisDuzenle.txtBirimFiyat.Text = urunSec.stokBfiyat
+            cikisDuzenle = False
         End If
-
     End Sub
-
     Private Sub btnSil_Click(sender As Object, e As EventArgs) Handles btnSil.Click
         If dgListe.Rows.Count > 0 Then
             Dim uID As Integer = Convert.ToInt32(dgListe.CurrentRow.Cells("stokID").Value)
@@ -197,7 +199,6 @@ Public Class StokKart
         End If
         listele()
     End Sub
-
     Private Sub btnYenile_Click(sender As Object, e As EventArgs) Handles btnYenile.Click
         listele()
     End Sub

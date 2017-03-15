@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class StokGirisDuzenle
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class StokGirisDuzenle
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(StokGirisDuzenle))
         Me.dgFisListe = New System.Windows.Forms.DataGridView()
@@ -30,7 +30,6 @@ Partial Class StokGirisDuzenle
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.btnIptal = New DevExpress.XtraEditors.SimpleButton()
-        Me.btnKaydet = New DevExpress.XtraEditors.SimpleButton()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.txtBirim = New System.Windows.Forms.TextBox()
         Me.nudMiktar = New System.Windows.Forms.NumericUpDown()
@@ -66,6 +65,7 @@ Partial Class StokGirisDuzenle
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cmbBolum = New System.Windows.Forms.ComboBox()
+        Me.lblHesId = New System.Windows.Forms.Label()
         CType(Me.dgFisListe, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -112,12 +112,12 @@ Partial Class StokGirisDuzenle
         Me.btnSil.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.btnSil.Size = New System.Drawing.Size(85, 26)
         Me.btnSil.TabIndex = 15
-        Me.btnSil.Text = "Sil"
+        Me.btnSil.Text = "Kaldır"
         '
         'lblid
         '
         Me.lblid.AutoSize = True
-        Me.lblid.Location = New System.Drawing.Point(210, 106)
+        Me.lblid.Location = New System.Drawing.Point(271, 26)
         Me.lblid.Name = "lblid"
         Me.lblid.Size = New System.Drawing.Size(50, 13)
         Me.lblid.TabIndex = 43
@@ -148,25 +148,12 @@ Partial Class StokGirisDuzenle
         Me.btnIptal.Appearance.Options.UseForeColor = True
         Me.btnIptal.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
         Me.btnIptal.Image = CType(resources.GetObject("btnIptal.Image"), System.Drawing.Image)
-        Me.btnIptal.Location = New System.Drawing.Point(290, 561)
+        Me.btnIptal.Location = New System.Drawing.Point(248, 562)
         Me.btnIptal.Name = "btnIptal"
         Me.btnIptal.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.btnIptal.Size = New System.Drawing.Size(85, 26)
         Me.btnIptal.TabIndex = 67
-        Me.btnIptal.Text = "İptal"
-        '
-        'btnKaydet
-        '
-        Me.btnKaydet.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.btnKaydet.Appearance.Options.UseForeColor = True
-        Me.btnKaydet.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
-        Me.btnKaydet.Image = CType(resources.GetObject("btnKaydet.Image"), System.Drawing.Image)
-        Me.btnKaydet.Location = New System.Drawing.Point(199, 561)
-        Me.btnKaydet.Name = "btnKaydet"
-        Me.btnKaydet.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.btnKaydet.Size = New System.Drawing.Size(85, 26)
-        Me.btnKaydet.TabIndex = 66
-        Me.btnKaydet.Text = "Güncelle"
+        Me.btnIptal.Text = "Kapat"
         '
         'GroupBox2
         '
@@ -384,6 +371,7 @@ Partial Class StokGirisDuzenle
         '
         'GroupBox5
         '
+        Me.GroupBox5.Controls.Add(Me.lblHesId)
         Me.GroupBox5.Controls.Add(Me.Label13)
         Me.GroupBox5.Controls.Add(Me.txtTopTutar)
         Me.GroupBox5.Controls.Add(Me.Label14)
@@ -468,7 +456,7 @@ Partial Class StokGirisDuzenle
         'lblFisId
         '
         Me.lblFisId.AutoSize = True
-        Me.lblFisId.Location = New System.Drawing.Point(244, 22)
+        Me.lblFisId.Location = New System.Drawing.Point(244, 28)
         Me.lblFisId.Name = "lblFisId"
         Me.lblFisId.Size = New System.Drawing.Size(36, 13)
         Me.lblFisId.TabIndex = 44
@@ -542,6 +530,15 @@ Partial Class StokGirisDuzenle
         Me.cmbBolum.Size = New System.Drawing.Size(121, 21)
         Me.cmbBolum.TabIndex = 7
         '
+        'lblHesId
+        '
+        Me.lblHesId.AutoSize = True
+        Me.lblHesId.Location = New System.Drawing.Point(105, 14)
+        Me.lblHesId.Name = "lblHesId"
+        Me.lblHesId.Size = New System.Drawing.Size(51, 13)
+        Me.lblHesId.TabIndex = 29
+        Me.lblHesId.Text = "Label15"
+        '
         'StokGirisDuzenle
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -552,7 +549,6 @@ Partial Class StokGirisDuzenle
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.btnIptal)
-        Me.Controls.Add(Me.btnKaydet)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox5)
@@ -581,7 +577,6 @@ Partial Class StokGirisDuzenle
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents btnIptal As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents btnKaydet As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents txtBirim As TextBox
     Friend WithEvents nudMiktar As NumericUpDown
@@ -617,4 +612,5 @@ Partial Class StokGirisDuzenle
     Friend WithEvents Label4 As Label
     Friend WithEvents cmbBolum As ComboBox
     Friend WithEvents lblFisId As Label
+    Friend WithEvents lblHesId As Label
 End Class

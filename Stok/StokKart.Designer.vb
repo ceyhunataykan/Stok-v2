@@ -23,7 +23,6 @@ Partial Class StokKart
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(StokKart))
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.btnSec = New DevExpress.XtraEditors.SimpleButton()
         Me.btnEkle = New DevExpress.XtraEditors.SimpleButton()
         Me.btnDuzenle = New DevExpress.XtraEditors.SimpleButton()
@@ -34,11 +33,11 @@ Partial Class StokKart
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.dgListe = New System.Windows.Forms.DataGridView()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnDetay = New DevExpress.XtraEditors.SimpleButton()
         Me.btnYenile = New DevExpress.XtraEditors.SimpleButton()
+        Me.dgListe = New System.Windows.Forms.DataGridView()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgListe, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -165,24 +164,6 @@ Partial Class StokKart
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Stok Kartları"
         '
-        'dgListe
-        '
-        Me.dgListe.AllowUserToAddRows = False
-        Me.dgListe.AllowUserToDeleteRows = False
-        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gray
-        Me.dgListe.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
-        Me.dgListe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgListe.BackgroundColor = System.Drawing.Color.DarkGray
-        Me.dgListe.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.dgListe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgListe.GridColor = System.Drawing.Color.LightGray
-        Me.dgListe.Location = New System.Drawing.Point(14, 20)
-        Me.dgListe.Name = "dgListe"
-        Me.dgListe.ReadOnly = True
-        Me.dgListe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgListe.Size = New System.Drawing.Size(652, 298)
-        Me.dgListe.TabIndex = 1
-        '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.DimGray
@@ -230,6 +211,23 @@ Partial Class StokKart
         Me.btnYenile.Text = "Yenile"
         Me.btnYenile.Visible = False
         '
+        'dgListe
+        '
+        Me.dgListe.AllowUserToAddRows = False
+        Me.dgListe.AllowUserToDeleteRows = False
+        Me.dgListe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgListe.BackgroundColor = System.Drawing.Color.DarkGray
+        Me.dgListe.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.dgListe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgListe.GridColor = System.Drawing.Color.LightGray
+        Me.dgListe.Location = New System.Drawing.Point(14, 20)
+        Me.dgListe.MultiSelect = False
+        Me.dgListe.Name = "dgListe"
+        Me.dgListe.ReadOnly = True
+        Me.dgListe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgListe.Size = New System.Drawing.Size(652, 296)
+        Me.dgListe.TabIndex = 0
+        '
         'StokKart
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -271,6 +269,6 @@ Partial Class StokKart
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel1 As Panel
     Friend WithEvents btnDetay As DevExpress.XtraEditors.SimpleButton
-    Friend WithEvents dgListe As DataGridView
     Friend WithEvents btnYenile As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents dgListe As DataGridView
 End Class

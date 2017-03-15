@@ -24,15 +24,14 @@
     End Sub
 
     Private Sub listele()
-        Dim fisListe = (From f In db.Fis_Detay
+        Dim fisListe = (From f In db.Fis
                         Select
-                            fisID = f.Fis.Fis_ID,
-                            fisNo = f.Fis.Fis_No,
-                            fisTur = f.Fis.Fis_Türü,
-                            fisTarih = f.Fis.Fis_Tarih,
-                            fisDepo = f.Fis.Depo.Depo_Adi,
-                            fisBolum = f.Fis.Bolum.Bolum_Adi,
-                            fisUrun = f.Urun.Stok_Adi).ToList()
+                            fisID = f.Fis_ID,
+                            fisNo = f.Fis_No,
+                            fisTur = f.Fis_Türü,
+                            fisTarih = f.Fis_Tarih,
+                            fisDepo = f.Depo.Depo_Adi,
+                            fisBolum = f.Bolum.Bolum_Adi).ToList()
         dgFisListe.DataSource = fisListe
         dgFisListe.Columns("fisID").Visible = False
         dgFisListe.Columns("fisNo").HeaderText = "Fiş No"
@@ -40,7 +39,6 @@
         dgFisListe.Columns("fisTarih").HeaderText = "Tarih"
         dgFisListe.Columns("fisDepo").HeaderText = "Depo"
         dgFisListe.Columns("fisBolum").HeaderText = "Bölüm"
-        dgFisListe.Columns("fisUrun").HeaderText = "Ürünler"
     End Sub
 
     Private Sub btnDuzenle_Click(sender As Object, e As EventArgs) Handles btnDuzenle.Click
@@ -57,17 +55,19 @@
         Dim fisDetay = (From f In db.Fis_Detay
                         Where f.Fis_ID = fID
                         Select
-                           urunID = f.Urun.Urun_ID,
-                           stokKodu = f.Urun.Stok_Kodu,
-                           stokAdi = f.Urun.Stok_Adi,
-                           stokMiktar = f.Miktar,
-                           stokFiyat = f.Fiyat,
-                           stokTutar = f.Tutar).ToList()
+                            detayID = f.Detay_ID,
+                            fisID = f.Fis_ID,
+                            urunID = f.Urun.Urun_ID,
+                            stokKodu = f.Urun.Stok_Kodu,
+                            stokAdi = f.Urun.Stok_Adi,
+                            stokMiktar = f.Miktar,
+                            stokFiyat = f.Fiyat,
+                            stokTutar = f.Tutar).ToList()
 
         If dgFisListe.CurrentRow.Cells("fisTur").Value = "Stok Giriş" Then
             StokGirisDuzenle.Show()
-
             StokGirisDuzenle.dgFisListe.DataSource = fisDetay
+            StokGirisDuzenle.dgFisListe.Columns("detayID").Visible = False
             StokGirisDuzenle.dgFisListe.Columns("urunID").Visible = False
             StokGirisDuzenle.dgFisListe.Columns("stokKodu").HeaderText = "Stok Kodu"
             StokGirisDuzenle.dgFisListe.Columns("stokAdi").HeaderText = "Stok Adı"
@@ -79,16 +79,24 @@
             StokGirisDuzenle.lblFisId.Text = fisSec.fisID
             StokGirisDuzenle.cmbDepo.SelectedValue = fisSec.fisDepo
             StokGirisDuzenle.cmbBolum.SelectedValue = fisSec.fisBolum
+
         ElseIf dgFisListe.CurrentRow.Cells("fisTur").Value = "Stok Çıkış" Then
             StokCikisDuzenle.Show()
+
+            StokCikisDuzenle.dgFisListe.DataSource = fisDetay
+            StokCikisDuzenle.dgFisListe.Columns("detayID").Visible = False
+            StokCikisDuzenle.dgFisListe.Columns("urunID").Visible = False
+            StokCikisDuzenle.dgFisListe.Columns("stokKodu").HeaderText = "Stok Kodu"
+            StokCikisDuzenle.dgFisListe.Columns("stokAdi").HeaderText = "Stok Adı"
+            StokCikisDuzenle.dgFisListe.Columns("stokMiktar").HeaderText = "Miktar"
+            StokCikisDuzenle.dgFisListe.Columns("stokFiyat").HeaderText = "Fiyat"
+            StokCikisDuzenle.dgFisListe.Columns("stokTutar").HeaderText = "Tutar"
 
             StokCikisDuzenle.txtFisNo.Text = fisSec.fisNo
             StokCikisDuzenle.lblFisId.Text = fisSec.fisID
             StokCikisDuzenle.cmbDepo.SelectedValue = fisSec.fisDepo
             StokCikisDuzenle.cmbBolum.SelectedValue = fisSec.fisBolum
         End If
-
-
     End Sub
 
     Private Sub btnSil_Click(sender As Object, e As EventArgs) Handles btnSil.Click

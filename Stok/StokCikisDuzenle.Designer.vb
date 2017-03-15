@@ -46,6 +46,7 @@ Partial Class StokCikisDuzenle
         Me.btnIptal = New DevExpress.XtraEditors.SimpleButton()
         Me.btnKaydet = New DevExpress.XtraEditors.SimpleButton()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.lblid = New System.Windows.Forms.Label()
         Me.txtBirim = New System.Windows.Forms.TextBox()
         Me.nudMiktar = New System.Windows.Forms.NumericUpDown()
         Me.btnListeEkle = New DevExpress.XtraEditors.SimpleButton()
@@ -63,8 +64,6 @@ Partial Class StokCikisDuzenle
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.dgFisListe = New System.Windows.Forms.DataGridView()
-        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
-        Me.lblFisId = New System.Windows.Forms.Label()
         Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -72,7 +71,8 @@ Partial Class StokCikisDuzenle
         Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.lblid = New System.Windows.Forms.Label()
+        Me.GroupBox4 = New System.Windows.Forms.GroupBox()
+        Me.lblFisId = New System.Windows.Forms.Label()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -344,6 +344,16 @@ Partial Class StokCikisDuzenle
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Ürün Bilgileri"
         '
+        'lblid
+        '
+        Me.lblid.AutoSize = True
+        Me.lblid.Location = New System.Drawing.Point(209, 106)
+        Me.lblid.Name = "lblid"
+        Me.lblid.Size = New System.Drawing.Size(50, 13)
+        Me.lblid.TabIndex = 44
+        Me.lblid.Text = "Ürün ID"
+        Me.lblid.Visible = False
+        '
         'txtBirim
         '
         Me.txtBirim.Enabled = False
@@ -516,28 +526,6 @@ Partial Class StokCikisDuzenle
         Me.dgFisListe.Size = New System.Drawing.Size(536, 107)
         Me.dgFisListe.TabIndex = 0
         '
-        'GroupBox4
-        '
-        Me.GroupBox4.Controls.Add(Me.btnSil)
-        Me.GroupBox4.Controls.Add(Me.dgFisListe)
-        Me.GroupBox4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
-        Me.GroupBox4.ForeColor = System.Drawing.Color.DimGray
-        Me.GroupBox4.Location = New System.Drawing.Point(12, 274)
-        Me.GroupBox4.Name = "GroupBox4"
-        Me.GroupBox4.Size = New System.Drawing.Size(556, 172)
-        Me.GroupBox4.TabIndex = 61
-        Me.GroupBox4.TabStop = False
-        Me.GroupBox4.Text = "Fiş Liste"
-        '
-        'lblFisId
-        '
-        Me.lblFisId.AutoSize = True
-        Me.lblFisId.Location = New System.Drawing.Point(204, 35)
-        Me.lblFisId.Name = "lblFisId"
-        Me.lblFisId.Size = New System.Drawing.Size(45, 13)
-        Me.lblFisId.TabIndex = 62
-        Me.lblFisId.Text = "Label15"
-        '
         'Column1
         '
         Me.Column1.HeaderText = "Stok Kodu"
@@ -580,15 +568,27 @@ Partial Class StokCikisDuzenle
         Me.id.Name = "id"
         Me.id.ReadOnly = True
         '
-        'lblid
+        'GroupBox4
         '
-        Me.lblid.AutoSize = True
-        Me.lblid.Location = New System.Drawing.Point(209, 106)
-        Me.lblid.Name = "lblid"
-        Me.lblid.Size = New System.Drawing.Size(50, 13)
-        Me.lblid.TabIndex = 44
-        Me.lblid.Text = "Ürün ID"
-        Me.lblid.Visible = False
+        Me.GroupBox4.Controls.Add(Me.btnSil)
+        Me.GroupBox4.Controls.Add(Me.dgFisListe)
+        Me.GroupBox4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
+        Me.GroupBox4.ForeColor = System.Drawing.Color.DimGray
+        Me.GroupBox4.Location = New System.Drawing.Point(12, 274)
+        Me.GroupBox4.Name = "GroupBox4"
+        Me.GroupBox4.Size = New System.Drawing.Size(556, 172)
+        Me.GroupBox4.TabIndex = 61
+        Me.GroupBox4.TabStop = False
+        Me.GroupBox4.Text = "Fiş Liste"
+        '
+        'lblFisId
+        '
+        Me.lblFisId.AutoSize = True
+        Me.lblFisId.Location = New System.Drawing.Point(204, 35)
+        Me.lblFisId.Name = "lblFisId"
+        Me.lblFisId.Size = New System.Drawing.Size(45, 13)
+        Me.lblFisId.TabIndex = 62
+        Me.lblFisId.Text = "Label15"
         '
         'StokCikisDuzenle
         '

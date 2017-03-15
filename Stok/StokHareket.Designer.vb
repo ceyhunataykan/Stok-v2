@@ -22,9 +22,7 @@ Partial Class StokHareket
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(StokHareket))
-        Me.dgFisListe = New System.Windows.Forms.DataGridView()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cmbDepo = New System.Windows.Forms.ComboBox()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -42,28 +40,11 @@ Partial Class StokHareket
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.btnDetay = New DevExpress.XtraEditors.SimpleButton()
-        CType(Me.dgFisListe, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.dgFisListe = New System.Windows.Forms.DataGridView()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
+        CType(Me.dgFisListe, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'dgFisListe
-        '
-        Me.dgFisListe.AllowUserToAddRows = False
-        Me.dgFisListe.AllowUserToDeleteRows = False
-        DataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gray
-        Me.dgFisListe.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
-        Me.dgFisListe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgFisListe.BackgroundColor = System.Drawing.Color.DarkGray
-        Me.dgFisListe.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.dgFisListe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgFisListe.GridColor = System.Drawing.Color.LightGray
-        Me.dgFisListe.Location = New System.Drawing.Point(12, 21)
-        Me.dgFisListe.Name = "dgFisListe"
-        Me.dgFisListe.ReadOnly = True
-        Me.dgFisListe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgFisListe.Size = New System.Drawing.Size(757, 252)
-        Me.dgFisListe.TabIndex = 9
         '
         'Label2
         '
@@ -255,6 +236,23 @@ Partial Class StokHareket
         Me.btnDetay.TabIndex = 30
         Me.btnDetay.Text = "Detay"
         '
+        'dgFisListe
+        '
+        Me.dgFisListe.AllowUserToAddRows = False
+        Me.dgFisListe.AllowUserToDeleteRows = False
+        Me.dgFisListe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgFisListe.BackgroundColor = System.Drawing.Color.DarkGray
+        Me.dgFisListe.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.dgFisListe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgFisListe.GridColor = System.Drawing.Color.LightGray
+        Me.dgFisListe.Location = New System.Drawing.Point(12, 20)
+        Me.dgFisListe.MultiSelect = False
+        Me.dgFisListe.Name = "dgFisListe"
+        Me.dgFisListe.ReadOnly = True
+        Me.dgFisListe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgFisListe.Size = New System.Drawing.Size(757, 255)
+        Me.dgFisListe.TabIndex = 1
+        '
         'StokHareket
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -274,15 +272,13 @@ Partial Class StokHareket
         Me.Name = "StokHareket"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Stok Giriş - Çıkış Fişleri"
-        CType(Me.dgFisListe, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
+        CType(Me.dgFisListe, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
 
     End Sub
-
-    Friend WithEvents dgFisListe As DataGridView
     Friend WithEvents Label2 As Label
     Friend WithEvents cmbDepo As ComboBox
     Friend WithEvents Label1 As Label
@@ -300,4 +296,5 @@ Partial Class StokHareket
     Friend WithEvents Panel1 As Panel
     Friend WithEvents Panel2 As Panel
     Friend WithEvents btnDetay As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents dgFisListe As DataGridView
 End Class

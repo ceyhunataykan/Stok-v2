@@ -1,49 +1,89 @@
 ﻿Public Class StokCikisDuzenle
     Dim db As StokEntities = New StokEntities()
-    Private Sub btnStokKart_Click(sender As Object, e As EventArgs) Handles btnStokKart.Click
-
-    End Sub
-
     Private Sub StokCikisDuzenle_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim depoListe As IList(Of Depo) = db.Depo.ToList()
         cmbDepo.DataSource = depoListe
         cmbDepo.DisplayMember = "Depo_Adi"
         cmbDepo.ValueMember = "Depo_ID"
-
         Dim bolumListe As IList(Of Bolum) = db.Bolum.ToList()
         cmbBolum.DataSource = bolumListe
         cmbBolum.DisplayMember = "Bolum_Adi"
         cmbBolum.ValueMember = "Bolum_ID"
-
-        If dgFisListe.Rows.Count > 0 Then
-            Dim miktar As Integer = 0
-            Dim toplam As Decimal = 0
-            For i = 0 To dgFisListe.Rows.Count - 1 Step 1
-                miktar += Convert.ToInt32(dgFisListe.Rows(i).Cells(2).Value)
-                toplam += Convert.ToDecimal(dgFisListe.Rows(i).Cells(5).Value)
-            Next
-            txtTopBirim.Text = miktar.ToString()
-            txtTopTutar.Text = toplam.ToString()
-        End If
-
-        dgFisListe.Columns(6).Visible = False
     End Sub
 
     Private Sub btnListeEkle_Click(sender As Object, e As EventArgs) Handles btnListeEkle.Click
-        dgFisListe.Rows.Add(txtStokKodu.Text, txtStokAdi.Text, nudMiktar.Value, txtBirim.Text, txtBirimFiyat.Text, txtTutar.Text, lblid.Text)
-        temizle()
-        If dgFisListe.Rows.Count > 0 Then
-            Dim miktar As Integer = 0
-            Dim toplam As Decimal = 0
-            For i = 0 To dgFisListe.Rows.Count - 1 Step 1
-                miktar += Convert.ToInt32(dgFisListe.Rows(i).Cells(2).Value)
-                toplam += Convert.ToDecimal(dgFisListe.Rows(i).Cells(5).Value)
-            Next
-            txtTopBirim.Text = miktar.ToString()
-            txtTopTutar.Text = toplam.ToString()
-        End If
-    End Sub
+        Dim fID As Integer = Convert.ToInt32(lblFisId.Text)
+        Dim fdEkle As New Fis_Detay
+        fdEkle.Fis_ID = fID
+        fdEkle.Urun_ID = Convert.ToInt32(lblid.Text)
+        fdEkle.Miktar = Convert.ToInt32(nudMiktar.Value)
+        fdEkle.Fiyat = Convert.ToDecimal(txtBirimFiyat.Text)
+        fdEkle.Tutar = fdEkle.Miktar * fdEkle.Fiyat
+        db.Fis_Detay.Add(fdEkle)
+        db.SaveChanges()
 
+        Dim id As Integer = Convert.ToInt32(lblid.Text)
+        Dim bul = db.Urun.Where(Function(u) u.Urun_ID = id).FirstOrDefault()
+        Dim sm As Integer = bul.Stok_Miktar
+        bul.Stok_Miktar = sm - Convert.ToInt32(nudMiktar.Value)
+        db.SaveChanges()
+
+        MsgBox("Ürün Listeye Eklendi. Stok Bilgileri Güncellendi.", MsgBoxStyle.Information, "Bilgi")
+
+        temizle()
+        listeGetir()
+    End Sub
+    Private Sub btnSil_Click(sender As Object, e As EventArgs) Handles btnSil.Click
+        'Listeden ürün çıkarır. Ürün bilgilerini günceller.
+        Dim id As Integer = Convert.ToInt32(dgFisListe.CurrentRow.Cells("urunID").Value)
+        Dim bul = db.Urun.Where(Function(u) u.Urun_ID = id).FirstOrDefault()
+        Dim sm As Integer = bul.Stok_Miktar
+        bul.Stok_Miktar = sm + Convert.ToInt32(dgFisListe.CurrentRow.Cells("stokMiktar").Value)
+        db.SaveChanges()
+
+        'Fiş üzerinden ürün kaldırır.
+        Dim fID As Integer = Convert.ToInt32(dgFisListe.CurrentRow.Cells("detayID").Value)
+        Dim dBul = db.Fis_Detay.Where(Function(f) f.Detay_ID = fID).FirstOrDefault()
+        db.Fis_Detay.Remove(dBul)
+        db.SaveChanges()
+        MsgBox("Ürün Listeden Çıkarıldı. Stok Bilgileri Güncellendi.", MsgBoxStyle.Information, "Bilgi")
+        listeGetir()
+        hesapla()
+    End Sub
+    Private Sub btnStokKart_Click(sender As Object, e As EventArgs) Handles btnStokKart.Click
+        gizleSec = True
+        cikisDuzenle = True
+        StokKart.Show()
+    End Sub
+    Private Sub nudMiktar_ValueChanged(sender As Object, e As EventArgs) Handles nudMiktar.ValueChanged
+        txtTutar.Text = (Convert.ToDecimal(txtBirimFiyat.Text) * nudMiktar.Value).ToString()
+    End Sub
+    Private Sub btnIptal_Click(sender As Object, e As EventArgs) Handles btnIptal.Click
+        Me.Close()
+    End Sub
+    Private Sub listeGetir()
+        Dim fID As Integer = Convert.ToInt32(lblFisId.Text)
+        Dim fisDetay = (From f In db.Fis_Detay
+                        Where f.Fis_ID = fID
+                        Select
+                            detayID = f.Detay_ID,
+                            fisID = f.Fis_ID,
+                            urunID = f.Urun.Urun_ID,
+                            stokKodu = f.Urun.Stok_Kodu,
+                            stokAdi = f.Urun.Stok_Adi,
+                            stokMiktar = f.Miktar,
+                            stokFiyat = f.Fiyat,
+                            stokTutar = f.Tutar).ToList()
+
+        dgFisListe.DataSource = fisDetay
+        dgFisListe.Columns("detayID").Visible = False
+        dgFisListe.Columns("urunID").Visible = False
+        dgFisListe.Columns("stokKodu").HeaderText = "Stok Kodu"
+        dgFisListe.Columns("stokAdi").HeaderText = "Stok Adı"
+        dgFisListe.Columns("stokMiktar").HeaderText = "Miktar"
+        dgFisListe.Columns("stokFiyat").HeaderText = "Fiyat"
+        dgFisListe.Columns("stokTutar").HeaderText = "Tutar"
+    End Sub
     Private Sub temizle()
         txtStokKodu.Text = ""
         txtStokAdi.Text = ""
@@ -52,78 +92,11 @@
         txtBirimFiyat.Text = ""
         txtTutar.Text = ""
     End Sub
-
-    Dim stokAdi As String
-    Dim stokKodu As String
-    Dim stokMiktar As String
-    Dim stokBirim As String
-    Dim stokBFiyat As String
-    Dim stokTutar As String
-    Private Sub btnSil_Click(sender As Object, e As EventArgs) Handles btnSil.Click
-        Dim fID As Integer = Convert.ToInt32(lblFisId.Text)
-        Dim gfEkle = db.Fis.Where(Function(f) f.Fis_ID = fID).FirstOrDefault()
-        If dgFisListe.Rows.Count > 0 Then
-            Dim id As Integer = Convert.ToInt32(dgFisListe.CurrentRow.Cells(6).Value)
-            Dim bul = db.Urun.Where(Function(u) u.Urun_ID = id).FirstOrDefault()
-            Dim sm As Integer = bul.Stok_Miktar
-            bul.Stok_Miktar = sm + Convert.ToInt32(dgFisListe.CurrentRow.Cells(2).Value)
-            db.SaveChanges()
-            For Each row As DataGridViewRow In dgFisListe.SelectedRows
-                dgFisListe.Rows.Remove(row)
-            Next
-            For i = 0 To dgFisListe.Rows.Count - 1 Step 1
-                If Not i = dgFisListe.Rows.Count - 1 Then
-                    stokKodu += Convert.ToString(dgFisListe.Rows(i).Cells(0).Value & ";")
-                    stokAdi += Convert.ToString(dgFisListe.Rows(i).Cells(1).Value & ";")
-                    stokMiktar += Convert.ToString(dgFisListe.Rows(i).Cells(2).Value & ";")
-                    stokBirim += Convert.ToString(dgFisListe.Rows(i).Cells(3).Value & ";")
-                    stokBFiyat += Convert.ToString(dgFisListe.Rows(i).Cells(4).Value & ";")
-                    stokTutar += Convert.ToString(dgFisListe.Rows(i).Cells(5).Value & ";")
-                Else
-                    stokKodu += Convert.ToString(dgFisListe.Rows(i).Cells(0).Value)
-                    stokAdi += Convert.ToString(dgFisListe.Rows(i).Cells(1).Value)
-                    stokMiktar += Convert.ToString(dgFisListe.Rows(i).Cells(2).Value)
-                    stokBirim += Convert.ToString(dgFisListe.Rows(i).Cells(3).Value)
-                    stokBFiyat += Convert.ToString(dgFisListe.Rows(i).Cells(4).Value)
-                    stokTutar += Convert.ToString(dgFisListe.Rows(i).Cells(5).Value)
-                End If
-            Next
-        End If
-        MsgBox("Urun Silindi.", MsgBoxStyle.Information, "Bilgi")
-    End Sub
-
-    Private Sub btnIptal_Click(sender As Object, e As EventArgs) Handles btnIptal.Click
-        Me.Close()
-    End Sub
-
-    Private Sub btnKaydet_Click(sender As Object, e As EventArgs) Handles btnKaydet.Click
-        Dim fID As Integer = Convert.ToInt32(lblFisId.Text)
-        Dim cfEkle = db.Fis.Where(Function(f) f.Fis_ID = fID).FirstOrDefault()
-        If dgFisListe.Rows.Count > 0 Then
-            For i = 0 To dgFisListe.Rows.Count - 1 Step 1
-                If Not i = dgFisListe.Rows.Count - 1 Then
-                    stokKodu += Convert.ToString(dgFisListe.Rows(i).Cells(0).Value & ";")
-                    stokAdi += Convert.ToString(dgFisListe.Rows(i).Cells(1).Value & ";")
-                    stokMiktar += Convert.ToString(dgFisListe.Rows(i).Cells(2).Value & ";")
-                    stokBirim += Convert.ToString(dgFisListe.Rows(i).Cells(3).Value & ";")
-                    stokBFiyat += Convert.ToString(dgFisListe.Rows(i).Cells(4).Value & ";")
-                    stokTutar += Convert.ToString(dgFisListe.Rows(i).Cells(5).Value & ";")
-                Else
-                    stokKodu += Convert.ToString(dgFisListe.Rows(i).Cells(0).Value)
-                    stokAdi += Convert.ToString(dgFisListe.Rows(i).Cells(1).Value)
-                    stokMiktar += Convert.ToString(dgFisListe.Rows(i).Cells(2).Value)
-                    stokBirim += Convert.ToString(dgFisListe.Rows(i).Cells(3).Value)
-                    stokBFiyat += Convert.ToString(dgFisListe.Rows(i).Cells(4).Value)
-                    stokTutar += Convert.ToString(dgFisListe.Rows(i).Cells(5).Value)
-                End If
-                Dim gID As Integer = Convert.ToInt32(dgFisListe.Rows(i).Cells(6).Value)
-                Dim gBul = db.Urun.Where(Function(u) u.Urun_ID = gID).FirstOrDefault()
-                Dim gSm As Integer = gBul.Stok_Miktar
-                gBul.Stok_Miktar = gSm - Convert.ToInt32(dgFisListe.Rows(i).Cells(2).Value)
-                db.SaveChanges()
-            Next
-        End If
-        MsgBox("Fis Güncelleme Başarılı.", MsgBoxStyle.Information, "Bilgi")
-        Me.Close()
+    Public Sub hesapla()
+        'Dim fID As Integer = Convert.ToInt32(lblFisId.Text)
+        'Dim toplamMiktar = db.Fis_Detay.Where(Function(m) m.Fis_ID = fID).Sum(Function(m) m.Miktar)
+        'Dim toplamTutar = db.Fis_Detay.Where(Function(t) t.Fis_ID = fID).Sum(Function(t) t.Tutar)
+        'txtTopBirim.Text = toplamMiktar.ToString()
+        'txtTopTutar.Text = toplamTutar.ToString()
     End Sub
 End Class
