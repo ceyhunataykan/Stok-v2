@@ -82,8 +82,14 @@
 
             StokGirisDuzenle.txtFisNo.Text = fisSec.fisNo
             StokGirisDuzenle.lblFisId.Text = fisSec.fisID
+            StokGirisDuzenle.txtAciklama.Text = fisSec.fisAciklama
             StokGirisDuzenle.cmbDepo.SelectedValue = fisSec.fisDepo
             StokGirisDuzenle.cmbBolum.SelectedValue = fisSec.fisBolum
+
+            Dim toplamMiktar = db.Fis_Detay.Where(Function(m) m.Fis_ID = fisSec.fisID).Sum(Function(m) m.Miktar)
+            Dim toplamTutar = db.Fis_Detay.Where(Function(t) t.Fis_ID = fisSec.fisID).Sum(Function(t) t.Tutar)
+            StokGirisDuzenle.txtTopBirim.Text = toplamMiktar.ToString()
+            StokGirisDuzenle.txtTopTutar.Text = toplamTutar.ToString()
 
         ElseIf dgFisListe.CurrentRow.Cells("fisTur").Value = "Stok Çıkış" Then
             StokCikisDuzenle.Show()
@@ -91,7 +97,7 @@
             StokCikisDuzenle.dgFisListe.DataSource = fisDetay
             StokCikisDuzenle.dgFisListe.Columns("detayID").Visible = False
             StokCikisDuzenle.dgFisListe.Columns("urunID").Visible = False
-            StokGirisDuzenle.dgFisListe.Columns("fisID").Visible = False
+            StokCikisDuzenle.dgFisListe.Columns("fisID").Visible = False
             StokCikisDuzenle.dgFisListe.Columns("stokKodu").HeaderText = "Stok Kodu"
             StokCikisDuzenle.dgFisListe.Columns("stokAdi").HeaderText = "Stok Adı"
             StokCikisDuzenle.dgFisListe.Columns("stokMiktar").HeaderText = "Miktar"
@@ -100,8 +106,14 @@
 
             StokCikisDuzenle.txtFisNo.Text = fisSec.fisNo
             StokCikisDuzenle.lblFisId.Text = fisSec.fisID
+            StokCikisDuzenle.txtAciklama.Text = fisSec.fisAciklama
             StokCikisDuzenle.cmbDepo.SelectedValue = fisSec.fisDepo
             StokCikisDuzenle.cmbBolum.SelectedValue = fisSec.fisBolum
+
+            Dim toplamMiktar = db.Fis_Detay.Where(Function(m) m.Fis_ID = fisSec.fisID).Sum(Function(m) m.Miktar)
+            Dim toplamTutar = db.Fis_Detay.Where(Function(t) t.Fis_ID = fisSec.fisID).Sum(Function(t) t.Tutar)
+            StokCikisDuzenle.txtTopBirim.Text = toplamMiktar.ToString()
+            StokCikisDuzenle.txtTopTutar.Text = toplamTutar.ToString()
         End If
     End Sub
 

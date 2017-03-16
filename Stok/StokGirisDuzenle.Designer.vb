@@ -48,7 +48,6 @@ Partial Class StokGirisDuzenle
         Me.Label9 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.cmbDepo = New System.Windows.Forms.ComboBox()
-        Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.txtAciklama = New System.Windows.Forms.TextBox()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -57,6 +56,7 @@ Partial Class StokGirisDuzenle
         Me.txtTopBirim = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnFisDuzenle = New DevExpress.XtraEditors.SimpleButton()
         Me.lblFisId = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.dtpFisTarihi = New System.Windows.Forms.DateTimePicker()
@@ -65,12 +65,11 @@ Partial Class StokGirisDuzenle
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cmbBolum = New System.Windows.Forms.ComboBox()
-        Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
+        Me.Label15 = New System.Windows.Forms.Label()
         CType(Me.dgFisListe, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.nudMiktar, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.GroupBox3.SuspendLayout()
         Me.GroupBox5.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -94,7 +93,7 @@ Partial Class StokGirisDuzenle
         Me.GroupBox4.Controls.Add(Me.dgFisListe)
         Me.GroupBox4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.GroupBox4.ForeColor = System.Drawing.Color.DimGray
-        Me.GroupBox4.Location = New System.Drawing.Point(12, 313)
+        Me.GroupBox4.Location = New System.Drawing.Point(12, 348)
         Me.GroupBox4.Name = "GroupBox4"
         Me.GroupBox4.Size = New System.Drawing.Size(556, 172)
         Me.GroupBox4.TabIndex = 70
@@ -176,7 +175,7 @@ Partial Class StokGirisDuzenle
         Me.GroupBox2.Controls.Add(Me.Label8)
         Me.GroupBox2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.Color.DimGray
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 171)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 206)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(556, 136)
         Me.GroupBox2.TabIndex = 63
@@ -349,24 +348,12 @@ Partial Class StokGirisDuzenle
         Me.cmbDepo.Size = New System.Drawing.Size(121, 21)
         Me.cmbDepo.TabIndex = 6
         '
-        'GroupBox3
-        '
-        Me.GroupBox3.Controls.Add(Me.txtAciklama)
-        Me.GroupBox3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
-        Me.GroupBox3.ForeColor = System.Drawing.Color.DimGray
-        Me.GroupBox3.Location = New System.Drawing.Point(12, 491)
-        Me.GroupBox3.Name = "GroupBox3"
-        Me.GroupBox3.Size = New System.Drawing.Size(302, 92)
-        Me.GroupBox3.TabIndex = 64
-        Me.GroupBox3.TabStop = False
-        Me.GroupBox3.Text = "Açıklama"
-        '
         'txtAciklama
         '
-        Me.txtAciklama.Location = New System.Drawing.Point(14, 29)
+        Me.txtAciklama.Location = New System.Drawing.Point(87, 76)
         Me.txtAciklama.Multiline = True
         Me.txtAciklama.Name = "txtAciklama"
-        Me.txtAciklama.Size = New System.Drawing.Size(270, 45)
+        Me.txtAciklama.Size = New System.Drawing.Size(193, 66)
         Me.txtAciklama.TabIndex = 0
         '
         'GroupBox5
@@ -378,9 +365,9 @@ Partial Class StokGirisDuzenle
         Me.GroupBox5.Controls.Add(Me.Label16)
         Me.GroupBox5.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.GroupBox5.ForeColor = System.Drawing.Color.DimGray
-        Me.GroupBox5.Location = New System.Drawing.Point(320, 491)
+        Me.GroupBox5.Location = New System.Drawing.Point(12, 526)
         Me.GroupBox5.Name = "GroupBox5"
-        Me.GroupBox5.Size = New System.Drawing.Size(248, 92)
+        Me.GroupBox5.Size = New System.Drawing.Size(556, 62)
         Me.GroupBox5.TabIndex = 65
         Me.GroupBox5.TabStop = False
         Me.GroupBox5.Text = "Fiş Toplamı"
@@ -390,7 +377,7 @@ Partial Class StokGirisDuzenle
         Me.Label13.AutoSize = True
         Me.Label13.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.Label13.ForeColor = System.Drawing.Color.DimGray
-        Me.Label13.Location = New System.Drawing.Point(206, 56)
+        Me.Label13.Location = New System.Drawing.Point(506, 28)
         Me.Label13.Name = "Label13"
         Me.Label13.Size = New System.Drawing.Size(20, 13)
         Me.Label13.TabIndex = 28
@@ -398,9 +385,10 @@ Partial Class StokGirisDuzenle
         '
         'txtTopTutar
         '
-        Me.txtTopTutar.Location = New System.Drawing.Point(105, 53)
+        Me.txtTopTutar.Enabled = False
+        Me.txtTopTutar.Location = New System.Drawing.Point(368, 25)
         Me.txtTopTutar.Name = "txtTopTutar"
-        Me.txtTopTutar.Size = New System.Drawing.Size(95, 21)
+        Me.txtTopTutar.Size = New System.Drawing.Size(132, 21)
         Me.txtTopTutar.TabIndex = 27
         '
         'Label14
@@ -408,7 +396,7 @@ Partial Class StokGirisDuzenle
         Me.Label14.AutoSize = True
         Me.Label14.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.Label14.ForeColor = System.Drawing.Color.DimGray
-        Me.Label14.Location = New System.Drawing.Point(12, 56)
+        Me.Label14.Location = New System.Drawing.Point(275, 28)
         Me.Label14.Name = "Label14"
         Me.Label14.Size = New System.Drawing.Size(89, 13)
         Me.Label14.TabIndex = 26
@@ -416,9 +404,10 @@ Partial Class StokGirisDuzenle
         '
         'txtTopBirim
         '
-        Me.txtTopBirim.Location = New System.Drawing.Point(105, 27)
+        Me.txtTopBirim.Enabled = False
+        Me.txtTopBirim.Location = New System.Drawing.Point(130, 25)
         Me.txtTopBirim.Name = "txtTopBirim"
-        Me.txtTopBirim.Size = New System.Drawing.Size(95, 21)
+        Me.txtTopBirim.Size = New System.Drawing.Size(139, 21)
         Me.txtTopBirim.TabIndex = 24
         '
         'Label16
@@ -426,7 +415,7 @@ Partial Class StokGirisDuzenle
         Me.Label16.AutoSize = True
         Me.Label16.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.Label16.ForeColor = System.Drawing.Color.DimGray
-        Me.Label16.Location = New System.Drawing.Point(12, 30)
+        Me.Label16.Location = New System.Drawing.Point(37, 28)
         Me.Label16.Name = "Label16"
         Me.Label16.Size = New System.Drawing.Size(87, 13)
         Me.Label16.TabIndex = 23
@@ -434,7 +423,9 @@ Partial Class StokGirisDuzenle
         '
         'GroupBox1
         '
-        Me.GroupBox1.Controls.Add(Me.SimpleButton1)
+        Me.GroupBox1.Controls.Add(Me.Label15)
+        Me.GroupBox1.Controls.Add(Me.txtAciklama)
+        Me.GroupBox1.Controls.Add(Me.btnFisDuzenle)
         Me.GroupBox1.Controls.Add(Me.lblFisId)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.dtpFisTarihi)
@@ -448,10 +439,20 @@ Partial Class StokGirisDuzenle
         Me.GroupBox1.ForeColor = System.Drawing.Color.DimGray
         Me.GroupBox1.Location = New System.Drawing.Point(12, 42)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(556, 123)
+        Me.GroupBox1.Size = New System.Drawing.Size(556, 158)
         Me.GroupBox1.TabIndex = 62
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Fiş Bilgileri"
+        '
+        'btnFisDuzenle
+        '
+        Me.btnFisDuzenle.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
+        Me.btnFisDuzenle.Image = CType(resources.GetObject("btnFisDuzenle.Image"), System.Drawing.Image)
+        Me.btnFisDuzenle.Location = New System.Drawing.Point(448, 119)
+        Me.btnFisDuzenle.Name = "btnFisDuzenle"
+        Me.btnFisDuzenle.Size = New System.Drawing.Size(102, 23)
+        Me.btnFisDuzenle.TabIndex = 44
+        Me.btnFisDuzenle.Text = "Fiş Düzenle"
         '
         'lblFisId
         '
@@ -530,15 +531,16 @@ Partial Class StokGirisDuzenle
         Me.cmbBolum.Size = New System.Drawing.Size(121, 21)
         Me.cmbBolum.TabIndex = 7
         '
-        'SimpleButton1
+        'Label15
         '
-        Me.SimpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
-        Me.SimpleButton1.Image = CType(resources.GetObject("SimpleButton1.Image"), System.Drawing.Image)
-        Me.SimpleButton1.Location = New System.Drawing.Point(448, 88)
-        Me.SimpleButton1.Name = "SimpleButton1"
-        Me.SimpleButton1.Size = New System.Drawing.Size(102, 23)
-        Me.SimpleButton1.TabIndex = 44
-        Me.SimpleButton1.Text = "Fiş Düzenle"
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
+        Me.Label15.ForeColor = System.Drawing.Color.DimGray
+        Me.Label15.Location = New System.Drawing.Point(16, 79)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(65, 13)
+        Me.Label15.TabIndex = 45
+        Me.Label15.Text = "Açıklama :"
         '
         'StokGirisDuzenle
         '
@@ -551,7 +553,6 @@ Partial Class StokGirisDuzenle
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.btnIptal)
         Me.Controls.Add(Me.GroupBox2)
-        Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox1)
         Me.Name = "StokGirisDuzenle"
@@ -562,8 +563,6 @@ Partial Class StokGirisDuzenle
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.nudMiktar, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.GroupBox3.ResumeLayout(False)
-        Me.GroupBox3.PerformLayout()
         Me.GroupBox5.ResumeLayout(False)
         Me.GroupBox5.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)
@@ -596,7 +595,6 @@ Partial Class StokGirisDuzenle
     Friend WithEvents Label9 As Label
     Friend WithEvents Label8 As Label
     Friend WithEvents cmbDepo As ComboBox
-    Friend WithEvents GroupBox3 As GroupBox
     Friend WithEvents txtAciklama As TextBox
     Friend WithEvents GroupBox5 As GroupBox
     Friend WithEvents Label13 As Label
@@ -613,5 +611,6 @@ Partial Class StokGirisDuzenle
     Friend WithEvents Label4 As Label
     Friend WithEvents cmbBolum As ComboBox
     Friend WithEvents lblFisId As Label
-    Friend WithEvents SimpleButton1 As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents btnFisDuzenle As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents Label15 As Label
 End Class
