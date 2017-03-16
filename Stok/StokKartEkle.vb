@@ -59,22 +59,30 @@ Public Class StokKartEkle
     End Sub
 
     Private Sub StokKartEkle_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        cmbDoldur()
+    End Sub
+    Public Sub cmbDoldur()
         Dim ktgListe As IList(Of Kategori) = db.Kategori.ToList()
         cmbKategori.DataSource = ktgListe
         cmbKategori.DisplayMember = "Kategori_Adi"
         cmbKategori.ValueMember = "Kategori_ID"
+        cmbKategori.SelectedIndex = -1
+        cmbKategori.SelectedText = "Seçiniz"
 
         Dim brmListe As IList(Of Birim) = db.Birim.ToList()
         cmbBirim.DataSource = brmListe
         cmbBirim.DisplayMember = "Birim_Adi"
         cmbBirim.ValueMember = "Birim_ID"
+        cmbBirim.SelectedIndex = -1
+        cmbBirim.SelectedText = "Seçiniz"
 
         Dim depoListe As IList(Of Depo) = db.Depo.ToList()
         cmbDepo.DataSource = depoListe
         cmbDepo.DisplayMember = "Depo_Adi"
         cmbDepo.ValueMember = "Depo_ID"
+        cmbDepo.SelectedIndex = -1
+        cmbDepo.SelectedText = "Seçiniz"
     End Sub
-
     Private Sub temizle()
         txtStokKodu.Text = String.Empty
         txtStokAdi.Text = String.Empty
@@ -86,5 +94,6 @@ Public Class StokKartEkle
         nudTSeviye.Value = 0
         PictureBox1.Image = Nothing
         ckbAktif.Checked = False
+        cmbDoldur()
     End Sub
 End Class

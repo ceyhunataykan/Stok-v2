@@ -1,5 +1,6 @@
 ﻿Imports System.Data.Entity.SqlServer
 Imports System.Data.Linq.SqlClient
+Imports System.Drawing.Imaging
 Public Class StokKart
     Dim db As StokEntities = New StokEntities()
     Private Sub StokKart_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -11,13 +12,12 @@ Public Class StokKart
     Private Sub listele()
         Try
             Dim urunListe = (From u In db.Urun
-                             Join b In db.Birim On u.Birim_ID Equals b.Birim_ID
                              Select
                                  stokID = u.Urun_ID,
                                  stokKodu = u.Stok_Kodu,
                                  stokAdi = u.Stok_Adi,
                                  stokMiktar = u.Stok_Miktar,
-                                 stokBirim = b.Birim_Adi,
+                                 stokBirim = u.Birim.Birim_Adi,
                                  stokTseviye = u.Stok_TSeviye).ToList()
             dgListe.DataSource = urunListe
             dgListe.Columns("stokID").Visible = False
@@ -58,14 +58,13 @@ Public Class StokKart
             renklendir()
         ElseIf cmbDurum.SelectedItem = "Aktif" Then
             Dim urunListe = (From u In db.Urun
-                             Join b In db.Birim On u.Birim_ID Equals b.Birim_ID
                              Where u.Durum = True
                              Select
                                  stokID = u.Urun_ID,
                                  stokKodu = u.Stok_Kodu,
                                  stokAdi = u.Stok_Adi,
                                  stokMiktar = u.Stok_Miktar,
-                                 stokBirim = b.Birim_Adi,
+                                 stokBirim = u.Birim.Birim_Adi,
                                  stokTseviye = u.Stok_TSeviye).ToList()
             dgListe.DataSource = urunListe
             dgListe.Columns("stokID").Visible = False
@@ -77,14 +76,13 @@ Public Class StokKart
             renklendir()
         ElseIf cmbDurum.SelectedItem = "Pasif" Then
             Dim urunListe = (From u In db.Urun
-                             Join b In db.Birim On u.Birim_ID Equals b.Birim_ID
                              Where u.Durum = False
                              Select
                                  stokID = u.Urun_ID,
                                  stokKodu = u.Stok_Kodu,
                                  stokAdi = u.Stok_Adi,
                                  stokMiktar = u.Stok_Miktar,
-                                 stokBirim = b.Birim_Adi,
+                                 stokBirim = u.Birim.Birim_Adi,
                                  stokTseviye = u.Stok_TSeviye).ToList()
             dgListe.DataSource = urunListe
             dgListe.Columns("stokID").Visible = False
@@ -101,14 +99,13 @@ Public Class StokKart
             Dim kod As Integer = Convert.ToInt32(txtAra.Text)
 
             Dim urunListe = (From u In db.Urun
-                             Join b In db.Birim On u.Birim_ID Equals b.Birim_ID
                              Where SqlFunctions.StringConvert(u.Stok_Kodu).Contains(kod.ToString())
                              Select
                                  stokID = u.Urun_ID,
                                  stokKodu = u.Stok_Kodu,
                                  stokAdi = u.Stok_Adi,
                                  stokMiktar = u.Stok_Miktar,
-                                 stokBirim = b.Birim_Adi,
+                                 stokBirim = u.Birim.Birim_Adi,
                                  stokTseviye = u.Stok_TSeviye).ToList()
             dgListe.DataSource = urunListe
             dgListe.Columns("stokID").Visible = False
@@ -184,6 +181,9 @@ Public Class StokKart
         End If
     End Sub
     Private Sub btnSil_Click(sender As Object, e As EventArgs) Handles btnSil.Click
+        If MsgBox("Ürünü Silmek İstiyor musunuz?", MsgBoxStyle.YesNo, "Uyarı") = MsgBoxResult.No Then
+            Return
+        End If
         Try
             If dgListe.Rows.Count > 0 Then
                 Dim uID As Integer = Convert.ToInt32(dgListe.CurrentRow.Cells("stokID").Value)
@@ -205,6 +205,33 @@ Public Class StokKart
             btnSec.Enabled = True
         Else
             btnSec.Enabled = False
+        End If
+    End Sub
+
+    Private Sub btnDuzenle_Click(sender As Object, e As EventArgs) Handles btnDuzenle.Click
+        Dim id As Integer = Convert.ToInt32(dgListe.CurrentRow.Cells("stokID").Value)
+        Dim guncelle = db.Urun.Where(Function(u) u.Urun_ID = id).FirstOrDefault()
+        If Not guncelle Is Nothing Then
+            StokKartDuzenle.Show()
+            If guncelle.Durum = True Then
+                StokKartDuzenle.ckbAktif.Checked = True
+            Else
+                StokKartDuzenle.ckbAktif.Checked = False
+            End If
+            StokKartDuzenle.lblUrunID.Text = guncelle.Urun_ID
+            StokKartDuzenle.DateTimePicker1.Value = guncelle.Stok_KayitTarihi
+            StokKartDuzenle.txtSk.Text = guncelle.Stok_Kodu
+            StokKartDuzenle.txtBarkod.Text = guncelle.Stok_Barkod
+            StokKartDuzenle.txtStokAdi.Text = guncelle.Stok_Adi
+            StokKartDuzenle.cmbKategori.SelectedValue = guncelle.Kategori_ID
+            StokKartDuzenle.nudMiktar.Value = guncelle.Stok_Miktar
+            StokKartDuzenle.nudTSeviye.Value = guncelle.Stok_TSeviye
+            StokKartDuzenle.cmbBirim.SelectedValue = guncelle.Birim_ID
+            StokKartDuzenle.cmbDepo.SelectedValue = guncelle.Depo_ID
+            StokKartDuzenle.txtAlisFiyati.Text = guncelle.Stok_AFiyati
+            StokKartDuzenle.txtSatisFiyati.Text = guncelle.Stok_SFiyati
+            StokKartDuzenle.txtKdv.Text = guncelle.Stok_Kdv
+            StokKartDuzenle.PictureBox1.Image = Nothing
         End If
     End Sub
 End Class

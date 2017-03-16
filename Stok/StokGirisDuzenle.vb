@@ -9,6 +9,7 @@
         cmbBolum.DataSource = bolumListe
         cmbBolum.DisplayMember = "Bolum_Adi"
         cmbBolum.ValueMember = "Bolum_ID"
+
     End Sub
     Private Sub btnListeEkle_Click(sender As Object, e As EventArgs) Handles btnListeEkle.Click
         Dim fID As Integer = Convert.ToInt32(lblFisId.Text)

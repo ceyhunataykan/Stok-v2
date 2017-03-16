@@ -34,8 +34,9 @@ Partial Class StokKartDuzenle
         Me.Label15 = New System.Windows.Forms.Label()
         Me.nudMiktar = New System.Windows.Forms.NumericUpDown()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.lblUrunID = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.txtStokKodu = New System.Windows.Forms.TextBox()
+        Me.txtSk = New System.Windows.Forms.TextBox()
         Me.txtStokAdi = New System.Windows.Forms.TextBox()
         Me.cmbKategori = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -172,13 +173,14 @@ Partial Class StokKartDuzenle
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.lblUrunID)
         Me.GroupBox1.Controls.Add(Me.Label16)
         Me.GroupBox1.Controls.Add(Me.DateTimePicker1)
         Me.GroupBox1.Controls.Add(Me.nudTSeviye)
         Me.GroupBox1.Controls.Add(Me.Label15)
         Me.GroupBox1.Controls.Add(Me.nudMiktar)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.txtStokKodu)
+        Me.GroupBox1.Controls.Add(Me.txtSk)
         Me.GroupBox1.Controls.Add(Me.txtStokAdi)
         Me.GroupBox1.Controls.Add(Me.cmbKategori)
         Me.GroupBox1.Controls.Add(Me.Label2)
@@ -210,6 +212,15 @@ Partial Class StokKartDuzenle
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Ürün Bilgileri"
         '
+        'lblUrunID
+        '
+        Me.lblUrunID.AutoSize = True
+        Me.lblUrunID.Location = New System.Drawing.Point(429, 17)
+        Me.lblUrunID.Name = "lblUrunID"
+        Me.lblUrunID.Size = New System.Drawing.Size(50, 13)
+        Me.lblUrunID.TabIndex = 44
+        Me.lblUrunID.Text = "Urun ID"
+        '
         'Label1
         '
         Me.Label1.AutoSize = True
@@ -221,12 +232,12 @@ Partial Class StokKartDuzenle
         Me.Label1.TabIndex = 8
         Me.Label1.Text = "Stok Kodu :"
         '
-        'txtStokKodu
+        'txtSk
         '
-        Me.txtStokKodu.Location = New System.Drawing.Point(102, 80)
-        Me.txtStokKodu.Name = "txtStokKodu"
-        Me.txtStokKodu.Size = New System.Drawing.Size(142, 21)
-        Me.txtStokKodu.TabIndex = 7
+        Me.txtSk.Location = New System.Drawing.Point(102, 80)
+        Me.txtSk.Name = "txtSk"
+        Me.txtSk.Size = New System.Drawing.Size(142, 21)
+        Me.txtSk.TabIndex = 7
         '
         'txtStokAdi
         '
@@ -465,7 +476,7 @@ Partial Class StokKartDuzenle
         Me.btnIptal.Appearance.Options.UseForeColor = True
         Me.btnIptal.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
         Me.btnIptal.Image = CType(resources.GetObject("btnIptal.Image"), System.Drawing.Image)
-        Me.btnIptal.Location = New System.Drawing.Point(456, 371)
+        Me.btnIptal.Location = New System.Drawing.Point(444, 371)
         Me.btnIptal.Name = "btnIptal"
         Me.btnIptal.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.btnIptal.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.[False]
@@ -479,7 +490,7 @@ Partial Class StokKartDuzenle
         Me.btnKaydet.Appearance.Options.UseForeColor = True
         Me.btnKaydet.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
         Me.btnKaydet.Image = CType(resources.GetObject("btnKaydet.Image"), System.Drawing.Image)
-        Me.btnKaydet.Location = New System.Drawing.Point(365, 371)
+        Me.btnKaydet.Location = New System.Drawing.Point(353, 371)
         Me.btnKaydet.Name = "btnKaydet"
         Me.btnKaydet.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.btnKaydet.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.[False]
@@ -500,6 +511,7 @@ Partial Class StokKartDuzenle
         Me.Controls.Add(Me.btnIptal)
         Me.Controls.Add(Me.btnKaydet)
         Me.Name = "StokKartDuzenle"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Stok Kart Duzenle"
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -523,7 +535,7 @@ Partial Class StokKartDuzenle
     Friend WithEvents nudMiktar As NumericUpDown
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Label1 As Label
-    Friend WithEvents txtStokKodu As TextBox
+    Friend WithEvents txtSk As TextBox
     Friend WithEvents txtStokAdi As TextBox
     Friend WithEvents cmbKategori As ComboBox
     Friend WithEvents Label2 As Label
@@ -550,4 +562,5 @@ Partial Class StokKartDuzenle
     Friend WithEvents Panel2 As Panel
     Friend WithEvents btnIptal As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents btnKaydet As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents lblUrunID As Label
 End Class

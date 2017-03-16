@@ -16,10 +16,14 @@ Public Class StokHareket
         cmbDepo.DisplayMember = "Depo_Adi"
         cmbDepo.ValueMember = "Depo_ID"
         cmbDepo.DataSource = db.Depo.ToList()
+        cmbDepo.SelectedIndex = -1
+        cmbDepo.SelectedText = "Seçiniz"
 
         cmbBolum.DisplayMember = "Bolum_Adi"
         cmbBolum.ValueMember = "Bolum_ID"
         cmbBolum.DataSource = db.Bolum.ToList()
+        cmbBolum.SelectedIndex = -1
+        cmbBolum.SelectedText = "Seçiniz"
 
         listele()
     End Sub
@@ -44,7 +48,7 @@ Public Class StokHareket
 
     Private Sub btnDuzenle_Click(sender As Object, e As EventArgs) Handles btnDuzenle.Click
         If dgFisListe.SelectedRows.Count = 0 Then
-            MsgBox("Düzenlemek için bir kayıt seçiniz", MsgBoxStyle.Exclamation, "Hata")
+            MsgBox("Düzenlemek için bir kayıt seçiniz", MsgBoxStyle.Exclamation, "Uyarı")
             Return
         End If
         Dim fID As Integer = Convert.ToInt32(dgFisListe.CurrentRow.Cells("fisID").Value)
@@ -218,5 +222,11 @@ Public Class StokHareket
         dgFisListe.Columns("fisTarih").HeaderText = "Tarih"
         dgFisListe.Columns("fisDepo").HeaderText = "Depo"
         dgFisListe.Columns("fisBolum").HeaderText = "Bölüm"
+    End Sub
+
+    Private Sub txtAra_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtAra.KeyPress
+        If Not (Char.IsNumber(e.KeyChar) = True) And e.KeyChar <> ChrW(Keys.Back) Then
+            e.Handled = True
+        End If
     End Sub
 End Class

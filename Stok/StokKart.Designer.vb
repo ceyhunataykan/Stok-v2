@@ -178,7 +178,7 @@ Partial Class StokKart
         Me.dgListe.Name = "dgListe"
         Me.dgListe.ReadOnly = True
         Me.dgListe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgListe.Size = New System.Drawing.Size(652, 296)
+        Me.dgListe.Size = New System.Drawing.Size(652, 295)
         Me.dgListe.TabIndex = 0
         '
         'Panel2
