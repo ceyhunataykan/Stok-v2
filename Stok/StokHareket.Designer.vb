@@ -36,11 +36,12 @@ Partial Class StokHareket
         Me.dtpTarih = New System.Windows.Forms.DateTimePicker()
         Me.SimpleButton1 = New DevExpress.XtraEditors.SimpleButton()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.btnTum = New DevExpress.XtraEditors.SimpleButton()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.dgFisListe = New System.Windows.Forms.DataGridView()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.btnDetay = New DevExpress.XtraEditors.SimpleButton()
-        Me.dgFisListe = New System.Windows.Forms.DataGridView()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgFisListe, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -51,7 +52,7 @@ Partial Class StokHareket
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.DimGray
-        Me.Label2.Location = New System.Drawing.Point(10, 24)
+        Me.Label2.Location = New System.Drawing.Point(10, 29)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(42, 13)
         Me.Label2.TabIndex = 17
@@ -60,7 +61,7 @@ Partial Class StokHareket
         'cmbDepo
         '
         Me.cmbDepo.FormattingEnabled = True
-        Me.cmbDepo.Location = New System.Drawing.Point(58, 20)
+        Me.cmbDepo.Location = New System.Drawing.Point(58, 25)
         Me.cmbDepo.Name = "cmbDepo"
         Me.cmbDepo.Size = New System.Drawing.Size(87, 21)
         Me.cmbDepo.TabIndex = 16
@@ -70,7 +71,7 @@ Partial Class StokHareket
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.DimGray
-        Me.Label1.Location = New System.Drawing.Point(334, 26)
+        Me.Label1.Location = New System.Drawing.Point(310, 31)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(45, 13)
         Me.Label1.TabIndex = 15
@@ -78,9 +79,9 @@ Partial Class StokHareket
         '
         'txtAra
         '
-        Me.txtAra.Location = New System.Drawing.Point(385, 22)
+        Me.txtAra.Location = New System.Drawing.Point(361, 27)
         Me.txtAra.Name = "txtAra"
-        Me.txtAra.Size = New System.Drawing.Size(114, 21)
+        Me.txtAra.Size = New System.Drawing.Size(119, 21)
         Me.txtAra.TabIndex = 14
         '
         'btnSil
@@ -89,7 +90,7 @@ Partial Class StokHareket
         Me.btnSil.Appearance.Options.UseForeColor = True
         Me.btnSil.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
         Me.btnSil.Image = CType(resources.GetObject("btnSil.Image"), System.Drawing.Image)
-        Me.btnSil.Location = New System.Drawing.Point(710, 416)
+        Me.btnSil.Location = New System.Drawing.Point(711, 420)
         Me.btnSil.Name = "btnSil"
         Me.btnSil.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.btnSil.Size = New System.Drawing.Size(85, 26)
@@ -102,7 +103,7 @@ Partial Class StokHareket
         Me.btnDuzenle.Appearance.Options.UseForeColor = True
         Me.btnDuzenle.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
         Me.btnDuzenle.Image = CType(resources.GetObject("btnDuzenle.Image"), System.Drawing.Image)
-        Me.btnDuzenle.Location = New System.Drawing.Point(619, 416)
+        Me.btnDuzenle.Location = New System.Drawing.Point(620, 420)
         Me.btnDuzenle.Name = "btnDuzenle"
         Me.btnDuzenle.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.btnDuzenle.Size = New System.Drawing.Size(85, 26)
@@ -115,7 +116,7 @@ Partial Class StokHareket
         Me.btnEkle.Appearance.Options.UseForeColor = True
         Me.btnEkle.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
         Me.btnEkle.Image = CType(resources.GetObject("btnEkle.Image"), System.Drawing.Image)
-        Me.btnEkle.Location = New System.Drawing.Point(13, 416)
+        Me.btnEkle.Location = New System.Drawing.Point(14, 420)
         Me.btnEkle.Name = "btnEkle"
         Me.btnEkle.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.btnEkle.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.[False]
@@ -128,7 +129,7 @@ Partial Class StokHareket
         Me.Label3.AutoSize = True
         Me.Label3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.Label3.ForeColor = System.Drawing.Color.DimGray
-        Me.Label3.Location = New System.Drawing.Point(153, 25)
+        Me.Label3.Location = New System.Drawing.Point(153, 30)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(48, 13)
         Me.Label3.TabIndex = 19
@@ -137,7 +138,7 @@ Partial Class StokHareket
         'cmbBolum
         '
         Me.cmbBolum.FormattingEnabled = True
-        Me.cmbBolum.Location = New System.Drawing.Point(207, 21)
+        Me.cmbBolum.Location = New System.Drawing.Point(207, 26)
         Me.cmbBolum.Name = "cmbBolum"
         Me.cmbBolum.Size = New System.Drawing.Size(87, 21)
         Me.cmbBolum.TabIndex = 18
@@ -147,7 +148,7 @@ Partial Class StokHareket
         Me.Label4.AutoSize = True
         Me.Label4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.Label4.ForeColor = System.Drawing.Color.DimGray
-        Me.Label4.Location = New System.Drawing.Point(516, 26)
+        Me.Label4.Location = New System.Drawing.Point(494, 31)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(42, 13)
         Me.Label4.TabIndex = 20
@@ -155,9 +156,10 @@ Partial Class StokHareket
         '
         'dtpTarih
         '
-        Me.dtpTarih.Location = New System.Drawing.Point(564, 22)
+        Me.dtpTarih.Format = System.Windows.Forms.DateTimePickerFormat.[Short]
+        Me.dtpTarih.Location = New System.Drawing.Point(542, 27)
         Me.dtpTarih.Name = "dtpTarih"
-        Me.dtpTarih.Size = New System.Drawing.Size(206, 21)
+        Me.dtpTarih.Size = New System.Drawing.Size(110, 21)
         Me.dtpTarih.TabIndex = 21
         '
         'SimpleButton1
@@ -166,7 +168,7 @@ Partial Class StokHareket
         Me.SimpleButton1.Appearance.Options.UseForeColor = True
         Me.SimpleButton1.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
         Me.SimpleButton1.Image = CType(resources.GetObject("SimpleButton1.Image"), System.Drawing.Image)
-        Me.SimpleButton1.Location = New System.Drawing.Point(144, 416)
+        Me.SimpleButton1.Location = New System.Drawing.Point(145, 420)
         Me.SimpleButton1.Name = "SimpleButton1"
         Me.SimpleButton1.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.SimpleButton1.Size = New System.Drawing.Size(125, 26)
@@ -175,6 +177,7 @@ Partial Class StokHareket
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.btnTum)
         Me.GroupBox1.Controls.Add(Me.txtAra)
         Me.GroupBox1.Controls.Add(Me.cmbBolum)
         Me.GroupBox1.Controls.Add(Me.Label3)
@@ -187,28 +190,55 @@ Partial Class StokHareket
         Me.GroupBox1.ForeColor = System.Drawing.Color.DimGray
         Me.GroupBox1.Location = New System.Drawing.Point(12, 39)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(783, 60)
+        Me.GroupBox1.Size = New System.Drawing.Size(783, 68)
         Me.GroupBox1.TabIndex = 23
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Filtre"
+        '
+        'btnTum
+        '
+        Me.btnTum.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
+        Me.btnTum.Image = CType(resources.GetObject("btnTum.Image"), System.Drawing.Image)
+        Me.btnTum.Location = New System.Drawing.Point(668, 26)
+        Me.btnTum.Name = "btnTum"
+        Me.btnTum.Size = New System.Drawing.Size(106, 23)
+        Me.btnTum.TabIndex = 22
+        Me.btnTum.Text = "Tümünü Listele"
         '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.dgFisListe)
         Me.GroupBox2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.Color.DimGray
-        Me.GroupBox2.Location = New System.Drawing.Point(13, 114)
+        Me.GroupBox2.Location = New System.Drawing.Point(14, 119)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(782, 290)
         Me.GroupBox2.TabIndex = 24
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Stok Fişleri"
         '
+        'dgFisListe
+        '
+        Me.dgFisListe.AllowUserToAddRows = False
+        Me.dgFisListe.AllowUserToDeleteRows = False
+        Me.dgFisListe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgFisListe.BackgroundColor = System.Drawing.Color.DarkGray
+        Me.dgFisListe.BorderStyle = System.Windows.Forms.BorderStyle.None
+        Me.dgFisListe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgFisListe.GridColor = System.Drawing.Color.LightGray
+        Me.dgFisListe.Location = New System.Drawing.Point(12, 20)
+        Me.dgFisListe.MultiSelect = False
+        Me.dgFisListe.Name = "dgFisListe"
+        Me.dgFisListe.ReadOnly = True
+        Me.dgFisListe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgFisListe.Size = New System.Drawing.Size(757, 255)
+        Me.dgFisListe.TabIndex = 1
+        '
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.DimGray
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel1.Location = New System.Drawing.Point(0, 459)
+        Me.Panel1.Location = New System.Drawing.Point(0, 460)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(808, 28)
         Me.Panel1.TabIndex = 25
@@ -228,7 +258,7 @@ Partial Class StokHareket
         Me.btnDetay.Appearance.Options.UseForeColor = True
         Me.btnDetay.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
         Me.btnDetay.Image = CType(resources.GetObject("btnDetay.Image"), System.Drawing.Image)
-        Me.btnDetay.Location = New System.Drawing.Point(528, 416)
+        Me.btnDetay.Location = New System.Drawing.Point(529, 420)
         Me.btnDetay.Name = "btnDetay"
         Me.btnDetay.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.btnDetay.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.[False]
@@ -236,29 +266,12 @@ Partial Class StokHareket
         Me.btnDetay.TabIndex = 30
         Me.btnDetay.Text = "Detay"
         '
-        'dgFisListe
-        '
-        Me.dgFisListe.AllowUserToAddRows = False
-        Me.dgFisListe.AllowUserToDeleteRows = False
-        Me.dgFisListe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
-        Me.dgFisListe.BackgroundColor = System.Drawing.Color.DarkGray
-        Me.dgFisListe.BorderStyle = System.Windows.Forms.BorderStyle.None
-        Me.dgFisListe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgFisListe.GridColor = System.Drawing.Color.LightGray
-        Me.dgFisListe.Location = New System.Drawing.Point(12, 20)
-        Me.dgFisListe.MultiSelect = False
-        Me.dgFisListe.Name = "dgFisListe"
-        Me.dgFisListe.ReadOnly = True
-        Me.dgFisListe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.dgFisListe.Size = New System.Drawing.Size(757, 255)
-        Me.dgFisListe.TabIndex = 1
-        '
         'StokHareket
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Silver
-        Me.ClientSize = New System.Drawing.Size(808, 487)
+        Me.ClientSize = New System.Drawing.Size(808, 488)
         Me.Controls.Add(Me.btnDetay)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
@@ -297,4 +310,5 @@ Partial Class StokHareket
     Friend WithEvents Panel2 As Panel
     Friend WithEvents btnDetay As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents dgFisListe As DataGridView
+    Friend WithEvents btnTum As DevExpress.XtraEditors.SimpleButton
 End Class

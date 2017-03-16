@@ -1,4 +1,7 @@
-﻿Public Class StokHareket
+﻿Imports System.Data.Entity.Core.Objects
+Imports System.Data.Entity.SqlServer
+
+Public Class StokHareket
     Dim db As StokEntities = New StokEntities()
 
     Private Sub btnEkle_Click(sender As Object, e As EventArgs) Handles btnEkle.Click
@@ -10,15 +13,13 @@
     End Sub
 
     Private Sub StokHareket_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        Dim depoListe As IList(Of Depo) = db.Depo.ToList()
-        cmbDepo.DataSource = depoListe
         cmbDepo.DisplayMember = "Depo_Adi"
         cmbDepo.ValueMember = "Depo_ID"
+        cmbDepo.DataSource = db.Depo.ToList()
 
-        Dim bolumListe As IList(Of Bolum) = db.Bolum.ToList()
-        cmbBolum.DataSource = bolumListe
         cmbBolum.DisplayMember = "Bolum_Adi"
         cmbBolum.ValueMember = "Bolum_ID"
+        cmbBolum.DataSource = db.Bolum.ToList()
 
         listele()
     End Sub
@@ -132,5 +133,90 @@
 
         End Try
         listele()
+    End Sub
+
+    Private Sub cmbDepo_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbDepo.SelectedIndexChanged
+        Dim id As Integer = Convert.ToInt32(cmbDepo.SelectedValue)
+        Dim fisListe = (From f In db.Fis
+                        Where f.Depo_ID = id
+                        Select
+                            fisID = f.Fis_ID,
+                            fisNo = f.Fis_No,
+                            fisTur = f.Fis_Türü,
+                            fisTarih = f.Fis_Tarih,
+                            fisDepo = f.Depo.Depo_Adi,
+                            fisBolum = f.Bolum.Bolum_Adi).ToList()
+        dgFisListe.DataSource = fisListe
+        dgFisListe.Columns("fisID").Visible = False
+        dgFisListe.Columns("fisNo").HeaderText = "Fiş No"
+        dgFisListe.Columns("fisTur").HeaderText = "Fiş Türü"
+        dgFisListe.Columns("fisTarih").HeaderText = "Tarih"
+        dgFisListe.Columns("fisDepo").HeaderText = "Depo"
+        dgFisListe.Columns("fisBolum").HeaderText = "Bölüm"
+    End Sub
+    Private Sub cmbBolum_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbBolum.SelectedIndexChanged
+        Dim id As Integer = Convert.ToInt32(cmbBolum.SelectedValue)
+        Dim fisListe = (From f In db.Fis
+                        Where f.Bolum_ID = id
+                        Select
+                            fisID = f.Fis_ID,
+                            fisNo = f.Fis_No,
+                            fisTur = f.Fis_Türü,
+                            fisTarih = f.Fis_Tarih,
+                            fisDepo = f.Depo.Depo_Adi,
+                            fisBolum = f.Bolum.Bolum_Adi).ToList()
+        dgFisListe.DataSource = fisListe
+        dgFisListe.Columns("fisID").Visible = False
+        dgFisListe.Columns("fisNo").HeaderText = "Fiş No"
+        dgFisListe.Columns("fisTur").HeaderText = "Fiş Türü"
+        dgFisListe.Columns("fisTarih").HeaderText = "Tarih"
+        dgFisListe.Columns("fisDepo").HeaderText = "Depo"
+        dgFisListe.Columns("fisBolum").HeaderText = "Bölüm"
+    End Sub
+    Private Sub btnTum_Click(sender As Object, e As EventArgs) Handles btnTum.Click
+        listele()
+    End Sub
+    Private Sub txtAra_TextChanged(sender As Object, e As EventArgs) Handles txtAra.TextChanged
+        Try
+            Dim kod As Integer = Convert.ToInt32(txtAra.Text)
+            Dim fisListe = (From f In db.Fis
+                            Where SqlFunctions.StringConvert(f.Fis_No).Contains(kod.ToString())
+                            Select
+                                fisID = f.Fis_ID,
+                                fisNo = f.Fis_No,
+                                fisTur = f.Fis_Türü,
+                                fisTarih = f.Fis_Tarih,
+                                fisDepo = f.Depo.Depo_Adi,
+                                fisBolum = f.Bolum.Bolum_Adi).ToList()
+            dgFisListe.DataSource = fisListe
+            dgFisListe.Columns("fisID").Visible = False
+            dgFisListe.Columns("fisNo").HeaderText = "Fiş No"
+            dgFisListe.Columns("fisTur").HeaderText = "Fiş Türü"
+            dgFisListe.Columns("fisTarih").HeaderText = "Tarih"
+            dgFisListe.Columns("fisDepo").HeaderText = "Depo"
+            dgFisListe.Columns("fisBolum").HeaderText = "Bölüm"
+        Catch
+            listele()
+        End Try
+    End Sub
+
+    Private Sub dtpTarih_ValueChanged(sender As Object, e As EventArgs) Handles dtpTarih.ValueChanged
+        Dim dt As DateTime = Convert.ToDateTime(dtpTarih.Value)
+        Dim fisListe = (From f In db.Fis
+                        Where EntityFunctions.TruncateTime(f.Fis_Tarih) = dt.Date
+                        Select
+                            fisID = f.Fis_ID,
+                            fisNo = f.Fis_No,
+                            fisTur = f.Fis_Türü,
+                            fisTarih = f.Fis_Tarih,
+                            fisDepo = f.Depo.Depo_Adi,
+                            fisBolum = f.Bolum.Bolum_Adi).ToList()
+        dgFisListe.DataSource = fisListe
+        dgFisListe.Columns("fisID").Visible = False
+        dgFisListe.Columns("fisNo").HeaderText = "Fiş No"
+        dgFisListe.Columns("fisTur").HeaderText = "Fiş Türü"
+        dgFisListe.Columns("fisTarih").HeaderText = "Tarih"
+        dgFisListe.Columns("fisDepo").HeaderText = "Depo"
+        dgFisListe.Columns("fisBolum").HeaderText = "Bölüm"
     End Sub
 End Class
