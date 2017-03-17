@@ -1,6 +1,10 @@
 ﻿Public Class DepoDuzenle
     Dim db As New StokEntities()
     Private Sub btnKaydet_Click(sender As Object, e As EventArgs) Handles btnKaydet.Click
+        If txtDepoKod.Text = "" Or txtDepoAd.Text = "" Then
+            MsgBox("Depo Kodu ve Depo Adı boş olamaz", MsgBoxStyle.Exclamation, "Uyarı")
+            Return
+        End If
         Dim id As Integer = Convert.ToInt32(lblid.Text)
         Dim depoGuncelle = db.Depo.Where(Function(d) d.Depo_ID = id).First()
         If ckbAktif.Checked = True Then

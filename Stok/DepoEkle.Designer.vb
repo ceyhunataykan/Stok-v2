@@ -41,15 +41,15 @@ Partial Class DepoEkle
         Me.txtDepoAd = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.txtMail = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.txtFax = New System.Windows.Forms.TextBox()
         Me.txtAdSoyad = New System.Windows.Forms.TextBox()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.txtTel = New System.Windows.Forms.TextBox()
         Me.btnIptal = New DevExpress.XtraEditors.SimpleButton()
         Me.btnKaydet = New DevExpress.XtraEditors.SimpleButton()
+        Me.txtTel = New System.Windows.Forms.MaskedTextBox()
+        Me.txtFax = New System.Windows.Forms.MaskedTextBox()
+        Me.txtMail = New System.Windows.Forms.TextBox()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.SuspendLayout()
@@ -222,14 +222,14 @@ Partial Class DepoEkle
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.Color.Silver
+        Me.GroupBox2.Controls.Add(Me.txtFax)
+        Me.GroupBox2.Controls.Add(Me.txtTel)
         Me.GroupBox2.Controls.Add(Me.Label8)
         Me.GroupBox2.Controls.Add(Me.txtMail)
         Me.GroupBox2.Controls.Add(Me.Label7)
-        Me.GroupBox2.Controls.Add(Me.txtFax)
         Me.GroupBox2.Controls.Add(Me.txtAdSoyad)
         Me.GroupBox2.Controls.Add(Me.Label12)
         Me.GroupBox2.Controls.Add(Me.Label13)
-        Me.GroupBox2.Controls.Add(Me.txtTel)
         Me.GroupBox2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.Color.DimGray
         Me.GroupBox2.Location = New System.Drawing.Point(11, 315)
@@ -250,13 +250,6 @@ Partial Class DepoEkle
         Me.Label8.TabIndex = 53
         Me.Label8.Text = "E-Posta :"
         '
-        'txtMail
-        '
-        Me.txtMail.Location = New System.Drawing.Point(100, 107)
-        Me.txtMail.Name = "txtMail"
-        Me.txtMail.Size = New System.Drawing.Size(218, 21)
-        Me.txtMail.TabIndex = 52
-        '
         'Label7
         '
         Me.Label7.AutoSize = True
@@ -267,13 +260,6 @@ Partial Class DepoEkle
         Me.Label7.Size = New System.Drawing.Size(33, 13)
         Me.Label7.TabIndex = 51
         Me.Label7.Text = "Fax :"
-        '
-        'txtFax
-        '
-        Me.txtFax.Location = New System.Drawing.Point(100, 80)
-        Me.txtFax.Name = "txtFax"
-        Me.txtFax.Size = New System.Drawing.Size(218, 21)
-        Me.txtFax.TabIndex = 50
         '
         'txtAdSoyad
         '
@@ -304,13 +290,6 @@ Partial Class DepoEkle
         Me.Label13.TabIndex = 47
         Me.Label13.Text = "Ad Soyad :"
         '
-        'txtTel
-        '
-        Me.txtTel.Location = New System.Drawing.Point(100, 53)
-        Me.txtTel.Name = "txtTel"
-        Me.txtTel.Size = New System.Drawing.Size(218, 21)
-        Me.txtTel.TabIndex = 48
-        '
         'btnIptal
         '
         Me.btnIptal.Appearance.ForeColor = System.Drawing.Color.Black
@@ -336,6 +315,29 @@ Partial Class DepoEkle
         Me.btnKaydet.Size = New System.Drawing.Size(85, 26)
         Me.btnKaydet.TabIndex = 61
         Me.btnKaydet.Text = "Kaydet"
+        '
+        'txtTel
+        '
+        Me.txtTel.Location = New System.Drawing.Point(101, 54)
+        Me.txtTel.Mask = "(999) 000-0000"
+        Me.txtTel.Name = "txtTel"
+        Me.txtTel.Size = New System.Drawing.Size(138, 21)
+        Me.txtTel.TabIndex = 54
+        '
+        'txtFax
+        '
+        Me.txtFax.Location = New System.Drawing.Point(101, 80)
+        Me.txtFax.Mask = "(999) 000-0000"
+        Me.txtFax.Name = "txtFax"
+        Me.txtFax.Size = New System.Drawing.Size(138, 21)
+        Me.txtFax.TabIndex = 55
+        '
+        'txtMail
+        '
+        Me.txtMail.Location = New System.Drawing.Point(100, 107)
+        Me.txtMail.Name = "txtMail"
+        Me.txtMail.Size = New System.Drawing.Size(218, 21)
+        Me.txtMail.TabIndex = 52
         '
         'DepoEkle
         '
@@ -378,13 +380,13 @@ Partial Class DepoEkle
     Friend WithEvents txtDepoAd As TextBox
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Label8 As Label
-    Friend WithEvents txtMail As TextBox
     Friend WithEvents Label7 As Label
-    Friend WithEvents txtFax As TextBox
     Friend WithEvents txtAdSoyad As TextBox
     Friend WithEvents Label12 As Label
     Friend WithEvents Label13 As Label
-    Friend WithEvents txtTel As TextBox
     Friend WithEvents btnIptal As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents btnKaydet As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents txtFax As MaskedTextBox
+    Friend WithEvents txtTel As MaskedTextBox
+    Friend WithEvents txtMail As TextBox
 End Class

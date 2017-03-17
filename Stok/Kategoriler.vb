@@ -27,6 +27,10 @@
             MsgBox("Düzenleme işlemi yapabilmek için kayıt seçiniz", MsgBoxStyle.Exclamation, "Uyarı")
             Return
         End If
+        If txtKatKod.Text = "" Or txtKatAd.Text = "" Then
+            MsgBox("Bilgiler Boş olamaz", MsgBoxStyle.Exclamation, "Uyarı")
+            Return
+        End If
         Dim id As Integer = Convert.ToInt32(lblid.Text)
         Dim kategoriDuzenle = db.Kategori.Where(Function(k) k.Kategori_ID = id).First()
         kategoriDuzenle.Kategori_Kodu = txtKatKod.Text

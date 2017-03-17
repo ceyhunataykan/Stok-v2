@@ -24,7 +24,6 @@ Partial Class DepoDuzenle
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(DepoDuzenle))
         Me.txtMail = New System.Windows.Forms.TextBox()
-        Me.txtFax = New System.Windows.Forms.TextBox()
         Me.txtAdSoyad = New System.Windows.Forms.TextBox()
         Me.Label6 = New System.Windows.Forms.Label()
         Me.ckbAktif = New System.Windows.Forms.CheckBox()
@@ -38,7 +37,6 @@ Partial Class DepoDuzenle
         Me.txtDepoKod = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.Label13 = New System.Windows.Forms.Label()
-        Me.txtTel = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.btnKaydet = New DevExpress.XtraEditors.SimpleButton()
         Me.Label2 = New System.Windows.Forms.Label()
@@ -50,6 +48,8 @@ Partial Class DepoDuzenle
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.txtFax = New System.Windows.Forms.MaskedTextBox()
+        Me.txtTel = New System.Windows.Forms.MaskedTextBox()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -60,13 +60,6 @@ Partial Class DepoDuzenle
         Me.txtMail.Name = "txtMail"
         Me.txtMail.Size = New System.Drawing.Size(218, 21)
         Me.txtMail.TabIndex = 52
-        '
-        'txtFax
-        '
-        Me.txtFax.Location = New System.Drawing.Point(100, 80)
-        Me.txtFax.Name = "txtFax"
-        Me.txtFax.Size = New System.Drawing.Size(218, 21)
-        Me.txtFax.TabIndex = 50
         '
         'txtAdSoyad
         '
@@ -190,13 +183,6 @@ Partial Class DepoDuzenle
         Me.Label13.TabIndex = 47
         Me.Label13.Text = "Ad Soyad :"
         '
-        'txtTel
-        '
-        Me.txtTel.Location = New System.Drawing.Point(100, 53)
-        Me.txtTel.Name = "txtTel"
-        Me.txtTel.Size = New System.Drawing.Size(218, 21)
-        Me.txtTel.TabIndex = 48
-        '
         'Label3
         '
         Me.Label3.AutoSize = True
@@ -235,14 +221,14 @@ Partial Class DepoDuzenle
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.Color.Silver
+        Me.GroupBox2.Controls.Add(Me.txtFax)
+        Me.GroupBox2.Controls.Add(Me.txtTel)
         Me.GroupBox2.Controls.Add(Me.Label8)
         Me.GroupBox2.Controls.Add(Me.txtMail)
         Me.GroupBox2.Controls.Add(Me.Label7)
-        Me.GroupBox2.Controls.Add(Me.txtFax)
         Me.GroupBox2.Controls.Add(Me.txtAdSoyad)
         Me.GroupBox2.Controls.Add(Me.Label12)
         Me.GroupBox2.Controls.Add(Me.Label13)
-        Me.GroupBox2.Controls.Add(Me.txtTel)
         Me.GroupBox2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.Color.DimGray
         Me.GroupBox2.Location = New System.Drawing.Point(11, 315)
@@ -337,6 +323,22 @@ Partial Class DepoDuzenle
         Me.Panel1.Size = New System.Drawing.Size(368, 28)
         Me.Panel1.TabIndex = 64
         '
+        'txtFax
+        '
+        Me.txtFax.Location = New System.Drawing.Point(101, 80)
+        Me.txtFax.Mask = "(999) 000-0000"
+        Me.txtFax.Name = "txtFax"
+        Me.txtFax.Size = New System.Drawing.Size(138, 21)
+        Me.txtFax.TabIndex = 57
+        '
+        'txtTel
+        '
+        Me.txtTel.Location = New System.Drawing.Point(101, 53)
+        Me.txtTel.Mask = "(999) 000-0000"
+        Me.txtTel.Name = "txtTel"
+        Me.txtTel.Size = New System.Drawing.Size(138, 21)
+        Me.txtTel.TabIndex = 56
+        '
         'DepoDuzenle
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -361,7 +363,6 @@ Partial Class DepoDuzenle
     End Sub
 
     Friend WithEvents txtMail As TextBox
-    Friend WithEvents txtFax As TextBox
     Friend WithEvents txtAdSoyad As TextBox
     Friend WithEvents Label6 As Label
     Friend WithEvents ckbAktif As CheckBox
@@ -375,7 +376,6 @@ Partial Class DepoDuzenle
     Friend WithEvents txtDepoKod As TextBox
     Friend WithEvents Label7 As Label
     Friend WithEvents Label13 As Label
-    Friend WithEvents txtTel As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents btnKaydet As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents Label2 As Label
@@ -387,4 +387,6 @@ Partial Class DepoDuzenle
     Friend WithEvents GroupBox1 As GroupBox
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel1 As Panel
+    Friend WithEvents txtFax As MaskedTextBox
+    Friend WithEvents txtTel As MaskedTextBox
 End Class

@@ -26,6 +26,10 @@
             MsgBox("Düzenleme işlemi yapabilmek için kayıt seçiniz", MsgBoxStyle.Exclamation, "Uyarı")
             Return
         End If
+        If txtBirAd.Text = "" Then
+            MsgBox("Bilgiler Boş olamaz", MsgBoxStyle.Exclamation, "Uyarı")
+            Return
+        End If
         Dim id As Integer = Convert.ToInt32(lblid.Text)
         Dim birimDuzenle = db.Birim.Where(Function(b) b.Birim_ID = id).First()
         birimDuzenle.Birim_Adi = txtBirAd.Text

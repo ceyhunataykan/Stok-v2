@@ -26,6 +26,10 @@
             MsgBox("Düzenleme işlemi yapabilmek için kayıt seçiniz", MsgBoxStyle.Exclamation, "Uyarı")
             Return
         End If
+        If txtBolAd.Text = "" Then
+            MsgBox("Bilgiler Boş olamaz", MsgBoxStyle.Exclamation, "Uyarı")
+            Return
+        End If
         Dim id As Integer = Convert.ToInt32(lblid.Text)
         Dim bolumDuzenle = db.Bolum.Where(Function(b) b.Bolum_ID = id).First()
         bolumDuzenle.Bolum_Adi = txtBolAd.Text
