@@ -84,6 +84,24 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="il">
+      <EntityTypeMapping TypeName="StokModel.il">
+        <MappingFragment StoreEntitySet="il">
+          <ScalarProperty Name="il_Adi" ColumnName="il_Adi" />
+          <ScalarProperty Name="il_Plaka" ColumnName="il_Plaka" />
+          <ScalarProperty Name="il_ID" ColumnName="il_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ilce">
+      <EntityTypeMapping TypeName="StokModel.ilce">
+        <MappingFragment StoreEntitySet="ilce">
+          <ScalarProperty Name="il_ID" ColumnName="il_ID" />
+          <ScalarProperty Name="ilce_Adi" ColumnName="ilce_Adi" />
+          <ScalarProperty Name="ilce_ID" ColumnName="ilce_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Kategori">
       <EntityTypeMapping TypeName="StokModel.Kategori">
         <MappingFragment StoreEntitySet="Kategori">

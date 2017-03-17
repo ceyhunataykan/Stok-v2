@@ -36,6 +36,8 @@
     <EntitySet Name="Depo" EntityType="StokModel.Depo" />
     <EntitySet Name="Fis" EntityType="StokModel.Fis" />
     <EntitySet Name="Fis_Detay" EntityType="StokModel.Fis_Detay" />
+    <EntitySet Name="il" EntityType="StokModel.il" />
+    <EntitySet Name="ilce" EntityType="StokModel.ilce" />
     <EntitySet Name="Kategori" EntityType="StokModel.Kategori" />
     <EntitySet Name="Kullanici" EntityType="StokModel.Kullanici" />
     <EntitySet Name="Rol" EntityType="StokModel.Rol" />
@@ -48,6 +50,14 @@
     <AssociationSet Name="FK_Fis_Bolum" Association="StokModel.FK_Fis_Bolum">
       <End Role="Bolum" EntitySet="Bolum" />
       <End Role="Fis" EntitySet="Fis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Depo_il" Association="StokModel.FK_Depo_il">
+      <End Role="il" EntitySet="il" />
+      <End Role="Depo" EntitySet="Depo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Depo_ilce" Association="StokModel.FK_Depo_ilce">
+      <End Role="ilce" EntitySet="ilce" />
+      <End Role="Depo" EntitySet="Depo" />
     </AssociationSet>
     <AssociationSet Name="FK_Fis_Depo" Association="StokModel.FK_Fis_Depo">
       <End Role="Depo" EntitySet="Depo" />
@@ -64,6 +74,10 @@
     <AssociationSet Name="FK_Fis_Detay_Urun" Association="StokModel.FK_Fis_Detay_Urun">
       <End Role="Urun" EntitySet="Urun" />
       <End Role="Fis_Detay" EntitySet="Fis_Detay" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ilce_il" Association="StokModel.FK_ilce_il">
+      <End Role="il" EntitySet="il" />
+      <End Role="ilce" EntitySet="ilce" />
     </AssociationSet>
     <AssociationSet Name="FK_Urun_Kategori" Association="StokModel.FK_Urun_Kategori">
       <End Role="Kategori" EntitySet="Kategori" />
@@ -116,6 +130,8 @@
     <Property Name="Depo_Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Depo_Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Durum" Type="Boolean" />
+    <NavigationProperty Name="il" Relationship="StokModel.FK_Depo_il" FromRole="Depo" ToRole="il" />
+    <NavigationProperty Name="ilce" Relationship="StokModel.FK_Depo_ilce" FromRole="Depo" ToRole="ilce" />
     <NavigationProperty Name="Fis" Relationship="StokModel.FK_Fis_Depo" FromRole="Depo" ToRole="Fis" />
     <NavigationProperty Name="Urun" Relationship="StokModel.FK_Urun_Depo" FromRole="Depo" ToRole="Urun" />
   </EntityType>
@@ -147,6 +163,26 @@
     <Property Name="Tutar" Type="Decimal" Precision="19" Scale="4" />
     <NavigationProperty Name="Fis" Relationship="StokModel.FK_Fis_Detay_Fis" FromRole="Fis_Detay" ToRole="Fis" />
     <NavigationProperty Name="Urun" Relationship="StokModel.FK_Fis_Detay_Urun" FromRole="Fis_Detay" ToRole="Urun" />
+  </EntityType>
+  <EntityType Name="il">
+    <Key>
+      <PropertyRef Name="il_ID" />
+    </Key>
+    <Property Name="il_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="il_Plaka" Type="Int16" />
+    <Property Name="il_Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Depo" Relationship="StokModel.FK_Depo_il" FromRole="il" ToRole="Depo" />
+    <NavigationProperty Name="ilce" Relationship="StokModel.FK_ilce_il" FromRole="il" ToRole="ilce" />
+  </EntityType>
+  <EntityType Name="ilce">
+    <Key>
+      <PropertyRef Name="ilce_ID" />
+    </Key>
+    <Property Name="ilce_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ilce_Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="il_ID" Type="Int32" />
+    <NavigationProperty Name="Depo" Relationship="StokModel.FK_Depo_ilce" FromRole="ilce" ToRole="Depo" />
+    <NavigationProperty Name="il" Relationship="StokModel.FK_ilce_il" FromRole="ilce" ToRole="il" />
   </EntityType>
   <EntityType Name="Kategori">
     <Key>
@@ -237,6 +273,30 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Depo_il">
+    <End Type="StokModel.il" Role="il" Multiplicity="0..1" />
+    <End Type="StokModel.Depo" Role="Depo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="il">
+        <PropertyRef Name="il_ID" />
+      </Principal>
+      <Dependent Role="Depo">
+        <PropertyRef Name="il_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Depo_ilce">
+    <End Type="StokModel.ilce" Role="ilce" Multiplicity="0..1" />
+    <End Type="StokModel.Depo" Role="Depo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ilce">
+        <PropertyRef Name="ilce_ID" />
+      </Principal>
+      <Dependent Role="Depo">
+        <PropertyRef Name="ilce_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Fis_Depo">
     <End Type="StokModel.Depo" Role="Depo" Multiplicity="0..1" />
     <End Type="StokModel.Fis" Role="Fis" Multiplicity="*" />
@@ -282,6 +342,18 @@
       </Principal>
       <Dependent Role="Fis_Detay">
         <PropertyRef Name="Urun_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ilce_il">
+    <End Type="StokModel.il" Role="il" Multiplicity="0..1" />
+    <End Type="StokModel.ilce" Role="ilce" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="il">
+        <PropertyRef Name="il_ID" />
+      </Principal>
+      <Dependent Role="ilce">
+        <PropertyRef Name="il_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

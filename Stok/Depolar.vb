@@ -82,7 +82,9 @@ Public Class Depolar
         dgDepoListe.Columns("Depo_Kodu").HeaderText = "Depo Kodu"
         dgDepoListe.Columns("Depo_Adi").HeaderText = "Depo Adı"
         dgDepoListe.Columns("Depo_Adres").Visible = False
+        dgDepoListe.Columns("ilce").Visible = False
         dgDepoListe.Columns("ilce_ID").Visible = False
+        dgDepoListe.Columns("il").Visible = False
         dgDepoListe.Columns("il_ID").Visible = False
         dgDepoListe.Columns("Depo_Yetkili").HeaderText = "Yetkili"
         dgDepoListe.Columns("Depo_Tel").HeaderText = "Telefon"

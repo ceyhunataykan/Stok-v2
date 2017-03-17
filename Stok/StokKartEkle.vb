@@ -23,6 +23,10 @@ Public Class StokKartEkle
     End Sub
 
     Private Sub btnKaydet_Click(sender As Object, e As EventArgs) Handles btnKaydet.Click
+        If txtStokAdi.Text = "" Or txtStokKodu.Text = "" Then
+            MsgBox("Stok Kodu ve Stok Adı boş olamaz", MsgBoxStyle.Exclamation, "Uyarı")
+            Return
+        End If
         Dim rasgele As New Random()
         Dim sayi As Integer = rasgele.Next(1, 100000)
         Dim yol As String = Application.StartupPath & "\UrunResim\" & "res-" & sayi & ".jpeg"

@@ -10,109 +10,43 @@ Public Class StokKart
         StokKartEkle.ShowDialog()
     End Sub
     Private Sub listele()
-        Try
-            Dim urunListe = (From u In db.Urun
-                             Select
-                                 stokID = u.Urun_ID,
-                                 stokKodu = u.Stok_Kodu,
-                                 stokAdi = u.Stok_Adi,
-                                 stokMiktar = u.Stok_Miktar,
-                                 stokBirim = u.Birim.Birim_Adi,
-                                 stokTseviye = u.Stok_TSeviye).ToList()
-            dgListe.DataSource = urunListe
-            dgListe.Columns("stokID").Visible = False
-            dgListe.Columns("stokKodu").HeaderText = "Stok Kodu"
-            dgListe.Columns("stokAdi").HeaderText = "Stok Adı"
-            dgListe.Columns("stokMiktar").HeaderText = "Miktar"
-            dgListe.Columns("stokBirim").HeaderText = "Birim"
-            dgListe.Columns("stokTseviye").Visible = False
-        Catch
-        End Try
+        dgListe.DataSource = (From u In db.Urun
+                              Select u.Urun_ID, u.Stok_Kodu, u.Stok_Adi, u.Stok_Barkod, u.Kategori_ID, u.Stok_Miktar, u.Birim_ID, Stok_Birim = u.Birim.Birim_Adi,
+                                     u.Stok_TSeviye, u.Depo_ID, u.Stok_AFiyati, u.Stok_SFiyati, u.Stok_Kdv, u.Stok_KayitTarihi, u.Stok_Foto, u.Durum).ToList()
+        dgDuzenle()
         renklendir()
-    End Sub
-    Private Sub renklendir()
-        For i = 0 To dgListe.Rows.Count - 1 Step 1
-            Application.DoEvents()
-            Dim renk As DataGridViewCellStyle = New DataGridViewCellStyle()
-            If dgListe.Rows(i).Cells("stokMiktar").Value > dgListe.Rows(i).Cells("stokTseviye").Value Then
-                renk.BackColor = Color.YellowGreen
-                renk.ForeColor = Color.White
-            ElseIf dgListe.Rows(i).Cells("stokMiktar").Value < dgListe.Rows(i).Cells("stokTseviye").Value Then
-                renk.BackColor = Color.Orange
-                renk.ForeColor = Color.White
-            ElseIf dgListe.Rows(i).Cells("stokMiktar").Value = 0 Then
-                renk.BackColor = Color.DarkRed
-                renk.ForeColor = Color.White
-            End If
-            dgListe.Rows(i).DefaultCellStyle = renk
-        Next
     End Sub
     Private Sub cmbDurum_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbDurum.SelectedIndexChanged
         If cmbDurum.SelectedItem = "Tümü" Then
             listele()
             renklendir()
         ElseIf cmbDurum.SelectedItem = "Aktif" Then
-            Dim urunListe = (From u In db.Urun
-                             Where u.Durum = True
-                             Select
-                                 stokID = u.Urun_ID,
-                                 stokKodu = u.Stok_Kodu,
-                                 stokAdi = u.Stok_Adi,
-                                 stokMiktar = u.Stok_Miktar,
-                                 stokBirim = u.Birim.Birim_Adi,
-                                 stokTseviye = u.Stok_TSeviye).ToList()
-            dgListe.DataSource = urunListe
-            dgListe.Columns("stokID").Visible = False
-            dgListe.Columns("stokKodu").HeaderText = "Stok Kodu"
-            dgListe.Columns("stokAdi").HeaderText = "Stok Adı"
-            dgListe.Columns("stokMiktar").HeaderText = "Miktar"
-            dgListe.Columns("stokBirim").HeaderText = "Birim"
-            dgListe.Columns("stokTseviye").Visible = False
+            dgListe.DataSource = (From u In db.Urun
+                                  Where u.Durum = True
+                                  Select u.Urun_ID, u.Stok_Kodu, u.Stok_Adi, u.Stok_Barkod, u.Kategori_ID, u.Stok_Miktar, u.Birim_ID, Stok_Birim = u.Birim.Birim_Adi,
+                                     u.Stok_TSeviye, u.Depo_ID, u.Stok_AFiyati, u.Stok_SFiyati, u.Stok_Kdv, u.Stok_KayitTarihi, u.Stok_Foto, u.Durum).ToList()
+            dgDuzenle()
             renklendir()
         ElseIf cmbDurum.SelectedItem = "Pasif" Then
-            Dim urunListe = (From u In db.Urun
-                             Where u.Durum = False
-                             Select
-                                 stokID = u.Urun_ID,
-                                 stokKodu = u.Stok_Kodu,
-                                 stokAdi = u.Stok_Adi,
-                                 stokMiktar = u.Stok_Miktar,
-                                 stokBirim = u.Birim.Birim_Adi,
-                                 stokTseviye = u.Stok_TSeviye).ToList()
-            dgListe.DataSource = urunListe
-            dgListe.Columns("stokID").Visible = False
-            dgListe.Columns("stokKodu").HeaderText = "Stok Kodu"
-            dgListe.Columns("stokAdi").HeaderText = "Stok Adı"
-            dgListe.Columns("stokMiktar").HeaderText = "Miktar"
-            dgListe.Columns("stokBirim").HeaderText = "Birim"
-            dgListe.Columns("stokTseviye").Visible = False
+            dgListe.DataSource = (From u In db.Urun
+                                  Where u.Durum = False
+                                  Select u.Urun_ID, u.Stok_Kodu, u.Stok_Adi, u.Stok_Barkod, u.Kategori_ID, u.Stok_Miktar, u.Birim_ID, Stok_Birim = u.Birim.Birim_Adi,
+                                     u.Stok_TSeviye, u.Depo_ID, u.Stok_AFiyati, u.Stok_SFiyati, u.Stok_Kdv, u.Stok_KayitTarihi, u.Stok_Foto, u.Durum).ToList()
+            dgDuzenle()
             renklendir()
         End If
     End Sub
     Private Sub txtAra_TextChanged(sender As Object, e As EventArgs) Handles txtAra.TextChanged
         Try
             Dim kod As Integer = Convert.ToInt32(txtAra.Text)
-
-            Dim urunListe = (From u In db.Urun
-                             Where SqlFunctions.StringConvert(u.Stok_Kodu).Contains(kod.ToString())
-                             Select
-                                 stokID = u.Urun_ID,
-                                 stokKodu = u.Stok_Kodu,
-                                 stokAdi = u.Stok_Adi,
-                                 stokMiktar = u.Stok_Miktar,
-                                 stokBirim = u.Birim.Birim_Adi,
-                                 stokTseviye = u.Stok_TSeviye).ToList()
-            dgListe.DataSource = urunListe
-            dgListe.Columns("stokID").Visible = False
-            dgListe.Columns("stokKodu").HeaderText = "Stok Kodu"
-            dgListe.Columns("stokAdi").HeaderText = "Stok Adı"
-            dgListe.Columns("stokMiktar").HeaderText = "Miktar"
-            dgListe.Columns("stokBirim").HeaderText = "Birim"
-            dgListe.Columns("stokTseviye").Visible = False
+            dgListe.DataSource = (From u In db.Urun
+                                  Where SqlFunctions.StringConvert(u.Stok_Kodu).Contains(kod.ToString())
+                                  Select u.Urun_ID, u.Stok_Kodu, u.Stok_Adi, u.Stok_Barkod, u.Kategori_ID, u.Stok_Miktar, u.Birim_ID, Stok_Birim = u.Birim.Birim_Adi,
+                                     u.Stok_TSeviye, u.Depo_ID, u.Stok_AFiyati, u.Stok_SFiyati, u.Stok_Kdv, u.Stok_KayitTarihi, u.Stok_Foto, u.Durum).ToList()
+            dgDuzenle()
             renklendir()
         Catch
             listele()
-            renklendir()
         End Try
     End Sub
     Private Sub txtAra_KeyPress(sender As Object, e As KeyPressEventArgs) Handles txtAra.KeyPress
@@ -124,7 +58,7 @@ Public Class StokKart
         Me.Dispose()
     End Sub
     Private Sub btnSec_Click(sender As Object, e As EventArgs) Handles btnSec.Click
-        Dim uID As Integer = Convert.ToInt32(dgListe.CurrentRow.Cells(0).Value)
+        Dim uID As Integer = Convert.ToInt32(dgListe.CurrentRow.Cells("Urun_ID").Value)
         Dim urunSec = (From u In db.Urun
                        Where u.Urun_ID = uID
                        Select
@@ -175,12 +109,16 @@ Public Class StokKart
         End If
     End Sub
     Private Sub btnSil_Click(sender As Object, e As EventArgs) Handles btnSil.Click
+        If lblId.Text = "" Then
+            MsgBox("Silme işlemi yapabilmek için kayıt seçiniz", MsgBoxStyle.Exclamation, "Uyarı")
+            Return
+        End If
         If MsgBox("Ürünü Silmek İstiyor musunuz?", MsgBoxStyle.YesNo, "Uyarı") = MsgBoxResult.No Then
             Return
         End If
         Try
             If dgListe.Rows.Count > 0 Then
-                Dim uID As Integer = Convert.ToInt32(dgListe.CurrentRow.Cells("stokID").Value)
+                Dim uID As Integer = Convert.ToInt32(dgListe.CurrentRow.Cells("Urun_ID").Value)
                 Dim sil = db.Urun.Where(Function(u) u.Urun_ID = uID).FirstOrDefault()
                 db.Urun.Remove(sil)
                 db.SaveChanges()
@@ -200,31 +138,69 @@ Public Class StokKart
         Else
             btnSec.Enabled = False
         End If
+        lblId.Text = dgListe.CurrentRow.Cells("Urun_ID").Value
     End Sub
 
     Private Sub btnDuzenle_Click(sender As Object, e As EventArgs) Handles btnDuzenle.Click
-        Dim id As Integer = Convert.ToInt32(dgListe.CurrentRow.Cells("stokID").Value)
-        Dim guncelle = db.Urun.Where(Function(u) u.Urun_ID = id).FirstOrDefault()
+        If lblId.Text = "" Then
+            MsgBox("Düzenleme işlemi yapabilmek için kayıt seçiniz", MsgBoxStyle.Exclamation, "Uyarı")
+            Return
+        End If
         StokKartDuzenle.Show()
-        If guncelle.Durum = True Then
+        If dgListe.CurrentRow.Cells("Durum").Value = True Then
             StokKartDuzenle.ckbAktif.Checked = True
         Else
             StokKartDuzenle.ckbAktif.Checked = False
         End If
-        StokKartDuzenle.lblUrunID.Text = guncelle.Urun_ID
-        StokKartDuzenle.DateTimePicker1.Value = guncelle.Stok_KayitTarihi
-        StokKartDuzenle.txtSk.Text = guncelle.Stok_Kodu
-        StokKartDuzenle.txtBarkod.Text = guncelle.Stok_Barkod
-        StokKartDuzenle.txtStokAdi.Text = guncelle.Stok_Adi
-        StokKartDuzenle.cmbKategori.SelectedValue = guncelle.Kategori_ID
-        StokKartDuzenle.nudMiktar.Value = guncelle.Stok_Miktar
-        StokKartDuzenle.nudTSeviye.Value = guncelle.Stok_TSeviye
-        StokKartDuzenle.cmbBirim.SelectedValue = guncelle.Birim_ID
-        StokKartDuzenle.cmbDepo.SelectedValue = guncelle.Depo_ID
-        StokKartDuzenle.txtAlisFiyati.Text = guncelle.Stok_AFiyati
-        StokKartDuzenle.txtSatisFiyati.Text = guncelle.Stok_SFiyati
-        StokKartDuzenle.txtKdv.Text = guncelle.Stok_Kdv
+        StokKartDuzenle.lblUrunID.Text = dgListe.CurrentRow.Cells("Urun_ID").Value
+        StokKartDuzenle.DateTimePicker1.Value = dgListe.CurrentRow.Cells("Stok_KayitTarihi").Value
+        StokKartDuzenle.txtSk.Text = dgListe.CurrentRow.Cells("Stok_Kodu").Value
+        StokKartDuzenle.txtBarkod.Text = dgListe.CurrentRow.Cells("Stok_Barkod").Value
+        StokKartDuzenle.txtStokAdi.Text = dgListe.CurrentRow.Cells("Stok_Adi").Value
+        StokKartDuzenle.cmbKategori.SelectedValue = dgListe.CurrentRow.Cells("Kategori_ID").Value
+        StokKartDuzenle.nudMiktar.Value = dgListe.CurrentRow.Cells("Stok_Miktar").Value
+        StokKartDuzenle.nudTSeviye.Value = dgListe.CurrentRow.Cells("Stok_TSeviye").Value
+        StokKartDuzenle.cmbBirim.SelectedValue = dgListe.CurrentRow.Cells("Birim_ID").Value
+        StokKartDuzenle.cmbDepo.SelectedValue = dgListe.CurrentRow.Cells("Depo_ID").Value
+        StokKartDuzenle.txtAlisFiyati.Text = dgListe.CurrentRow.Cells("Stok_AFiyati").Value
+        StokKartDuzenle.txtSatisFiyati.Text = dgListe.CurrentRow.Cells("Stok_SFiyati").Value
+        StokKartDuzenle.txtKdv.Text = dgListe.CurrentRow.Cells("Stok_Kdv").Value
         StokKartDuzenle.PictureBox1.Image = Nothing
 
+    End Sub
+    Private Sub dgDuzenle()
+        dgListe.Columns("Urun_ID").Visible = False
+        dgListe.Columns("Stok_Kodu").HeaderText = "Stok Kodu"
+        dgListe.Columns("Stok_Adi").HeaderText = "Stok Adı"
+        dgListe.Columns("Stok_Barkod").Visible = False
+        dgListe.Columns("Kategori_ID").Visible = False
+        dgListe.Columns("Stok_Miktar").HeaderText = "Miktar"
+        dgListe.Columns("Birim_ID").Visible = False
+        dgListe.Columns("Stok_Birim").HeaderText = "Birim"
+        dgListe.Columns("Stok_TSeviye").Visible = False
+        dgListe.Columns("Depo_ID").Visible = False
+        dgListe.Columns("Stok_AFiyati").HeaderText = "Alış Fiyatı"
+        dgListe.Columns("Stok_SFiyati").HeaderText = "Satış Fiyatı"
+        dgListe.Columns("Stok_Kdv").Visible = False
+        dgListe.Columns("Stok_KayitTarihi").Visible = False
+        dgListe.Columns("Stok_Foto").Visible = False
+        dgListe.Columns("Durum").Visible = False
+    End Sub
+    Private Sub renklendir()
+        For i = 0 To dgListe.Rows.Count - 1
+            Application.DoEvents()
+            Dim renk As DataGridViewCellStyle = New DataGridViewCellStyle()
+            If dgListe.Rows(i).Cells("Stok_Miktar").Value > dgListe.Rows(i).Cells("Stok_TSeviye").Value Then
+                renk.BackColor = Color.YellowGreen
+                renk.ForeColor = Color.White
+            ElseIf dgListe.Rows(i).Cells("Stok_Miktar").Value < dgListe.Rows(i).Cells("Stok_TSeviye").Value Then
+                renk.BackColor = Color.Orange
+                renk.ForeColor = Color.White
+            ElseIf dgListe.Rows(i).Cells("Stok_Miktar").Value = 0 Then
+                renk.BackColor = Color.DarkRed
+                renk.ForeColor = Color.White
+            End If
+            dgListe.Rows(i).DefaultCellStyle = renk
+        Next
     End Sub
 End Class

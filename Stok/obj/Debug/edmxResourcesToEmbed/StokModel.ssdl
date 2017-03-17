@@ -54,6 +54,22 @@
     <Property Name="Fiyat" Type="money" />
     <Property Name="Tutar" Type="money" />
   </EntityType>
+  <EntityType Name="il">
+    <Key>
+      <PropertyRef Name="il_ID" />
+    </Key>
+    <Property Name="il_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="il_Plaka" Type="smallint" />
+    <Property Name="il_Adi" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ilce">
+    <Key>
+      <PropertyRef Name="ilce_ID" />
+    </Key>
+    <Property Name="ilce_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ilce_Adi" Type="nvarchar" MaxLength="50" />
+    <Property Name="il_ID" Type="int" />
+  </EntityType>
   <EntityType Name="Kategori">
     <Key>
       <PropertyRef Name="Kategori_ID" />
@@ -112,6 +128,30 @@
     <Property Name="Stok_Foto" Type="nvarchar(max)" />
     <Property Name="Durum" Type="bit" />
   </EntityType>
+  <Association Name="FK_Depo_il">
+    <End Role="il" Type="Self.il" Multiplicity="0..1" />
+    <End Role="Depo" Type="Self.Depo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="il">
+        <PropertyRef Name="il_ID" />
+      </Principal>
+      <Dependent Role="Depo">
+        <PropertyRef Name="il_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Depo_ilce">
+    <End Role="ilce" Type="Self.ilce" Multiplicity="0..1" />
+    <End Role="Depo" Type="Self.Depo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ilce">
+        <PropertyRef Name="ilce_ID" />
+      </Principal>
+      <Dependent Role="Depo">
+        <PropertyRef Name="ilce_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Fis_Bolum">
     <End Role="Bolum" Type="Self.Bolum" Multiplicity="0..1" />
     <End Role="Fis" Type="Self.Fis" Multiplicity="*" />
@@ -157,6 +197,18 @@
       </Principal>
       <Dependent Role="Fis_Detay">
         <PropertyRef Name="Urun_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ilce_il">
+    <End Role="il" Type="Self.il" Multiplicity="0..1" />
+    <End Role="ilce" Type="Self.ilce" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="il">
+        <PropertyRef Name="il_ID" />
+      </Principal>
+      <Dependent Role="ilce">
+        <PropertyRef Name="il_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -245,11 +297,21 @@
     <EntitySet Name="Depo" EntityType="Self.Depo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Fis" EntityType="Self.Fis" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Fis_Detay" EntityType="Self.Fis_Detay" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="il" EntityType="Self.il" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ilce" EntityType="Self.ilce" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Kategori" EntityType="Self.Kategori" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Kullanici" EntityType="Self.Kullanici" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Urun" EntityType="Self.Urun" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Depo_il" Association="Self.FK_Depo_il">
+      <End Role="il" EntitySet="il" />
+      <End Role="Depo" EntitySet="Depo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Depo_ilce" Association="Self.FK_Depo_ilce">
+      <End Role="ilce" EntitySet="ilce" />
+      <End Role="Depo" EntitySet="Depo" />
+    </AssociationSet>
     <AssociationSet Name="FK_Fis_Bolum" Association="Self.FK_Fis_Bolum">
       <End Role="Bolum" EntitySet="Bolum" />
       <End Role="Fis" EntitySet="Fis" />
@@ -265,6 +327,10 @@
     <AssociationSet Name="FK_Fis_Detay_Urun" Association="Self.FK_Fis_Detay_Urun">
       <End Role="Urun" EntitySet="Urun" />
       <End Role="Fis_Detay" EntitySet="Fis_Detay" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ilce_il" Association="Self.FK_ilce_il">
+      <End Role="il" EntitySet="il" />
+      <End Role="ilce" EntitySet="ilce" />
     </AssociationSet>
     <AssociationSet Name="FK_Kullanici_Rol" Association="Self.FK_Kullanici_Rol">
       <End Role="Rol" EntitySet="Rol" />

@@ -220,6 +220,7 @@ Partial Class StokKartDuzenle
         Me.lblUrunID.Size = New System.Drawing.Size(50, 13)
         Me.lblUrunID.TabIndex = 44
         Me.lblUrunID.Text = "Urun ID"
+        Me.lblUrunID.Visible = False
         '
         'Label1
         '

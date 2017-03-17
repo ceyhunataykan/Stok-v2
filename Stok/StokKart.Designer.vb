@@ -38,6 +38,7 @@ Partial Class StokKart
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnDetay = New DevExpress.XtraEditors.SimpleButton()
         Me.btnYenile = New DevExpress.XtraEditors.SimpleButton()
+        Me.lblId = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgListe, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -139,6 +140,7 @@ Partial Class StokKart
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.lblId)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.txtAra)
         Me.GroupBox1.Controls.Add(Me.Label1)
@@ -227,6 +229,15 @@ Partial Class StokKart
         Me.btnYenile.TabIndex = 30
         Me.btnYenile.Text = "Yenile"
         '
+        'lblId
+        '
+        Me.lblId.AutoSize = True
+        Me.lblId.Location = New System.Drawing.Point(278, 22)
+        Me.lblId.Name = "lblId"
+        Me.lblId.Size = New System.Drawing.Size(0, 13)
+        Me.lblId.TabIndex = 9
+        Me.lblId.Visible = False
+        '
         'StokKart
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -270,4 +281,5 @@ Partial Class StokKart
     Friend WithEvents btnDetay As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents dgListe As DataGridView
     Friend WithEvents btnYenile As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents lblId As Label
 End Class

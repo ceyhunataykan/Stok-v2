@@ -26,7 +26,9 @@
         Depolar.dgDepoListe.Columns("Depo_Kodu").HeaderText = "Depo Kodu"
         Depolar.dgDepoListe.Columns("Depo_Adi").HeaderText = "Depo Adı"
         Depolar.dgDepoListe.Columns("Depo_Adres").Visible = False
+        Depolar.dgDepoListe.Columns("ilce").Visible = False
         Depolar.dgDepoListe.Columns("ilce_ID").Visible = False
+        Depolar.dgDepoListe.Columns("il").Visible = False
         Depolar.dgDepoListe.Columns("il_ID").Visible = False
         Depolar.dgDepoListe.Columns("Depo_Yetkili").HeaderText = "Yetkili"
         Depolar.dgDepoListe.Columns("Depo_Tel").HeaderText = "Telefon"
