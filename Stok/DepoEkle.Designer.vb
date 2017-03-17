@@ -351,7 +351,7 @@ Partial Class DepoEkle
         Me.Controls.Add(Me.Panel2)
         Me.Name = "DepoEkle"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "DepoEkle"
+        Me.Text = "Depo Ekle"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)

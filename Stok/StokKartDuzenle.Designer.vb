@@ -512,7 +512,7 @@ Partial Class StokKartDuzenle
         Me.Controls.Add(Me.btnKaydet)
         Me.Name = "StokKartDuzenle"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Stok Kart Duzenle"
+        Me.Text = "Stok Kart Düzenle"
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nudTSeviye, System.ComponentModel.ISupportInitialize).EndInit()

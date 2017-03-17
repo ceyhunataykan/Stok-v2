@@ -126,15 +126,14 @@ Public Class StokKart
     Private Sub btnSec_Click(sender As Object, e As EventArgs) Handles btnSec.Click
         Dim uID As Integer = Convert.ToInt32(dgListe.CurrentRow.Cells(0).Value)
         Dim urunSec = (From u In db.Urun
-                       Join b In db.Birim On u.Birim_ID Equals b.Birim_ID
                        Where u.Urun_ID = uID
                        Select
                                  stokID = u.Urun_ID,
                                  stokKodu = u.Stok_Kodu,
                                  stokAdi = u.Stok_Adi,
                                  stokMiktar = u.Stok_Miktar,
-                                 stokBirim_ID = b.Birim_ID,
-                                 stokBirimAdi = b.Birim_Adi,
+                                 stokBirim_ID = u.Birim.Birim_ID,
+                                 stokBirimAdi = u.Birim.Birim_Adi,
                                  stokBfiyat = u.Stok_SFiyati,
                                  stokTseviye = u.Stok_TSeviye).FirstOrDefault()
         If giris = True Then

@@ -73,6 +73,7 @@ Public Class Depolar
         End Try
     End Sub
     Private Sub listele()
+        dgDepoListe.Rows.Clear()
         dgDepoListe.DataSource = db.Depo.ToList()
         dgDuzenle()
     End Sub
@@ -94,5 +95,9 @@ Public Class Depolar
 
     Private Sub dgDepoListe_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgDepoListe.CellClick
         lblId.Text = dgDepoListe.CurrentRow.Cells("Depo_ID").Value
+    End Sub
+
+    Private Sub Depolar_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        Me.Dispose()
     End Sub
 End Class

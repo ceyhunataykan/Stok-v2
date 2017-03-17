@@ -31,11 +31,11 @@ Partial Class Depolar
         Me.btnDuzenle = New DevExpress.XtraEditors.SimpleButton()
         Me.btnEkle = New DevExpress.XtraEditors.SimpleButton()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.lblId = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtAra = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cmbDurum = New System.Windows.Forms.ComboBox()
-        Me.lblId = New System.Windows.Forms.Label()
         CType(Me.dgDepoListe, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -47,7 +47,7 @@ Partial Class Depolar
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
         Me.Panel1.Location = New System.Drawing.Point(0, 472)
         Me.Panel1.Name = "Panel1"
-        Me.Panel1.Size = New System.Drawing.Size(644, 28)
+        Me.Panel1.Size = New System.Drawing.Size(643, 28)
         Me.Panel1.TabIndex = 46
         '
         'Panel2
@@ -56,7 +56,7 @@ Partial Class Depolar
         Me.Panel2.Dock = System.Windows.Forms.DockStyle.Top
         Me.Panel2.Location = New System.Drawing.Point(0, 0)
         Me.Panel2.Name = "Panel2"
-        Me.Panel2.Size = New System.Drawing.Size(644, 28)
+        Me.Panel2.Size = New System.Drawing.Size(643, 28)
         Me.Panel2.TabIndex = 45
         '
         'dgDepoListe
@@ -144,6 +144,15 @@ Partial Class Depolar
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Filtre"
         '
+        'lblId
+        '
+        Me.lblId.AutoSize = True
+        Me.lblId.Location = New System.Drawing.Point(241, 21)
+        Me.lblId.Name = "lblId"
+        Me.lblId.Size = New System.Drawing.Size(0, 13)
+        Me.lblId.TabIndex = 9
+        Me.lblId.Visible = False
+        '
         'Label2
         '
         Me.Label2.AutoSize = True
@@ -183,20 +192,12 @@ Partial Class Depolar
         Me.cmbDurum.TabIndex = 7
         Me.cmbDurum.Text = "Seçiniz"
         '
-        'lblId
-        '
-        Me.lblId.AutoSize = True
-        Me.lblId.Location = New System.Drawing.Point(241, 21)
-        Me.lblId.Name = "lblId"
-        Me.lblId.Size = New System.Drawing.Size(0, 13)
-        Me.lblId.TabIndex = 9
-        '
         'Depolar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Silver
-        Me.ClientSize = New System.Drawing.Size(644, 500)
+        Me.ClientSize = New System.Drawing.Size(643, 500)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.btnEkle)
         Me.Controls.Add(Me.btnSil)
