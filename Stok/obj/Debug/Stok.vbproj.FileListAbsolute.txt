@@ -135,3 +135,8 @@ C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.StokKartDuzenl
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.vbprojResolveAssemblyReference.cache
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.Login.resources
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.Kategoriler.resources
+C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.Birimler.resources
+C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.DepoDuzenle.resources
+C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.DepoEkle.resources
+C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.Depolar.resources
+C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.Bolumler.resources

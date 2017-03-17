@@ -48,7 +48,7 @@ Partial Class StokKart
         Me.btnSec.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
         Me.btnSec.Enabled = False
         Me.btnSec.Image = CType(resources.GetObject("btnSec.Image"), System.Drawing.Image)
-        Me.btnSec.Location = New System.Drawing.Point(12, 457)
+        Me.btnSec.Location = New System.Drawing.Point(12, 437)
         Me.btnSec.Name = "btnSec"
         Me.btnSec.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.btnSec.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.[False]
@@ -62,7 +62,7 @@ Partial Class StokKart
         Me.btnEkle.Appearance.Options.UseForeColor = True
         Me.btnEkle.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
         Me.btnEkle.Image = CType(resources.GetObject("btnEkle.Image"), System.Drawing.Image)
-        Me.btnEkle.Location = New System.Drawing.Point(84, 457)
+        Me.btnEkle.Location = New System.Drawing.Point(84, 437)
         Me.btnEkle.Name = "btnEkle"
         Me.btnEkle.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.btnEkle.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.[False]
@@ -76,7 +76,7 @@ Partial Class StokKart
         Me.btnDuzenle.Appearance.Options.UseForeColor = True
         Me.btnDuzenle.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
         Me.btnDuzenle.Image = CType(resources.GetObject("btnDuzenle.Image"), System.Drawing.Image)
-        Me.btnDuzenle.Location = New System.Drawing.Point(515, 457)
+        Me.btnDuzenle.Location = New System.Drawing.Point(515, 437)
         Me.btnDuzenle.Name = "btnDuzenle"
         Me.btnDuzenle.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.btnDuzenle.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.[False]
@@ -90,7 +90,7 @@ Partial Class StokKart
         Me.btnSil.Appearance.Options.UseForeColor = True
         Me.btnSil.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
         Me.btnSil.Image = CType(resources.GetObject("btnSil.Image"), System.Drawing.Image)
-        Me.btnSil.Location = New System.Drawing.Point(606, 457)
+        Me.btnSil.Location = New System.Drawing.Point(606, 437)
         Me.btnSil.Name = "btnSil"
         Me.btnSil.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.btnSil.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.[False]
@@ -157,7 +157,7 @@ Partial Class StokKart
         Me.GroupBox2.Controls.Add(Me.dgListe)
         Me.GroupBox2.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.Color.DimGray
-        Me.GroupBox2.Location = New System.Drawing.Point(12, 111)
+        Me.GroupBox2.Location = New System.Drawing.Point(12, 98)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(679, 333)
         Me.GroupBox2.TabIndex = 10
@@ -194,7 +194,7 @@ Partial Class StokKart
         '
         Me.Panel1.BackColor = System.Drawing.Color.DimGray
         Me.Panel1.Dock = System.Windows.Forms.DockStyle.Bottom
-        Me.Panel1.Location = New System.Drawing.Point(0, 499)
+        Me.Panel1.Location = New System.Drawing.Point(0, 476)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(703, 28)
         Me.Panel1.TabIndex = 28
@@ -205,7 +205,7 @@ Partial Class StokKart
         Me.btnDetay.Appearance.Options.UseForeColor = True
         Me.btnDetay.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
         Me.btnDetay.Image = CType(resources.GetObject("btnDetay.Image"), System.Drawing.Image)
-        Me.btnDetay.Location = New System.Drawing.Point(424, 457)
+        Me.btnDetay.Location = New System.Drawing.Point(424, 437)
         Me.btnDetay.Name = "btnDetay"
         Me.btnDetay.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.btnDetay.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.[False]
@@ -232,7 +232,7 @@ Partial Class StokKart
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Silver
-        Me.ClientSize = New System.Drawing.Size(703, 527)
+        Me.ClientSize = New System.Drawing.Size(703, 504)
         Me.Controls.Add(Me.btnYenile)
         Me.Controls.Add(Me.btnDetay)
         Me.Controls.Add(Me.Panel1)

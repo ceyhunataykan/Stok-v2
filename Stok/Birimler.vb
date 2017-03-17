@@ -1,26 +1,25 @@
-﻿Public Class Kategoriler
+﻿Public Class Birimler
     Dim db As New StokEntities
-    Private Sub Kategoriler_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+    Private Sub Birimler_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         listele()
     End Sub
+
     Private Sub btnEkle_Click(sender As Object, e As EventArgs) Handles btnEkle.Click
-        If txtKatKod.Text = "" Or txtKatAd.Text = "" Then
+        If txtBirAd.Text = "" Then
             MsgBox("Bilgiler Boş olamaz", MsgBoxStyle.Exclamation, "Uyarı")
             Return
         End If
-        Dim kategoriEkle As New Kategori
-        kategoriEkle.Kategori_Kodu = txtKatKod.Text
-        kategoriEkle.Kategori_Adi = txtKatAd.Text
-        db.Kategori.Add(kategoriEkle)
+        Dim birimEkle As New Birim
+        birimEkle.Birim_Adi = txtBirAd.Text
+        db.Birim.Add(birimEkle)
         db.SaveChanges()
-        MsgBox("Kategori Ekleme Başarılı", MsgBoxStyle.Information, "Bilgi")
+        MsgBox("Birim Ekleme Başarılı", MsgBoxStyle.Information, "Bilgi")
         temizle()
         listele()
     End Sub
-    Private Sub dgKatListe_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgKatListe.CellClick
-        lblid.Text = dgKatListe.CurrentRow.Cells("Kategori_ID").Value
-        txtKatKod.Text = dgKatListe.CurrentRow.Cells("Kategori_Kodu").Value
-        txtKatAd.Text = dgKatListe.CurrentRow.Cells("Kategori_Adi").Value
+    Private Sub dgBirListe_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgBirListe.CellClick
+        lblid.Text = dgBirListe.CurrentRow.Cells("Birim_ID").Value
+        txtBirAd.Text = dgBirListe.CurrentRow.Cells("Birim_Adi").Value
     End Sub
     Private Sub btnDuzenle_Click(sender As Object, e As EventArgs) Handles btnDuzenle.Click
         If lblid.Text = "" Then
@@ -28,43 +27,41 @@
             Return
         End If
         Dim id As Integer = Convert.ToInt32(lblid.Text)
-        Dim kategoriDuzenle = db.Kategori.Where(Function(k) k.Kategori_ID = id).First()
-        kategoriDuzenle.Kategori_Kodu = txtKatKod.Text
-        kategoriDuzenle.Kategori_Adi = txtKatAd.Text
+        Dim birimDuzenle = db.Birim.Where(Function(b) b.Birim_ID = id).First()
+        birimDuzenle.Birim_Adi = txtBirAd.Text
         db.SaveChanges()
-        MsgBox("Kategori Düzenleme Başarılı", MsgBoxStyle.Information, "Bilgi")
+        MsgBox("Birim Düzenleme Başarılı", MsgBoxStyle.Information, "Bilgi")
         temizle()
         listele()
     End Sub
+
     Private Sub btnSil_Click(sender As Object, e As EventArgs) Handles btnSil.Click
         If lblid.Text = "" Then
             MsgBox("Silme işlemi yapabilmek için kayıt seçiniz", MsgBoxStyle.Exclamation, "Uyarı")
             Return
         End If
         Dim id As Integer = Convert.ToInt32(lblid.Text)
-        Dim kategoriSil = db.Kategori.Where(Function(k) k.Kategori_ID = id).First()
-        db.Kategori.Remove(kategoriSil)
+        Dim birimSil = db.Birim.Where(Function(b) b.Birim_ID = id).First()
+        db.Birim.Remove(birimSil)
         db.SaveChanges()
         MsgBox("Kategori Silme Başarılı", MsgBoxStyle.Information, "Bilgi")
         temizle()
         listele()
     End Sub
+
     Private Sub btnTemizle_Click(sender As Object, e As EventArgs) Handles btnTemizle.Click
         temizle()
     End Sub
     Private Sub listele()
-        dgKatListe.DataSource = db.Kategori.ToList()
-        dgKatListe.Columns("Kategori_ID").Visible = False
-        dgKatListe.Columns("Kategori_Kodu").HeaderText = "Kategori Kodu"
-        dgKatListe.Columns("Kategori_Adi").HeaderText = "Kategori Adi"
-        dgKatListe.Columns("Urun").Visible = False
+        dgBirListe.DataSource = db.Birim.ToList()
+        dgBirListe.Columns("Birim_ID").Visible = False
+        dgBirListe.Columns("Birim_Adi").HeaderText = "Birim Adi"
+        dgBirListe.Columns("Urun").Visible = False
     End Sub
     Private Sub temizle()
         lblid.Text = ""
-        txtKatAd.Text = ""
-        txtKatKod.Text = ""
+        txtBirAd.Text = ""
     End Sub
-
     Private Sub btnKapat_Click(sender As Object, e As EventArgs) Handles btnKapat.Click
         Me.Close()
     End Sub

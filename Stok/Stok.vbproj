@@ -103,8 +103,20 @@
     <Compile Include="Birim.vb">
       <DependentUpon>StokModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Birimler.Designer.vb">
+      <DependentUpon>Birimler.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Birimler.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Bolum.vb">
       <DependentUpon>StokModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Bolumler.Designer.vb">
+      <DependentUpon>Bolumler.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Bolumler.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dashboard.Designer.vb">
       <DependentUpon>Dashboard.vb</DependentUpon>
@@ -114,6 +126,24 @@
     </Compile>
     <Compile Include="Depo.vb">
       <DependentUpon>StokModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DepoDuzenle.Designer.vb">
+      <DependentUpon>DepoDuzenle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DepoDuzenle.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepoEkle.Designer.vb">
+      <DependentUpon>DepoEkle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DepoEkle.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Depolar.Designer.vb">
+      <DependentUpon>Depolar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Depolar.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Fis.vb">
       <DependentUpon>StokModel.tt</DependentUpon>
@@ -242,8 +272,23 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Birimler.resx">
+      <DependentUpon>Birimler.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Bolumler.resx">
+      <DependentUpon>Bolumler.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepoDuzenle.resx">
+      <DependentUpon>DepoDuzenle.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepoEkle.resx">
+      <DependentUpon>DepoEkle.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depolar.resx">
+      <DependentUpon>Depolar.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Kategoriler.resx">
       <DependentUpon>Kategoriler.vb</DependentUpon>

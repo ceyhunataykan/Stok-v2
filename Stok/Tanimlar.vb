@@ -6,4 +6,16 @@
     Private Sub btnKategori_Click(sender As Object, e As EventArgs) Handles btnKategori.Click
         Kategoriler.ShowDialog()
     End Sub
+
+    Private Sub btnBirim_Click(sender As Object, e As EventArgs) Handles btnBirim.Click
+        Birimler.ShowDialog()
+    End Sub
+
+    Private Sub btnBolum_Click(sender As Object, e As EventArgs) Handles btnBolum.Click
+        Bolumler.ShowDialog()
+    End Sub
+
+    Private Sub btnDepo_Click(sender As Object, e As EventArgs) Handles btnDepo.Click
+        Depolar.ShowDialog()
+    End Sub
 End Class
