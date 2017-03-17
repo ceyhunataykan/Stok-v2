@@ -23,6 +23,8 @@ Partial Public Class Depo
     Public Property Depo_Mail As String
     Public Property Durum As Nullable(Of Boolean)
 
+    Public Overridable Property il As il
+    Public Overridable Property ilce As ilce
     Public Overridable Property Fis As ICollection(Of Fis) = New HashSet(Of Fis)
     Public Overridable Property Urun As ICollection(Of Urun) = New HashSet(Of Urun)
 
