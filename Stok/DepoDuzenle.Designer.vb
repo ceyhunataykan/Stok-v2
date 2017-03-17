@@ -350,6 +350,7 @@ Partial Class DepoDuzenle
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Name = "DepoDuzenle"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "DepoDuzenle"
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()

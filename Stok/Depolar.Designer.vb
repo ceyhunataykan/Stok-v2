@@ -35,6 +35,7 @@ Partial Class Depolar
         Me.txtAra = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cmbDurum = New System.Windows.Forms.ComboBox()
+        Me.lblId = New System.Windows.Forms.Label()
         CType(Me.dgDepoListe, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -60,9 +61,15 @@ Partial Class Depolar
         '
         'dgDepoListe
         '
+        Me.dgDepoListe.AllowUserToAddRows = False
+        Me.dgDepoListe.AllowUserToDeleteRows = False
+        Me.dgDepoListe.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgDepoListe.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgDepoListe.Location = New System.Drawing.Point(17, 27)
+        Me.dgDepoListe.MultiSelect = False
         Me.dgDepoListe.Name = "dgDepoListe"
+        Me.dgDepoListe.ReadOnly = True
+        Me.dgDepoListe.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgDepoListe.Size = New System.Drawing.Size(587, 287)
         Me.dgDepoListe.TabIndex = 60
         '
@@ -123,6 +130,7 @@ Partial Class Depolar
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.lblId)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.txtAra)
         Me.GroupBox1.Controls.Add(Me.Label1)
@@ -175,6 +183,14 @@ Partial Class Depolar
         Me.cmbDurum.TabIndex = 7
         Me.cmbDurum.Text = "Seçiniz"
         '
+        'lblId
+        '
+        Me.lblId.AutoSize = True
+        Me.lblId.Location = New System.Drawing.Point(241, 21)
+        Me.lblId.Name = "lblId"
+        Me.lblId.Size = New System.Drawing.Size(0, 13)
+        Me.lblId.TabIndex = 9
+        '
         'Depolar
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -211,4 +227,5 @@ Partial Class Depolar
     Friend WithEvents txtAra As TextBox
     Friend WithEvents Label1 As Label
     Friend WithEvents cmbDurum As ComboBox
+    Friend WithEvents lblId As Label
 End Class
