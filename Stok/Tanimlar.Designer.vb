@@ -162,6 +162,7 @@ Partial Class Tanimlar
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel2)
         Me.Name = "Tanimlar"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Tanımlar"
         Me.ResumeLayout(False)
 

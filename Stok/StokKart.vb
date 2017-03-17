@@ -27,30 +27,25 @@ Public Class StokKart
             dgListe.Columns("stokBirim").HeaderText = "Birim"
             dgListe.Columns("stokTseviye").Visible = False
         Catch
-
         End Try
         renklendir()
     End Sub
     Private Sub renklendir()
-        Try
-            For i = 0 To dgListe.Rows.Count - 1 Step 1
-                Application.DoEvents()
-                Dim renk As DataGridViewCellStyle = New DataGridViewCellStyle()
-                If dgListe.Rows(i).Cells("stokMiktar").Value > dgListe.Rows(i).Cells("stokTseviye").Value Then
-                    renk.BackColor = Color.YellowGreen
-                    renk.ForeColor = Color.White
-                ElseIf dgListe.Rows(i).Cells("stokMiktar").Value < dgListe.Rows(i).Cells("stokTseviye").Value Then
-                    renk.BackColor = Color.Orange
-                    renk.ForeColor = Color.White
-                ElseIf dgListe.Rows(i).Cells("stokMiktar").Value = 0 Then
-                    renk.BackColor = Color.DarkRed
-                    renk.ForeColor = Color.White
-                End If
-                dgListe.Rows(i).DefaultCellStyle = renk
-            Next
-        Catch
-
-        End Try
+        For i = 0 To dgListe.Rows.Count - 1 Step 1
+            Application.DoEvents()
+            Dim renk As DataGridViewCellStyle = New DataGridViewCellStyle()
+            If dgListe.Rows(i).Cells("stokMiktar").Value > dgListe.Rows(i).Cells("stokTseviye").Value Then
+                renk.BackColor = Color.YellowGreen
+                renk.ForeColor = Color.White
+            ElseIf dgListe.Rows(i).Cells("stokMiktar").Value < dgListe.Rows(i).Cells("stokTseviye").Value Then
+                renk.BackColor = Color.Orange
+                renk.ForeColor = Color.White
+            ElseIf dgListe.Rows(i).Cells("stokMiktar").Value = 0 Then
+                renk.BackColor = Color.DarkRed
+                renk.ForeColor = Color.White
+            End If
+            dgListe.Rows(i).DefaultCellStyle = renk
+        Next
     End Sub
     Private Sub cmbDurum_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbDurum.SelectedIndexChanged
         If cmbDurum.SelectedItem = "Tümü" Then
@@ -211,27 +206,26 @@ Public Class StokKart
     Private Sub btnDuzenle_Click(sender As Object, e As EventArgs) Handles btnDuzenle.Click
         Dim id As Integer = Convert.ToInt32(dgListe.CurrentRow.Cells("stokID").Value)
         Dim guncelle = db.Urun.Where(Function(u) u.Urun_ID = id).FirstOrDefault()
-        If Not guncelle Is Nothing Then
-            StokKartDuzenle.Show()
-            If guncelle.Durum = True Then
-                StokKartDuzenle.ckbAktif.Checked = True
-            Else
-                StokKartDuzenle.ckbAktif.Checked = False
-            End If
-            StokKartDuzenle.lblUrunID.Text = guncelle.Urun_ID
-            StokKartDuzenle.DateTimePicker1.Value = guncelle.Stok_KayitTarihi
-            StokKartDuzenle.txtSk.Text = guncelle.Stok_Kodu
-            StokKartDuzenle.txtBarkod.Text = guncelle.Stok_Barkod
-            StokKartDuzenle.txtStokAdi.Text = guncelle.Stok_Adi
-            StokKartDuzenle.cmbKategori.SelectedValue = guncelle.Kategori_ID
-            StokKartDuzenle.nudMiktar.Value = guncelle.Stok_Miktar
-            StokKartDuzenle.nudTSeviye.Value = guncelle.Stok_TSeviye
-            StokKartDuzenle.cmbBirim.SelectedValue = guncelle.Birim_ID
-            StokKartDuzenle.cmbDepo.SelectedValue = guncelle.Depo_ID
-            StokKartDuzenle.txtAlisFiyati.Text = guncelle.Stok_AFiyati
-            StokKartDuzenle.txtSatisFiyati.Text = guncelle.Stok_SFiyati
-            StokKartDuzenle.txtKdv.Text = guncelle.Stok_Kdv
-            StokKartDuzenle.PictureBox1.Image = Nothing
+        StokKartDuzenle.Show()
+        If guncelle.Durum = True Then
+            StokKartDuzenle.ckbAktif.Checked = True
+        Else
+            StokKartDuzenle.ckbAktif.Checked = False
         End If
+        StokKartDuzenle.lblUrunID.Text = guncelle.Urun_ID
+        StokKartDuzenle.DateTimePicker1.Value = guncelle.Stok_KayitTarihi
+        StokKartDuzenle.txtSk.Text = guncelle.Stok_Kodu
+        StokKartDuzenle.txtBarkod.Text = guncelle.Stok_Barkod
+        StokKartDuzenle.txtStokAdi.Text = guncelle.Stok_Adi
+        StokKartDuzenle.cmbKategori.SelectedValue = guncelle.Kategori_ID
+        StokKartDuzenle.nudMiktar.Value = guncelle.Stok_Miktar
+        StokKartDuzenle.nudTSeviye.Value = guncelle.Stok_TSeviye
+        StokKartDuzenle.cmbBirim.SelectedValue = guncelle.Birim_ID
+        StokKartDuzenle.cmbDepo.SelectedValue = guncelle.Depo_ID
+        StokKartDuzenle.txtAlisFiyati.Text = guncelle.Stok_AFiyati
+        StokKartDuzenle.txtSatisFiyati.Text = guncelle.Stok_SFiyati
+        StokKartDuzenle.txtKdv.Text = guncelle.Stok_Kdv
+        StokKartDuzenle.PictureBox1.Image = Nothing
+
     End Sub
 End Class

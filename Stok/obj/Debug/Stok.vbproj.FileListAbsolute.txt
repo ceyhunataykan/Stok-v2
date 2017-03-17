@@ -134,3 +134,4 @@ C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.StokCikisDuzen
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.StokKartDuzenle.resources
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.vbprojResolveAssemblyReference.cache
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.Login.resources
+C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.Kategoriler.resources

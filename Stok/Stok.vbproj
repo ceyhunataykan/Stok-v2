@@ -124,6 +124,12 @@
     <Compile Include="Kategori.vb">
       <DependentUpon>StokModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Kategoriler.Designer.vb">
+      <DependentUpon>Kategoriler.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Kategoriler.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Kullanici.vb">
       <DependentUpon>StokModel.tt</DependentUpon>
     </Compile>
@@ -238,6 +244,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kategoriler.resx">
+      <DependentUpon>Kategoriler.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.vb</DependentUpon>
