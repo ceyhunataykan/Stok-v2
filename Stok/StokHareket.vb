@@ -123,6 +123,13 @@ Public Class StokHareket
     End Sub
 
     Private Sub btnSil_Click(sender As Object, e As EventArgs) Handles btnSil.Click
+        If lblId.Text = "" Then
+            MsgBox("Silme işlemi yapabilmek için kayıt seçiniz", MsgBoxStyle.Exclamation, "Uyarı")
+            Return
+        End If
+        If MsgBox("Kaydı silmek istiyor musunuz?", MsgBoxStyle.YesNo, "Uyarı") = MsgBoxResult.No Then
+            Return
+        End If
         Try
             If dgFisListe.Rows.Count > 0 Then
                 Dim fID As Integer = Convert.ToInt32(dgFisListe.CurrentRow.Cells("fisID").Value)
@@ -228,5 +235,13 @@ Public Class StokHareket
         If Not (Char.IsNumber(e.KeyChar) = True) And e.KeyChar <> ChrW(Keys.Back) Then
             e.Handled = True
         End If
+    End Sub
+
+    Private Sub dgFisListe_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgFisListe.CellClick
+        lblId.Text = dgFisListe.CurrentRow.Cells("fisID").Value
+    End Sub
+
+    Private Sub StokHareket_FormClosing(sender As Object, e As FormClosingEventArgs) Handles MyBase.FormClosing
+        Me.Dispose()
     End Sub
 End Class

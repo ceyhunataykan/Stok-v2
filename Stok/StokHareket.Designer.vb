@@ -42,6 +42,7 @@ Partial Class StokHareket
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.btnDetay = New DevExpress.XtraEditors.SimpleButton()
+        Me.lblId = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgFisListe, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -266,12 +267,22 @@ Partial Class StokHareket
         Me.btnDetay.TabIndex = 30
         Me.btnDetay.Text = "Detay"
         '
+        'lblId
+        '
+        Me.lblId.AutoSize = True
+        Me.lblId.Location = New System.Drawing.Point(367, 426)
+        Me.lblId.Name = "lblId"
+        Me.lblId.Size = New System.Drawing.Size(0, 13)
+        Me.lblId.TabIndex = 31
+        Me.lblId.Visible = False
+        '
         'StokHareket
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Silver
         Me.ClientSize = New System.Drawing.Size(808, 488)
+        Me.Controls.Add(Me.lblId)
         Me.Controls.Add(Me.btnDetay)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
@@ -281,6 +292,7 @@ Partial Class StokHareket
         Me.Controls.Add(Me.btnSil)
         Me.Controls.Add(Me.btnDuzenle)
         Me.Controls.Add(Me.btnEkle)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.Name = "StokHareket"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
@@ -290,6 +302,7 @@ Partial Class StokHareket
         Me.GroupBox2.ResumeLayout(False)
         CType(Me.dgFisListe, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
     Friend WithEvents Label2 As Label
@@ -311,4 +324,5 @@ Partial Class StokHareket
     Friend WithEvents btnDetay As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents dgFisListe As DataGridView
     Friend WithEvents btnTum As DevExpress.XtraEditors.SimpleButton
+    Friend WithEvents lblId As Label
 End Class

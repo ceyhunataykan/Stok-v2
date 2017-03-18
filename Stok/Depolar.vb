@@ -73,7 +73,6 @@ Public Class Depolar
         End Try
     End Sub
     Private Sub listele()
-        dgDepoListe.Rows.Clear()
         dgDepoListe.DataSource = db.Depo.ToList()
         dgDuzenle()
     End Sub
@@ -93,6 +92,8 @@ Public Class Depolar
         dgDepoListe.Columns("Durum").Visible = False
         dgDepoListe.Columns("Fis").Visible = False
         dgDepoListe.Columns("Urun").Visible = False
+        dgDepoListe.Columns("Aktarim_Fis").Visible = False
+        dgDepoListe.Columns("Aktarim_Fis1").Visible = False
     End Sub
 
     Private Sub dgDepoListe_CellClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgDepoListe.CellClick

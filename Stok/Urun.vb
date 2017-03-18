@@ -27,6 +27,7 @@ Partial Public Class Urun
     Public Property Stok_Foto As String
     Public Property Durum As Nullable(Of Boolean)
 
+    Public Overridable Property Aktarim_Detay As ICollection(Of Aktarim_Detay) = New HashSet(Of Aktarim_Detay)
     Public Overridable Property Birim As Birim
     Public Overridable Property Depo As Depo
     Public Overridable Property Fis_Detay As ICollection(Of Fis_Detay) = New HashSet(Of Fis_Detay)

@@ -28,6 +28,7 @@ Partial Class StokCikis
         Me.btnIptal = New DevExpress.XtraEditors.SimpleButton()
         Me.btnKaydet = New DevExpress.XtraEditors.SimpleButton()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.lblid = New System.Windows.Forms.Label()
         Me.txtBirim = New System.Windows.Forms.TextBox()
         Me.nudMiktar = New System.Windows.Forms.NumericUpDown()
         Me.btnListeEkle = New DevExpress.XtraEditors.SimpleButton()
@@ -48,6 +49,13 @@ Partial Class StokCikis
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.btnSil = New DevExpress.XtraEditors.SimpleButton()
         Me.dgFisListe = New System.Windows.Forms.DataGridView()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.GroupBox5 = New System.Windows.Forms.GroupBox()
         Me.Label13 = New System.Windows.Forms.Label()
@@ -64,14 +72,6 @@ Partial Class StokCikis
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cmbDepo = New System.Windows.Forms.ComboBox()
         Me.cmbBolum = New System.Windows.Forms.ComboBox()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column4 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column5 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column6 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.id = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.lblid = New System.Windows.Forms.Label()
         Me.GroupBox2.SuspendLayout()
         CType(Me.nudMiktar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
@@ -152,6 +152,16 @@ Partial Class StokCikis
         Me.GroupBox2.TabIndex = 45
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Ürün Bilgileri"
+        '
+        'lblid
+        '
+        Me.lblid.AutoSize = True
+        Me.lblid.Location = New System.Drawing.Point(210, 106)
+        Me.lblid.Name = "lblid"
+        Me.lblid.Size = New System.Drawing.Size(50, 13)
+        Me.lblid.TabIndex = 44
+        Me.lblid.Text = "Ürün ID"
+        Me.lblid.Visible = False
         '
         'txtBirim
         '
@@ -359,6 +369,48 @@ Partial Class StokCikis
         Me.dgFisListe.Size = New System.Drawing.Size(536, 107)
         Me.dgFisListe.TabIndex = 0
         '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Stok Kodu"
+        Me.Column1.Name = "Column1"
+        Me.Column1.ReadOnly = True
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "Stok Adı"
+        Me.Column2.Name = "Column2"
+        Me.Column2.ReadOnly = True
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "Miktar"
+        Me.Column3.Name = "Column3"
+        Me.Column3.ReadOnly = True
+        '
+        'Column4
+        '
+        Me.Column4.HeaderText = "Birim"
+        Me.Column4.Name = "Column4"
+        Me.Column4.ReadOnly = True
+        '
+        'Column5
+        '
+        Me.Column5.HeaderText = "Birim Fiyat"
+        Me.Column5.Name = "Column5"
+        Me.Column5.ReadOnly = True
+        '
+        'Column6
+        '
+        Me.Column6.HeaderText = "Tutar"
+        Me.Column6.Name = "Column6"
+        Me.Column6.ReadOnly = True
+        '
+        'id
+        '
+        Me.id.HeaderText = "id"
+        Me.id.Name = "id"
+        Me.id.ReadOnly = True
+        '
         'GroupBox3
         '
         Me.GroupBox3.Controls.Add(Me.txtAciklama)
@@ -528,58 +580,6 @@ Partial Class StokCikis
         Me.cmbBolum.Size = New System.Drawing.Size(121, 21)
         Me.cmbBolum.TabIndex = 7
         '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Stok Kodu"
-        Me.Column1.Name = "Column1"
-        Me.Column1.ReadOnly = True
-        '
-        'Column2
-        '
-        Me.Column2.HeaderText = "Stok Adı"
-        Me.Column2.Name = "Column2"
-        Me.Column2.ReadOnly = True
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "Miktar"
-        Me.Column3.Name = "Column3"
-        Me.Column3.ReadOnly = True
-        '
-        'Column4
-        '
-        Me.Column4.HeaderText = "Birim"
-        Me.Column4.Name = "Column4"
-        Me.Column4.ReadOnly = True
-        '
-        'Column5
-        '
-        Me.Column5.HeaderText = "Birim Fiyat"
-        Me.Column5.Name = "Column5"
-        Me.Column5.ReadOnly = True
-        '
-        'Column6
-        '
-        Me.Column6.HeaderText = "Tutar"
-        Me.Column6.Name = "Column6"
-        Me.Column6.ReadOnly = True
-        '
-        'id
-        '
-        Me.id.HeaderText = "id"
-        Me.id.Name = "id"
-        Me.id.ReadOnly = True
-        '
-        'lblid
-        '
-        Me.lblid.AutoSize = True
-        Me.lblid.Location = New System.Drawing.Point(210, 106)
-        Me.lblid.Name = "lblid"
-        Me.lblid.Size = New System.Drawing.Size(50, 13)
-        Me.lblid.TabIndex = 44
-        Me.lblid.Text = "Ürün ID"
-        Me.lblid.Visible = False
-        '
         'StokCikis
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -595,10 +595,11 @@ Partial Class StokCikis
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.Name = "StokCikis"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Stok Cıkış Fişi"
+        Me.Text = "Stok Çıkış Fişi"
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         CType(Me.nudMiktar, System.ComponentModel.ISupportInitialize).EndInit()

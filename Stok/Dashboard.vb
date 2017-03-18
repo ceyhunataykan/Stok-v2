@@ -13,4 +13,8 @@
     Private Sub SimpleButton2_Click(sender As Object, e As EventArgs) Handles SimpleButton2.Click
         Tanimlar.ShowDialog()
     End Sub
+
+    Private Sub SimpleButton1_Click(sender As Object, e As EventArgs) Handles SimpleButton1.Click
+        DepoAktar.ShowDialog()
+    End Sub
 End Class

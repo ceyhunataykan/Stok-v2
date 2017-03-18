@@ -209,6 +209,8 @@ Partial Class Birimler
         Me.Controls.Add(Me.btnSil)
         Me.Controls.Add(Me.btnDuzenle)
         Me.Controls.Add(Me.btnEkle)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
         Me.Name = "Birimler"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Birimler"

@@ -310,3 +310,6 @@ C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\bin\Debug\pt\Microsoft.SqlSer
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\bin\Debug\ru\Microsoft.SqlServer.Types.resources.dll
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\bin\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\bin\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll
+C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.DepoAktar.resources
+C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.DepoAktarDuzenle.resources
+C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.DepoAktarEkle.resources

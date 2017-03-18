@@ -31,6 +31,8 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="Aktarim_Detay" EntityType="StokModel.Aktarim_Detay" />
+    <EntitySet Name="Aktarim_Fis" EntityType="StokModel.Aktarim_Fis" />
     <EntitySet Name="Birim" EntityType="StokModel.Birim" />
     <EntitySet Name="Bolum" EntityType="StokModel.Bolum" />
     <EntitySet Name="Depo" EntityType="StokModel.Depo" />
@@ -43,6 +45,22 @@
     <EntitySet Name="Rol" EntityType="StokModel.Rol" />
     <EntitySet Name="sysdiagrams" EntityType="StokModel.sysdiagrams" />
     <EntitySet Name="Urun" EntityType="StokModel.Urun" />
+    <AssociationSet Name="FK_Aktarim_Detay_Aktarim_Fis" Association="StokModel.FK_Aktarim_Detay_Aktarim_Fis">
+      <End Role="Aktarim_Fis" EntitySet="Aktarim_Fis" />
+      <End Role="Aktarim_Detay" EntitySet="Aktarim_Detay" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Aktarim_Detay_Urun" Association="StokModel.FK_Aktarim_Detay_Urun">
+      <End Role="Urun" EntitySet="Urun" />
+      <End Role="Aktarim_Detay" EntitySet="Aktarim_Detay" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Aktarim_Fis_Depo" Association="StokModel.FK_Aktarim_Fis_Depo">
+      <End Role="Depo" EntitySet="Depo" />
+      <End Role="Aktarim_Fis" EntitySet="Aktarim_Fis" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Aktarim_Fis_Depo1" Association="StokModel.FK_Aktarim_Fis_Depo1">
+      <End Role="Depo" EntitySet="Depo" />
+      <End Role="Aktarim_Fis" EntitySet="Aktarim_Fis" />
+    </AssociationSet>
     <AssociationSet Name="FK_Urun_Birim" Association="StokModel.FK_Urun_Birim">
       <End Role="Birim" EntitySet="Birim" />
       <End Role="Urun" EntitySet="Urun" />
@@ -87,6 +105,10 @@
       <End Role="Rol" EntitySet="Rol" />
       <End Role="Kullanici" EntitySet="Kullanici" />
     </AssociationSet>
+    <AssociationSet Name="FK_Aktarim_Detay_Birim" Association="StokModel.FK_Aktarim_Detay_Birim">
+      <End Role="Birim" EntitySet="Birim" />
+      <End Role="Aktarim_Detay" EntitySet="Aktarim_Detay" />
+    </AssociationSet>
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -99,6 +121,34 @@
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
+  <EntityType Name="Aktarim_Detay">
+    <Key>
+      <PropertyRef Name="Detay_ID" />
+    </Key>
+    <Property Name="Detay_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Aktarim_Fis_ID" Type="Int32" Nullable="false" />
+    <Property Name="Urun_ID" Type="Int32" />
+    <Property Name="Miktar" Type="Int32" />
+    <Property Name="Birim_ID" Type="Int32" />
+    <NavigationProperty Name="Aktarim_Fis" Relationship="StokModel.FK_Aktarim_Detay_Aktarim_Fis" FromRole="Aktarim_Detay" ToRole="Aktarim_Fis" />
+    <NavigationProperty Name="Urun" Relationship="StokModel.FK_Aktarim_Detay_Urun" FromRole="Aktarim_Detay" ToRole="Urun" />
+    <NavigationProperty Name="Birim" Relationship="StokModel.FK_Aktarim_Detay_Birim" FromRole="Aktarim_Detay" ToRole="Birim" />
+  </EntityType>
+  <EntityType Name="Aktarim_Fis">
+    <Key>
+      <PropertyRef Name="Aktarim_ID" />
+    </Key>
+    <Property Name="Aktarim_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Aktarim_No" Type="Int32" />
+    <Property Name="Aktarim_Tarih" Type="DateTime" Precision="3" />
+    <Property Name="Aktarim_Türü" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cikis_Depo_ID" Type="Int32" />
+    <Property Name="Giris_Depo_ID" Type="Int32" />
+    <Property Name="Aktarim_Aciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Aktarim_Detay" Relationship="StokModel.FK_Aktarim_Detay_Aktarim_Fis" FromRole="Aktarim_Fis" ToRole="Aktarim_Detay" />
+    <NavigationProperty Name="Depo" Relationship="StokModel.FK_Aktarim_Fis_Depo" FromRole="Aktarim_Fis" ToRole="Depo" />
+    <NavigationProperty Name="Depo1" Relationship="StokModel.FK_Aktarim_Fis_Depo1" FromRole="Aktarim_Fis" ToRole="Depo" />
+  </EntityType>
   <EntityType Name="Birim">
     <Key>
       <PropertyRef Name="Birim_ID" />
@@ -106,6 +156,7 @@
     <Property Name="Birim_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
     <Property Name="Birim_Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="Urun" Relationship="StokModel.FK_Urun_Birim" FromRole="Birim" ToRole="Urun" />
+    <NavigationProperty Name="Aktarim_Detay" Relationship="StokModel.FK_Aktarim_Detay_Birim" FromRole="Birim" ToRole="Aktarim_Detay" />
   </EntityType>
   <EntityType Name="Bolum">
     <Key>
@@ -130,6 +181,8 @@
     <Property Name="Depo_Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Depo_Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Durum" Type="Boolean" />
+    <NavigationProperty Name="Aktarim_Fis" Relationship="StokModel.FK_Aktarim_Fis_Depo" FromRole="Depo" ToRole="Aktarim_Fis" />
+    <NavigationProperty Name="Aktarim_Fis1" Relationship="StokModel.FK_Aktarim_Fis_Depo1" FromRole="Depo" ToRole="Aktarim_Fis" />
     <NavigationProperty Name="il" Relationship="StokModel.FK_Depo_il" FromRole="Depo" ToRole="il" />
     <NavigationProperty Name="ilce" Relationship="StokModel.FK_Depo_ilce" FromRole="Depo" ToRole="ilce" />
     <NavigationProperty Name="Fis" Relationship="StokModel.FK_Fis_Depo" FromRole="Depo" ToRole="Fis" />
@@ -244,11 +297,60 @@
     <Property Name="Stok_KayitTarihi" Type="DateTime" Precision="3" />
     <Property Name="Stok_Foto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="Durum" Type="Boolean" />
+    <NavigationProperty Name="Aktarim_Detay" Relationship="StokModel.FK_Aktarim_Detay_Urun" FromRole="Urun" ToRole="Aktarim_Detay" />
     <NavigationProperty Name="Birim" Relationship="StokModel.FK_Urun_Birim" FromRole="Urun" ToRole="Birim" />
     <NavigationProperty Name="Depo" Relationship="StokModel.FK_Urun_Depo" FromRole="Urun" ToRole="Depo" />
     <NavigationProperty Name="Fis_Detay" Relationship="StokModel.FK_Fis_Detay_Urun" FromRole="Urun" ToRole="Fis_Detay" />
     <NavigationProperty Name="Kategori" Relationship="StokModel.FK_Urun_Kategori" FromRole="Urun" ToRole="Kategori" />
   </EntityType>
+  <Association Name="FK_Aktarim_Detay_Aktarim_Fis">
+    <End Type="StokModel.Aktarim_Fis" Role="Aktarim_Fis" Multiplicity="1" />
+    <End Type="StokModel.Aktarim_Detay" Role="Aktarim_Detay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Aktarim_Fis">
+        <PropertyRef Name="Aktarim_ID" />
+      </Principal>
+      <Dependent Role="Aktarim_Detay">
+        <PropertyRef Name="Aktarim_Fis_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Aktarim_Detay_Urun">
+    <End Type="StokModel.Urun" Role="Urun" Multiplicity="0..1" />
+    <End Type="StokModel.Aktarim_Detay" Role="Aktarim_Detay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urun">
+        <PropertyRef Name="Urun_ID" />
+      </Principal>
+      <Dependent Role="Aktarim_Detay">
+        <PropertyRef Name="Urun_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Aktarim_Fis_Depo">
+    <End Type="StokModel.Depo" Role="Depo" Multiplicity="0..1" />
+    <End Type="StokModel.Aktarim_Fis" Role="Aktarim_Fis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Depo">
+        <PropertyRef Name="Depo_ID" />
+      </Principal>
+      <Dependent Role="Aktarim_Fis">
+        <PropertyRef Name="Cikis_Depo_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Aktarim_Fis_Depo1">
+    <End Type="StokModel.Depo" Role="Depo" Multiplicity="0..1" />
+    <End Type="StokModel.Aktarim_Fis" Role="Aktarim_Fis" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Depo">
+        <PropertyRef Name="Depo_ID" />
+      </Principal>
+      <Dependent Role="Aktarim_Fis">
+        <PropertyRef Name="Giris_Depo_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Urun_Birim">
     <End Type="StokModel.Birim" Role="Birim" Multiplicity="0..1" />
     <End Type="StokModel.Urun" Role="Urun" Multiplicity="*" />
@@ -378,6 +480,18 @@
       </Principal>
       <Dependent Role="Kullanici">
         <PropertyRef Name="Rol_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Aktarim_Detay_Birim">
+    <End Type="StokModel.Birim" Role="Birim" Multiplicity="0..1" />
+    <End Type="StokModel.Aktarim_Detay" Role="Aktarim_Detay" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Birim">
+        <PropertyRef Name="Birim_ID" />
+      </Principal>
+      <Dependent Role="Aktarim_Detay">
+        <PropertyRef Name="Birim_ID" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

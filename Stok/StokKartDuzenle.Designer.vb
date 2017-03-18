@@ -511,6 +511,8 @@ Partial Class StokKartDuzenle
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.btnIptal)
         Me.Controls.Add(Me.btnKaydet)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
         Me.Name = "StokKartDuzenle"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Stok Kart Düzenle"

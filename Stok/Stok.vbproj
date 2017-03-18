@@ -129,6 +129,12 @@
     <Compile Include="Admin.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Aktarim_Detay.vb">
+      <DependentUpon>StokModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Aktarim_Fis.vb">
+      <DependentUpon>StokModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Birim.vb">
       <DependentUpon>StokModel.tt</DependentUpon>
     </Compile>
@@ -155,6 +161,24 @@
     </Compile>
     <Compile Include="Depo.vb">
       <DependentUpon>StokModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DepoAktar.Designer.vb">
+      <DependentUpon>DepoAktar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DepoAktar.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepoAktarDuzenle.Designer.vb">
+      <DependentUpon>DepoAktarDuzenle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DepoAktarDuzenle.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DepoAktarEkle.Designer.vb">
+      <DependentUpon>DepoAktarEkle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="DepoAktarEkle.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="DepoDuzenle.Designer.vb">
       <DependentUpon>DepoDuzenle.vb</DependentUpon>
@@ -315,6 +339,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepoAktar.resx">
+      <DependentUpon>DepoAktar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepoAktarDuzenle.resx">
+      <DependentUpon>DepoAktarDuzenle.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DepoAktarEkle.resx">
+      <DependentUpon>DepoAktarEkle.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DepoDuzenle.resx">
       <DependentUpon>DepoDuzenle.vb</DependentUpon>

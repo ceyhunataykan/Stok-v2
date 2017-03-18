@@ -56,6 +56,7 @@ Partial Class StokGirisDuzenle
         Me.txtTopBirim = New System.Windows.Forms.TextBox()
         Me.Label16 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label15 = New System.Windows.Forms.Label()
         Me.btnFisDuzenle = New DevExpress.XtraEditors.SimpleButton()
         Me.lblFisId = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
@@ -65,7 +66,6 @@ Partial Class StokGirisDuzenle
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.cmbBolum = New System.Windows.Forms.ComboBox()
-        Me.Label15 = New System.Windows.Forms.Label()
         CType(Me.dgFisListe, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox4.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -444,6 +444,17 @@ Partial Class StokGirisDuzenle
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Fiş Bilgileri"
         '
+        'Label15
+        '
+        Me.Label15.AutoSize = True
+        Me.Label15.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
+        Me.Label15.ForeColor = System.Drawing.Color.DimGray
+        Me.Label15.Location = New System.Drawing.Point(16, 79)
+        Me.Label15.Name = "Label15"
+        Me.Label15.Size = New System.Drawing.Size(65, 13)
+        Me.Label15.TabIndex = 45
+        Me.Label15.Text = "Açıklama :"
+        '
         'btnFisDuzenle
         '
         Me.btnFisDuzenle.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
@@ -531,17 +542,6 @@ Partial Class StokGirisDuzenle
         Me.cmbBolum.Size = New System.Drawing.Size(121, 21)
         Me.cmbBolum.TabIndex = 7
         '
-        'Label15
-        '
-        Me.Label15.AutoSize = True
-        Me.Label15.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
-        Me.Label15.ForeColor = System.Drawing.Color.DimGray
-        Me.Label15.Location = New System.Drawing.Point(16, 79)
-        Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(65, 13)
-        Me.Label15.TabIndex = 45
-        Me.Label15.Text = "Açıklama :"
-        '
         'StokGirisDuzenle
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -555,6 +555,8 @@ Partial Class StokGirisDuzenle
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox5)
         Me.Controls.Add(Me.GroupBox1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
         Me.Name = "StokGirisDuzenle"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Stok Giriş Fişi Düzenleme"

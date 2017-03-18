@@ -41,6 +41,8 @@ Partial Class DepoDuzenle
         Me.btnKaydet = New DevExpress.XtraEditors.SimpleButton()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.txtFax = New System.Windows.Forms.MaskedTextBox()
+        Me.txtTel = New System.Windows.Forms.MaskedTextBox()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtDepoAd = New System.Windows.Forms.TextBox()
@@ -48,8 +50,6 @@ Partial Class DepoDuzenle
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.txtFax = New System.Windows.Forms.MaskedTextBox()
-        Me.txtTel = New System.Windows.Forms.MaskedTextBox()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -238,6 +238,22 @@ Partial Class DepoDuzenle
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Yetkili"
         '
+        'txtFax
+        '
+        Me.txtFax.Location = New System.Drawing.Point(101, 80)
+        Me.txtFax.Mask = "(999) 000-0000"
+        Me.txtFax.Name = "txtFax"
+        Me.txtFax.Size = New System.Drawing.Size(138, 21)
+        Me.txtFax.TabIndex = 57
+        '
+        'txtTel
+        '
+        Me.txtTel.Location = New System.Drawing.Point(101, 53)
+        Me.txtTel.Mask = "(999) 000-0000"
+        Me.txtTel.Name = "txtTel"
+        Me.txtTel.Size = New System.Drawing.Size(138, 21)
+        Me.txtTel.TabIndex = 56
+        '
         'Label8
         '
         Me.Label8.AutoSize = True
@@ -323,22 +339,6 @@ Partial Class DepoDuzenle
         Me.Panel1.Size = New System.Drawing.Size(368, 28)
         Me.Panel1.TabIndex = 64
         '
-        'txtFax
-        '
-        Me.txtFax.Location = New System.Drawing.Point(101, 80)
-        Me.txtFax.Mask = "(999) 000-0000"
-        Me.txtFax.Name = "txtFax"
-        Me.txtFax.Size = New System.Drawing.Size(138, 21)
-        Me.txtFax.TabIndex = 57
-        '
-        'txtTel
-        '
-        Me.txtTel.Location = New System.Drawing.Point(101, 53)
-        Me.txtTel.Mask = "(999) 000-0000"
-        Me.txtTel.Name = "txtTel"
-        Me.txtTel.Size = New System.Drawing.Size(138, 21)
-        Me.txtTel.TabIndex = 56
-        '
         'DepoDuzenle
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -351,9 +351,11 @@ Partial Class DepoDuzenle
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
         Me.Name = "DepoDuzenle"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "DepoDuzenle"
+        Me.Text = "Depo Düzenle"
         Me.GroupBox2.ResumeLayout(False)
         Me.GroupBox2.PerformLayout()
         Me.GroupBox1.ResumeLayout(False)

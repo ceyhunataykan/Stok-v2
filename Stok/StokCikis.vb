@@ -82,10 +82,14 @@
         cmbDepo.DataSource = depoListe
         cmbDepo.DisplayMember = "Depo_Adi"
         cmbDepo.ValueMember = "Depo_ID"
+        cmbDepo.SelectedIndex = -1
+        cmbDepo.SelectedText = "Seçiniz"
         Dim bolumListe As IList(Of Bolum) = db.Bolum.ToList()
         cmbBolum.DataSource = bolumListe
         cmbBolum.DisplayMember = "Bolum_Adi"
         cmbBolum.ValueMember = "Bolum_ID"
+        cmbBolum.SelectedIndex = -1
+        cmbBolum.SelectedText = "Seçiniz"
         dgFisListe.Columns(6).Visible = False
     End Sub
     Private Sub nudMiktar_ValueChanged(sender As Object, e As EventArgs) Handles nudMiktar.ValueChanged

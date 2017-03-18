@@ -106,6 +106,22 @@ Public Class StokKart
             StokCikisDuzenle.txtBirim.Text = urunSec.stokBirimAdi
             StokCikisDuzenle.txtBirimFiyat.Text = urunSec.stokBfiyat
             cikisDuzenle = False
+        ElseIf aktar = True Then
+            Me.Hide()
+            DepoAktarEkle.Show()
+            DepoAktarEkle.lblid.Text = urunSec.stokID
+            DepoAktarEkle.txtStokKodu.Text = urunSec.stokKodu
+            DepoAktarEkle.txtStokAdi.Text = urunSec.stokAdi
+            DepoAktarEkle.txtBirim.Text = urunSec.stokBirimAdi
+            aktar = False
+        ElseIf aktarDuzenle = True Then
+            Me.Hide()
+            DepoAktarDuzenle.Show()
+            DepoAktarDuzenle.lblid.Text = urunSec.stokID
+            DepoAktarDuzenle.txtStokKodu.Text = urunSec.stokKodu
+            DepoAktarDuzenle.txtStokAdi.Text = urunSec.stokAdi
+            DepoAktarDuzenle.txtBirim.Text = urunSec.stokBirimAdi
+            aktarDuzenle = False
         End If
     End Sub
     Private Sub btnSil_Click(sender As Object, e As EventArgs) Handles btnSil.Click

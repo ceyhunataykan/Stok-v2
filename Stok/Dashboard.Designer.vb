@@ -256,6 +256,7 @@ Partial Class Dashboard
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btnStokHareket)
         Me.Controls.Add(Me.btnStokKart)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.Name = "Dashboard"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen

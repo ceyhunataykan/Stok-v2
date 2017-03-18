@@ -24,6 +24,8 @@ Partial Public Class StokEntities
         Throw New UnintentionalCodeFirstException()
     End Sub
 
+    Public Overridable Property Aktarim_Detay() As DbSet(Of Aktarim_Detay)
+    Public Overridable Property Aktarim_Fis() As DbSet(Of Aktarim_Fis)
     Public Overridable Property Birim() As DbSet(Of Birim)
     Public Overridable Property Bolum() As DbSet(Of Bolum)
     Public Overridable Property Depo() As DbSet(Of Depo)

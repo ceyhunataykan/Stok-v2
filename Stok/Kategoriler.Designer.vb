@@ -31,12 +31,12 @@ Partial Class Kategoriler
         Me.Label2 = New System.Windows.Forms.Label()
         Me.txtKatAd = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.lblid = New System.Windows.Forms.Label()
         Me.btnEkle = New DevExpress.XtraEditors.SimpleButton()
         Me.btnDuzenle = New DevExpress.XtraEditors.SimpleButton()
         Me.btnSil = New DevExpress.XtraEditors.SimpleButton()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.btnTemizle = New DevExpress.XtraEditors.SimpleButton()
-        Me.lblid = New System.Windows.Forms.Label()
         Me.btnKapat = New DevExpress.XtraEditors.SimpleButton()
         CType(Me.dgKatListe, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
@@ -125,6 +125,15 @@ Partial Class Kategoriler
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Kategori"
         '
+        'lblid
+        '
+        Me.lblid.AutoSize = True
+        Me.lblid.Location = New System.Drawing.Point(128, 17)
+        Me.lblid.Name = "lblid"
+        Me.lblid.Size = New System.Drawing.Size(0, 13)
+        Me.lblid.TabIndex = 50
+        Me.lblid.Visible = False
+        '
         'btnEkle
         '
         Me.btnEkle.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
@@ -194,15 +203,6 @@ Partial Class Kategoriler
         Me.btnTemizle.TabIndex = 54
         Me.btnTemizle.Text = "Temizle"
         '
-        'lblid
-        '
-        Me.lblid.AutoSize = True
-        Me.lblid.Location = New System.Drawing.Point(128, 17)
-        Me.lblid.Name = "lblid"
-        Me.lblid.Size = New System.Drawing.Size(0, 13)
-        Me.lblid.TabIndex = 50
-        Me.lblid.Visible = False
-        '
         'btnKapat
         '
         Me.btnKapat.Appearance.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
@@ -231,6 +231,8 @@ Partial Class Kategoriler
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel2)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
         Me.Name = "Kategoriler"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "Kategoriler"

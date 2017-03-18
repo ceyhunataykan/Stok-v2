@@ -10,11 +10,17 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class Birim
-    Public Property Birim_ID As Integer
-    Public Property Birim_Adi As String
+Partial Public Class Aktarim_Fis
+    Public Property Aktarim_ID As Integer
+    Public Property Aktarim_No As Nullable(Of Integer)
+    Public Property Aktarim_Tarih As Nullable(Of Date)
+    Public Property Aktarim_Türü As String
+    Public Property Cikis_Depo_ID As Nullable(Of Integer)
+    Public Property Giris_Depo_ID As Nullable(Of Integer)
+    Public Property Aktarim_Aciklama As String
 
-    Public Overridable Property Urun As ICollection(Of Urun) = New HashSet(Of Urun)
     Public Overridable Property Aktarim_Detay As ICollection(Of Aktarim_Detay) = New HashSet(Of Aktarim_Detay)
+    Public Overridable Property Depo As Depo
+    Public Overridable Property Depo1 As Depo
 
 End Class

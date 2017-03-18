@@ -28,6 +28,8 @@ Partial Class StokCikisDuzenle
         Me.Label16 = New System.Windows.Forms.Label()
         Me.lblid = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.txtAciklama = New System.Windows.Forms.TextBox()
         Me.btnFisDuzenle = New DevExpress.XtraEditors.SimpleButton()
@@ -64,8 +66,6 @@ Partial Class StokCikisDuzenle
         Me.btnSil = New DevExpress.XtraEditors.SimpleButton()
         Me.GroupBox4 = New System.Windows.Forms.GroupBox()
         Me.dgFisListe = New System.Windows.Forms.DataGridView()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         CType(Me.nudMiktar, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox5.SuspendLayout()
@@ -133,6 +133,28 @@ Partial Class StokCikisDuzenle
         Me.GroupBox1.TabIndex = 71
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Fiş Bilgileri"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
+        Me.Label3.ForeColor = System.Drawing.Color.DimGray
+        Me.Label3.Location = New System.Drawing.Point(323, 25)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(84, 13)
+        Me.Label3.TabIndex = 46
+        Me.Label3.Text = "Çıkış Deposu :"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
+        Me.Label4.ForeColor = System.Drawing.Color.DimGray
+        Me.Label4.Location = New System.Drawing.Point(295, 52)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(112, 13)
+        Me.Label4.TabIndex = 47
+        Me.Label4.Text = "Gönderilen Bölüm :"
         '
         'Label15
         '
@@ -520,28 +542,6 @@ Partial Class StokCikisDuzenle
         Me.dgFisListe.Size = New System.Drawing.Size(536, 107)
         Me.dgFisListe.TabIndex = 0
         '
-        'Label3
-        '
-        Me.Label3.AutoSize = True
-        Me.Label3.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
-        Me.Label3.ForeColor = System.Drawing.Color.DimGray
-        Me.Label3.Location = New System.Drawing.Point(323, 25)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(84, 13)
-        Me.Label3.TabIndex = 46
-        Me.Label3.Text = "Çıkış Deposu :"
-        '
-        'Label4
-        '
-        Me.Label4.AutoSize = True
-        Me.Label4.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
-        Me.Label4.ForeColor = System.Drawing.Color.DimGray
-        Me.Label4.Location = New System.Drawing.Point(295, 52)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(112, 13)
-        Me.Label4.TabIndex = 47
-        Me.Label4.Text = "Gönderilen Bölüm :"
-        '
         'StokCikisDuzenle
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -555,9 +555,11 @@ Partial Class StokCikisDuzenle
         Me.Controls.Add(Me.btnIptal)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox4)
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
+        Me.MaximizeBox = False
         Me.Name = "StokCikisDuzenle"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "StokCikisDuzenle"
+        Me.Text = "Stok Çıkış Fişi Düzenleme"
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         CType(Me.nudMiktar, System.ComponentModel.ISupportInitialize).EndInit()
