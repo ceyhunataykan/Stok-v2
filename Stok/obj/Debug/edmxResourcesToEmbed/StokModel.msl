@@ -65,6 +65,38 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="Cari">
+      <EntityTypeMapping TypeName="StokModel.Cari">
+        <MappingFragment StoreEntitySet="Cari">
+          <ScalarProperty Name="Durum" ColumnName="Durum" />
+          <ScalarProperty Name="Firma_Mail" ColumnName="Firma_Mail" />
+          <ScalarProperty Name="Firma_Web" ColumnName="Firma_Web" />
+          <ScalarProperty Name="Firma_Fax" ColumnName="Firma_Fax" />
+          <ScalarProperty Name="Firma_Cep" ColumnName="Firma_Cep" />
+          <ScalarProperty Name="Firma_Tel" ColumnName="Firma_Tel" />
+          <ScalarProperty Name="Firma_Yetkili" ColumnName="Firma_Yetkili" />
+          <ScalarProperty Name="Vergi_Dairesi" ColumnName="Vergi_Dairesi" />
+          <ScalarProperty Name="Vergi_No" ColumnName="Vergi_No" />
+          <ScalarProperty Name="il_ID" ColumnName="il_ID" />
+          <ScalarProperty Name="ilce_ID" ColumnName="ilce_ID" />
+          <ScalarProperty Name="Firma_Adres" ColumnName="Firma_Adres" />
+          <ScalarProperty Name="Firma_Adi" ColumnName="Firma_Adi" />
+          <ScalarProperty Name="Firma_Kodu" ColumnName="Firma_Kodu" />
+          <ScalarProperty Name="Firma_ID" ColumnName="Firma_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cari_Detay">
+      <EntityTypeMapping TypeName="StokModel.Cari_Detay">
+        <MappingFragment StoreEntitySet="Cari_Detay">
+          <ScalarProperty Name="Bakiye" ColumnName="Bakiye" />
+          <ScalarProperty Name="Alacak" ColumnName="Alacak" />
+          <ScalarProperty Name="Borc" ColumnName="Borc" />
+          <ScalarProperty Name="Firma_ID" ColumnName="Firma_ID" />
+          <ScalarProperty Name="Detay_ID" ColumnName="Detay_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="Depo">
       <EntityTypeMapping TypeName="StokModel.Depo">
         <MappingFragment StoreEntitySet="Depo">
@@ -79,6 +111,36 @@
           <ScalarProperty Name="Depo_Adi" ColumnName="Depo_Adi" />
           <ScalarProperty Name="Depo_Kodu" ColumnName="Depo_Kodu" />
           <ScalarProperty Name="Depo_ID" ColumnName="Depo_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fatura">
+      <EntityTypeMapping TypeName="StokModel.Fatura">
+        <MappingFragment StoreEntitySet="Fatura">
+          <ScalarProperty Name="Fatura_Aciklama" ColumnName="Fatura_Aciklama" />
+          <ScalarProperty Name="Fatura_Tutar" ColumnName="Fatura_Tutar" />
+          <ScalarProperty Name="Firma_ID" ColumnName="Firma_ID" />
+          <ScalarProperty Name="Depo_ID" ColumnName="Depo_ID" />
+          <ScalarProperty Name="Fatura_Türü" ColumnName="Fatura_Türü" />
+          <ScalarProperty Name="Fatura_Sevk_Tarihi" ColumnName="Fatura_Sevk_Tarihi" />
+          <ScalarProperty Name="Fatura_Tarihi" ColumnName="Fatura_Tarihi" />
+          <ScalarProperty Name="Fatura_No" ColumnName="Fatura_No" />
+          <ScalarProperty Name="Fatura_ID" ColumnName="Fatura_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Fatura_Detay">
+      <EntityTypeMapping TypeName="StokModel.Fatura_Detay">
+        <MappingFragment StoreEntitySet="Fatura_Detay">
+          <ScalarProperty Name="İndirim" ColumnName="İndirim" />
+          <ScalarProperty Name="Kdv" ColumnName="Kdv" />
+          <ScalarProperty Name="Tutar" ColumnName="Tutar" />
+          <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+          <ScalarProperty Name="Birim" ColumnName="Birim" />
+          <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+          <ScalarProperty Name="Urun_ID" ColumnName="Urun_ID" />
+          <ScalarProperty Name="Fatura_ID" ColumnName="Fatura_ID" />
+          <ScalarProperty Name="Detay_ID" ColumnName="Detay_ID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

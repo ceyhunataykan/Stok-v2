@@ -18,4 +18,8 @@
     Private Sub btnDepo_Click(sender As Object, e As EventArgs) Handles btnDepo.Click
         Depolar.ShowDialog()
     End Sub
+
+    Private Sub btnCari_Click(sender As Object, e As EventArgs) Handles btnCari.Click
+        CariHesap.ShowDialog()
+    End Sub
 End Class

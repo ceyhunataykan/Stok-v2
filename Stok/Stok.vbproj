@@ -156,6 +156,24 @@
     <Compile Include="Cari.vb">
       <DependentUpon>StokModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CariHesap.Designer.vb">
+      <DependentUpon>CariHesap.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CariHesap.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CariHesapDuzenle.Designer.vb">
+      <DependentUpon>CariHesapDuzenle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CariHesapDuzenle.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CariHesapEkle.Designer.vb">
+      <DependentUpon>CariHesapEkle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="CariHesapEkle.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Cari_Detay.vb">
       <DependentUpon>StokModel.tt</DependentUpon>
     </Compile>
@@ -348,6 +366,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Bolumler.resx">
       <DependentUpon>Bolumler.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CariHesap.resx">
+      <DependentUpon>CariHesap.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CariHesapDuzenle.resx">
+      <DependentUpon>CariHesapDuzenle.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CariHesapEkle.resx">
+      <DependentUpon>CariHesapEkle.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.vb</DependentUpon>
