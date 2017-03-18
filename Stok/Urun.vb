@@ -30,6 +30,7 @@ Partial Public Class Urun
     Public Overridable Property Aktarim_Detay As ICollection(Of Aktarim_Detay) = New HashSet(Of Aktarim_Detay)
     Public Overridable Property Birim As Birim
     Public Overridable Property Depo As Depo
+    Public Overridable Property Fatura_Detay As ICollection(Of Fatura_Detay) = New HashSet(Of Fatura_Detay)
     Public Overridable Property Fis_Detay As ICollection(Of Fis_Detay) = New HashSet(Of Fis_Detay)
     Public Overridable Property Kategori As Kategori
 

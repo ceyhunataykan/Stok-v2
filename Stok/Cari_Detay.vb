@@ -10,15 +10,13 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class Aktarim_Detay
+Partial Public Class Cari_Detay
     Public Property Detay_ID As Integer
-    Public Property Aktarim_Fis_ID As Integer
-    Public Property Urun_ID As Nullable(Of Integer)
-    Public Property Miktar As Nullable(Of Integer)
-    Public Property Birim_ID As Nullable(Of Integer)
+    Public Property Firma_ID As Nullable(Of Integer)
+    Public Property Borc As Nullable(Of Decimal)
+    Public Property Alacak As Nullable(Of Decimal)
+    Public Property Bakiye As Nullable(Of Decimal)
 
-    Public Overridable Property Aktarim_Fis As Aktarim_Fis
-    Public Overridable Property Birim As Birim
-    Public Overridable Property Urun As Urun
+    Public Overridable Property Cari As Cari
 
 End Class

@@ -153,6 +153,12 @@
     <Compile Include="Bolumler.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="Cari.vb">
+      <DependentUpon>StokModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cari_Detay.vb">
+      <DependentUpon>StokModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard.Designer.vb">
       <DependentUpon>Dashboard.vb</DependentUpon>
     </Compile>
@@ -197,6 +203,12 @@
     </Compile>
     <Compile Include="Depolar.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fatura.vb">
+      <DependentUpon>StokModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Fatura_Detay.vb">
+      <DependentUpon>StokModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Fis.vb">
       <DependentUpon>StokModel.tt</DependentUpon>

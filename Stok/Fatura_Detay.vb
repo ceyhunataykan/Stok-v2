@@ -10,15 +10,18 @@
 Imports System
 Imports System.Collections.Generic
 
-Partial Public Class Aktarim_Detay
+Partial Public Class Fatura_Detay
     Public Property Detay_ID As Integer
-    Public Property Aktarim_Fis_ID As Integer
+    Public Property Fatura_ID As Nullable(Of Integer)
     Public Property Urun_ID As Nullable(Of Integer)
     Public Property Miktar As Nullable(Of Integer)
-    Public Property Birim_ID As Nullable(Of Integer)
+    Public Property Birim As String
+    Public Property Fiyat As Nullable(Of Decimal)
+    Public Property Tutar As Nullable(Of Decimal)
+    Public Property Kdv As Nullable(Of Integer)
+    Public Property İndirim As Nullable(Of Integer)
 
-    Public Overridable Property Aktarim_Fis As Aktarim_Fis
-    Public Overridable Property Birim As Birim
+    Public Overridable Property Fatura As Fatura
     Public Overridable Property Urun As Urun
 
 End Class

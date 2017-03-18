@@ -41,6 +41,36 @@
           <Property Name="Bolum_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Bolum_Adi" Type="nvarchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="Cari">
+          <Key>
+            <PropertyRef Name="Firma_ID" />
+          </Key>
+          <Property Name="Firma_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Firma_Kodu" Type="int" />
+          <Property Name="Firma_Adi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Firma_Adres" Type="nvarchar(max)" />
+          <Property Name="ilce_ID" Type="int" />
+          <Property Name="il_ID" Type="int" />
+          <Property Name="Vergi_No" Type="int" />
+          <Property Name="Vergi_Dairesi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Firma_Yetkili" Type="nvarchar" MaxLength="50" />
+          <Property Name="Firma_Tel" Type="nvarchar" MaxLength="50" />
+          <Property Name="Firma_Cep" Type="nvarchar" MaxLength="50" />
+          <Property Name="Firma_Fax" Type="nvarchar" MaxLength="50" />
+          <Property Name="Firma_Web" Type="nvarchar" MaxLength="50" />
+          <Property Name="Firma_Mail" Type="nvarchar" MaxLength="50" />
+          <Property Name="Durum" Type="bit" />
+        </EntityType>
+        <EntityType Name="Cari_Detay">
+          <Key>
+            <PropertyRef Name="Detay_ID" />
+          </Key>
+          <Property Name="Detay_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Firma_ID" Type="int" />
+          <Property Name="Borc" Type="money" />
+          <Property Name="Alacak" Type="money" />
+          <Property Name="Bakiye" Type="money" />
+        </EntityType>
         <EntityType Name="Depo">
           <Key>
             <PropertyRef Name="Depo_ID" />
@@ -56,6 +86,34 @@
           <Property Name="Depo_Fax" Type="nvarchar" MaxLength="50" />
           <Property Name="Depo_Mail" Type="nvarchar" MaxLength="50" />
           <Property Name="Durum" Type="bit" />
+        </EntityType>
+        <EntityType Name="Fatura">
+          <Key>
+            <PropertyRef Name="Fatura_ID" />
+          </Key>
+          <Property Name="Fatura_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fatura_No" Type="int" />
+          <Property Name="Fatura_Tarihi" Type="datetime" />
+          <Property Name="Fatura_Sevk_Tarihi" Type="datetime" />
+          <Property Name="Fatura_Türü" Type="nchar" MaxLength="10" />
+          <Property Name="Depo_ID" Type="int" />
+          <Property Name="Firma_ID" Type="int" />
+          <Property Name="Fatura_Tutar" Type="money" />
+          <Property Name="Fatura_Aciklama" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Fatura_Detay">
+          <Key>
+            <PropertyRef Name="Detay_ID" />
+          </Key>
+          <Property Name="Detay_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fatura_ID" Type="int" />
+          <Property Name="Urun_ID" Type="int" />
+          <Property Name="Miktar" Type="int" />
+          <Property Name="Birim" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fiyat" Type="money" />
+          <Property Name="Tutar" Type="money" />
+          <Property Name="Kdv" Type="int" />
+          <Property Name="İndirim" Type="int" />
         </EntityType>
         <EntityType Name="Fis">
           <Key>
@@ -215,6 +273,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Cari_Detay_Cari">
+          <End Role="Cari" Type="Self.Cari" Multiplicity="0..1" />
+          <End Role="Cari_Detay" Type="Self.Cari_Detay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cari">
+              <PropertyRef Name="Firma_ID" />
+            </Principal>
+            <Dependent Role="Cari_Detay">
+              <PropertyRef Name="Firma_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Depo_il">
           <End Role="il" Type="Self.il" Multiplicity="0..1" />
           <End Role="Depo" Type="Self.Depo" Multiplicity="*" />
@@ -236,6 +306,42 @@
             </Principal>
             <Dependent Role="Depo">
               <PropertyRef Name="ilce_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fatura_Cari">
+          <End Role="Cari" Type="Self.Cari" Multiplicity="0..1" />
+          <End Role="Fatura" Type="Self.Fatura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cari">
+              <PropertyRef Name="Firma_ID" />
+            </Principal>
+            <Dependent Role="Fatura">
+              <PropertyRef Name="Firma_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fatura_Detay_Fatura">
+          <End Role="Fatura" Type="Self.Fatura" Multiplicity="0..1" />
+          <End Role="Fatura_Detay" Type="Self.Fatura_Detay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fatura">
+              <PropertyRef Name="Fatura_ID" />
+            </Principal>
+            <Dependent Role="Fatura_Detay">
+              <PropertyRef Name="Fatura_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fatura_Detay_Urun">
+          <End Role="Urun" Type="Self.Urun" Multiplicity="0..1" />
+          <End Role="Fatura_Detay" Type="Self.Fatura_Detay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Urun">
+              <PropertyRef Name="Urun_ID" />
+            </Principal>
+            <Dependent Role="Fatura_Detay">
+              <PropertyRef Name="Urun_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -383,7 +489,11 @@
           <EntitySet Name="Aktarim_Fis" EntityType="Self.Aktarim_Fis" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Birim" EntityType="Self.Birim" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Bolum" EntityType="Self.Bolum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cari" EntityType="Self.Cari" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cari_Detay" EntityType="Self.Cari_Detay" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Depo" EntityType="Self.Depo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fatura" EntityType="Self.Fatura" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fatura_Detay" EntityType="Self.Fatura_Detay" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Fis" EntityType="Self.Fis" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Fis_Detay" EntityType="Self.Fis_Detay" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="il" EntityType="Self.il" Schema="dbo" store:Type="Tables" />
@@ -413,6 +523,10 @@
             <End Role="Depo" EntitySet="Depo" />
             <End Role="Aktarim_Fis" EntitySet="Aktarim_Fis" />
           </AssociationSet>
+          <AssociationSet Name="FK_Cari_Detay_Cari" Association="Self.FK_Cari_Detay_Cari">
+            <End Role="Cari" EntitySet="Cari" />
+            <End Role="Cari_Detay" EntitySet="Cari_Detay" />
+          </AssociationSet>
           <AssociationSet Name="FK_Depo_il" Association="Self.FK_Depo_il">
             <End Role="il" EntitySet="il" />
             <End Role="Depo" EntitySet="Depo" />
@@ -420,6 +534,18 @@
           <AssociationSet Name="FK_Depo_ilce" Association="Self.FK_Depo_ilce">
             <End Role="ilce" EntitySet="ilce" />
             <End Role="Depo" EntitySet="Depo" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fatura_Cari" Association="Self.FK_Fatura_Cari">
+            <End Role="Cari" EntitySet="Cari" />
+            <End Role="Fatura" EntitySet="Fatura" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fatura_Detay_Fatura" Association="Self.FK_Fatura_Detay_Fatura">
+            <End Role="Fatura" EntitySet="Fatura" />
+            <End Role="Fatura_Detay" EntitySet="Fatura_Detay" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fatura_Detay_Urun" Association="Self.FK_Fatura_Detay_Urun">
+            <End Role="Urun" EntitySet="Urun" />
+            <End Role="Fatura_Detay" EntitySet="Fatura_Detay" />
           </AssociationSet>
           <AssociationSet Name="FK_Fis_Bolum" Association="Self.FK_Fis_Bolum">
             <End Role="Bolum" EntitySet="Bolum" />
@@ -497,7 +623,11 @@
           <EntitySet Name="Aktarim_Fis" EntityType="StokModel.Aktarim_Fis" />
           <EntitySet Name="Birim" EntityType="StokModel.Birim" />
           <EntitySet Name="Bolum" EntityType="StokModel.Bolum" />
+          <EntitySet Name="Cari" EntityType="StokModel.Cari" />
+          <EntitySet Name="Cari_Detay" EntityType="StokModel.Cari_Detay" />
           <EntitySet Name="Depo" EntityType="StokModel.Depo" />
+          <EntitySet Name="Fatura" EntityType="StokModel.Fatura" />
+          <EntitySet Name="Fatura_Detay" EntityType="StokModel.Fatura_Detay" />
           <EntitySet Name="Fis" EntityType="StokModel.Fis" />
           <EntitySet Name="Fis_Detay" EntityType="StokModel.Fis_Detay" />
           <EntitySet Name="il" EntityType="StokModel.il" />
@@ -509,6 +639,10 @@
           <EntitySet Name="Urun" EntityType="StokModel.Urun" />
           <AssociationSet Name="FK_Aktarim_Detay_Aktarim_Fis" Association="StokModel.FK_Aktarim_Detay_Aktarim_Fis">
             <End Role="Aktarim_Fis" EntitySet="Aktarim_Fis" />
+            <End Role="Aktarim_Detay" EntitySet="Aktarim_Detay" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Aktarim_Detay_Birim" Association="StokModel.FK_Aktarim_Detay_Birim">
+            <End Role="Birim" EntitySet="Birim" />
             <End Role="Aktarim_Detay" EntitySet="Aktarim_Detay" />
           </AssociationSet>
           <AssociationSet Name="FK_Aktarim_Detay_Urun" Association="StokModel.FK_Aktarim_Detay_Urun">
@@ -531,6 +665,14 @@
             <End Role="Bolum" EntitySet="Bolum" />
             <End Role="Fis" EntitySet="Fis" />
           </AssociationSet>
+          <AssociationSet Name="FK_Cari_Detay_Cari" Association="StokModel.FK_Cari_Detay_Cari">
+            <End Role="Cari" EntitySet="Cari" />
+            <End Role="Cari_Detay" EntitySet="Cari_Detay" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fatura_Cari" Association="StokModel.FK_Fatura_Cari">
+            <End Role="Cari" EntitySet="Cari" />
+            <End Role="Fatura" EntitySet="Fatura" />
+          </AssociationSet>
           <AssociationSet Name="FK_Depo_il" Association="StokModel.FK_Depo_il">
             <End Role="il" EntitySet="il" />
             <End Role="Depo" EntitySet="Depo" />
@@ -546,6 +688,14 @@
           <AssociationSet Name="FK_Urun_Depo" Association="StokModel.FK_Urun_Depo">
             <End Role="Depo" EntitySet="Depo" />
             <End Role="Urun" EntitySet="Urun" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fatura_Detay_Fatura" Association="StokModel.FK_Fatura_Detay_Fatura">
+            <End Role="Fatura" EntitySet="Fatura" />
+            <End Role="Fatura_Detay" EntitySet="Fatura_Detay" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Fatura_Detay_Urun" Association="StokModel.FK_Fatura_Detay_Urun">
+            <End Role="Urun" EntitySet="Urun" />
+            <End Role="Fatura_Detay" EntitySet="Fatura_Detay" />
           </AssociationSet>
           <AssociationSet Name="FK_Fis_Detay_Fis" Association="StokModel.FK_Fis_Detay_Fis">
             <End Role="Fis" EntitySet="Fis" />
@@ -566,10 +716,6 @@
           <AssociationSet Name="FK_Kullanici_Rol" Association="StokModel.FK_Kullanici_Rol">
             <End Role="Rol" EntitySet="Rol" />
             <End Role="Kullanici" EntitySet="Kullanici" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Aktarim_Detay_Birim" Association="StokModel.FK_Aktarim_Detay_Birim">
-            <End Role="Birim" EntitySet="Birim" />
-            <End Role="Aktarim_Detay" EntitySet="Aktarim_Detay" />
           </AssociationSet>
           </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
@@ -593,8 +739,8 @@
           <Property Name="Miktar" Type="Int32" />
           <Property Name="Birim_ID" Type="Int32" />
           <NavigationProperty Name="Aktarim_Fis" Relationship="StokModel.FK_Aktarim_Detay_Aktarim_Fis" FromRole="Aktarim_Detay" ToRole="Aktarim_Fis" />
-          <NavigationProperty Name="Urun" Relationship="StokModel.FK_Aktarim_Detay_Urun" FromRole="Aktarim_Detay" ToRole="Urun" />
           <NavigationProperty Name="Birim" Relationship="StokModel.FK_Aktarim_Detay_Birim" FromRole="Aktarim_Detay" ToRole="Birim" />
+          <NavigationProperty Name="Urun" Relationship="StokModel.FK_Aktarim_Detay_Urun" FromRole="Aktarim_Detay" ToRole="Urun" />
         </EntityType>
         <EntityType Name="Aktarim_Fis">
           <Key>
@@ -617,8 +763,8 @@
           </Key>
           <Property Name="Birim_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Birim_Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Urun" Relationship="StokModel.FK_Urun_Birim" FromRole="Birim" ToRole="Urun" />
           <NavigationProperty Name="Aktarim_Detay" Relationship="StokModel.FK_Aktarim_Detay_Birim" FromRole="Birim" ToRole="Aktarim_Detay" />
+          <NavigationProperty Name="Urun" Relationship="StokModel.FK_Urun_Birim" FromRole="Birim" ToRole="Urun" />
         </EntityType>
         <EntityType Name="Bolum">
           <Key>
@@ -627,6 +773,39 @@
           <Property Name="Bolum_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Bolum_Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Fis" Relationship="StokModel.FK_Fis_Bolum" FromRole="Bolum" ToRole="Fis" />
+        </EntityType>
+        <EntityType Name="Cari">
+          <Key>
+            <PropertyRef Name="Firma_ID" />
+          </Key>
+          <Property Name="Firma_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Firma_Kodu" Type="Int32" />
+          <Property Name="Firma_Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Firma_Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ilce_ID" Type="Int32" />
+          <Property Name="il_ID" Type="Int32" />
+          <Property Name="Vergi_No" Type="Int32" />
+          <Property Name="Vergi_Dairesi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Firma_Yetkili" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Firma_Tel" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Firma_Cep" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Firma_Fax" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Firma_Web" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Firma_Mail" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Durum" Type="Boolean" />
+          <NavigationProperty Name="Cari_Detay" Relationship="StokModel.FK_Cari_Detay_Cari" FromRole="Cari" ToRole="Cari_Detay" />
+          <NavigationProperty Name="Fatura" Relationship="StokModel.FK_Fatura_Cari" FromRole="Cari" ToRole="Fatura" />
+        </EntityType>
+        <EntityType Name="Cari_Detay">
+          <Key>
+            <PropertyRef Name="Detay_ID" />
+          </Key>
+          <Property Name="Detay_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Firma_ID" Type="Int32" />
+          <Property Name="Borc" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Alacak" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Bakiye" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Cari" Relationship="StokModel.FK_Cari_Detay_Cari" FromRole="Cari_Detay" ToRole="Cari" />
         </EntityType>
         <EntityType Name="Depo">
           <Key>
@@ -649,6 +828,38 @@
           <NavigationProperty Name="ilce" Relationship="StokModel.FK_Depo_ilce" FromRole="Depo" ToRole="ilce" />
           <NavigationProperty Name="Fis" Relationship="StokModel.FK_Fis_Depo" FromRole="Depo" ToRole="Fis" />
           <NavigationProperty Name="Urun" Relationship="StokModel.FK_Urun_Depo" FromRole="Depo" ToRole="Urun" />
+        </EntityType>
+        <EntityType Name="Fatura">
+          <Key>
+            <PropertyRef Name="Fatura_ID" />
+          </Key>
+          <Property Name="Fatura_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fatura_No" Type="Int32" />
+          <Property Name="Fatura_Tarihi" Type="DateTime" Precision="3" />
+          <Property Name="Fatura_Sevk_Tarihi" Type="DateTime" Precision="3" />
+          <Property Name="Fatura_Türü" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Depo_ID" Type="Int32" />
+          <Property Name="Firma_ID" Type="Int32" />
+          <Property Name="Fatura_Tutar" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Fatura_Aciklama" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="Cari" Relationship="StokModel.FK_Fatura_Cari" FromRole="Fatura" ToRole="Cari" />
+          <NavigationProperty Name="Fatura_Detay" Relationship="StokModel.FK_Fatura_Detay_Fatura" FromRole="Fatura" ToRole="Fatura_Detay" />
+        </EntityType>
+        <EntityType Name="Fatura_Detay">
+          <Key>
+            <PropertyRef Name="Detay_ID" />
+          </Key>
+          <Property Name="Detay_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fatura_ID" Type="Int32" />
+          <Property Name="Urun_ID" Type="Int32" />
+          <Property Name="Miktar" Type="Int32" />
+          <Property Name="Birim" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fiyat" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Tutar" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Kdv" Type="Int32" />
+          <Property Name="İndirim" Type="Int32" />
+          <NavigationProperty Name="Fatura" Relationship="StokModel.FK_Fatura_Detay_Fatura" FromRole="Fatura_Detay" ToRole="Fatura" />
+          <NavigationProperty Name="Urun" Relationship="StokModel.FK_Fatura_Detay_Urun" FromRole="Fatura_Detay" ToRole="Urun" />
         </EntityType>
         <EntityType Name="Fis">
           <Key>
@@ -762,6 +973,7 @@
           <NavigationProperty Name="Aktarim_Detay" Relationship="StokModel.FK_Aktarim_Detay_Urun" FromRole="Urun" ToRole="Aktarim_Detay" />
           <NavigationProperty Name="Birim" Relationship="StokModel.FK_Urun_Birim" FromRole="Urun" ToRole="Birim" />
           <NavigationProperty Name="Depo" Relationship="StokModel.FK_Urun_Depo" FromRole="Urun" ToRole="Depo" />
+          <NavigationProperty Name="Fatura_Detay" Relationship="StokModel.FK_Fatura_Detay_Urun" FromRole="Urun" ToRole="Fatura_Detay" />
           <NavigationProperty Name="Fis_Detay" Relationship="StokModel.FK_Fis_Detay_Urun" FromRole="Urun" ToRole="Fis_Detay" />
           <NavigationProperty Name="Kategori" Relationship="StokModel.FK_Urun_Kategori" FromRole="Urun" ToRole="Kategori" />
         </EntityType>
@@ -774,6 +986,18 @@
             </Principal>
             <Dependent Role="Aktarim_Detay">
               <PropertyRef Name="Aktarim_Fis_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Aktarim_Detay_Birim">
+          <End Type="StokModel.Birim" Role="Birim" Multiplicity="0..1" />
+          <End Type="StokModel.Aktarim_Detay" Role="Aktarim_Detay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Birim">
+              <PropertyRef Name="Birim_ID" />
+            </Principal>
+            <Dependent Role="Aktarim_Detay">
+              <PropertyRef Name="Birim_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -837,6 +1061,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Cari_Detay_Cari">
+          <End Type="StokModel.Cari" Role="Cari" Multiplicity="0..1" />
+          <End Type="StokModel.Cari_Detay" Role="Cari_Detay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cari">
+              <PropertyRef Name="Firma_ID" />
+            </Principal>
+            <Dependent Role="Cari_Detay">
+              <PropertyRef Name="Firma_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fatura_Cari">
+          <End Type="StokModel.Cari" Role="Cari" Multiplicity="0..1" />
+          <End Type="StokModel.Fatura" Role="Fatura" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Cari">
+              <PropertyRef Name="Firma_ID" />
+            </Principal>
+            <Dependent Role="Fatura">
+              <PropertyRef Name="Firma_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Depo_il">
           <End Type="StokModel.il" Role="il" Multiplicity="0..1" />
           <End Type="StokModel.Depo" Role="Depo" Multiplicity="*" />
@@ -882,6 +1130,30 @@
             </Principal>
             <Dependent Role="Urun">
               <PropertyRef Name="Depo_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fatura_Detay_Fatura">
+          <End Type="StokModel.Fatura" Role="Fatura" Multiplicity="0..1" />
+          <End Type="StokModel.Fatura_Detay" Role="Fatura_Detay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Fatura">
+              <PropertyRef Name="Fatura_ID" />
+            </Principal>
+            <Dependent Role="Fatura_Detay">
+              <PropertyRef Name="Fatura_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Fatura_Detay_Urun">
+          <End Type="StokModel.Urun" Role="Urun" Multiplicity="0..1" />
+          <End Type="StokModel.Fatura_Detay" Role="Fatura_Detay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Urun">
+              <PropertyRef Name="Urun_ID" />
+            </Principal>
+            <Dependent Role="Fatura_Detay">
+              <PropertyRef Name="Urun_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -942,18 +1214,6 @@
             </Principal>
             <Dependent Role="Kullanici">
               <PropertyRef Name="Rol_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Aktarim_Detay_Birim">
-          <End Type="StokModel.Birim" Role="Birim" Multiplicity="0..1" />
-          <End Type="StokModel.Aktarim_Detay" Role="Aktarim_Detay" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Birim">
-              <PropertyRef Name="Birim_ID" />
-            </Principal>
-            <Dependent Role="Aktarim_Detay">
-              <PropertyRef Name="Birim_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1027,6 +1287,38 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Cari">
+            <EntityTypeMapping TypeName="StokModel.Cari">
+              <MappingFragment StoreEntitySet="Cari">
+                <ScalarProperty Name="Durum" ColumnName="Durum" />
+                <ScalarProperty Name="Firma_Mail" ColumnName="Firma_Mail" />
+                <ScalarProperty Name="Firma_Web" ColumnName="Firma_Web" />
+                <ScalarProperty Name="Firma_Fax" ColumnName="Firma_Fax" />
+                <ScalarProperty Name="Firma_Cep" ColumnName="Firma_Cep" />
+                <ScalarProperty Name="Firma_Tel" ColumnName="Firma_Tel" />
+                <ScalarProperty Name="Firma_Yetkili" ColumnName="Firma_Yetkili" />
+                <ScalarProperty Name="Vergi_Dairesi" ColumnName="Vergi_Dairesi" />
+                <ScalarProperty Name="Vergi_No" ColumnName="Vergi_No" />
+                <ScalarProperty Name="il_ID" ColumnName="il_ID" />
+                <ScalarProperty Name="ilce_ID" ColumnName="ilce_ID" />
+                <ScalarProperty Name="Firma_Adres" ColumnName="Firma_Adres" />
+                <ScalarProperty Name="Firma_Adi" ColumnName="Firma_Adi" />
+                <ScalarProperty Name="Firma_Kodu" ColumnName="Firma_Kodu" />
+                <ScalarProperty Name="Firma_ID" ColumnName="Firma_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cari_Detay">
+            <EntityTypeMapping TypeName="StokModel.Cari_Detay">
+              <MappingFragment StoreEntitySet="Cari_Detay">
+                <ScalarProperty Name="Bakiye" ColumnName="Bakiye" />
+                <ScalarProperty Name="Alacak" ColumnName="Alacak" />
+                <ScalarProperty Name="Borc" ColumnName="Borc" />
+                <ScalarProperty Name="Firma_ID" ColumnName="Firma_ID" />
+                <ScalarProperty Name="Detay_ID" ColumnName="Detay_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Depo">
             <EntityTypeMapping TypeName="StokModel.Depo">
               <MappingFragment StoreEntitySet="Depo">
@@ -1041,6 +1333,36 @@
                 <ScalarProperty Name="Depo_Adi" ColumnName="Depo_Adi" />
                 <ScalarProperty Name="Depo_Kodu" ColumnName="Depo_Kodu" />
                 <ScalarProperty Name="Depo_ID" ColumnName="Depo_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fatura">
+            <EntityTypeMapping TypeName="StokModel.Fatura">
+              <MappingFragment StoreEntitySet="Fatura">
+                <ScalarProperty Name="Fatura_Aciklama" ColumnName="Fatura_Aciklama" />
+                <ScalarProperty Name="Fatura_Tutar" ColumnName="Fatura_Tutar" />
+                <ScalarProperty Name="Firma_ID" ColumnName="Firma_ID" />
+                <ScalarProperty Name="Depo_ID" ColumnName="Depo_ID" />
+                <ScalarProperty Name="Fatura_Türü" ColumnName="Fatura_Türü" />
+                <ScalarProperty Name="Fatura_Sevk_Tarihi" ColumnName="Fatura_Sevk_Tarihi" />
+                <ScalarProperty Name="Fatura_Tarihi" ColumnName="Fatura_Tarihi" />
+                <ScalarProperty Name="Fatura_No" ColumnName="Fatura_No" />
+                <ScalarProperty Name="Fatura_ID" ColumnName="Fatura_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fatura_Detay">
+            <EntityTypeMapping TypeName="StokModel.Fatura_Detay">
+              <MappingFragment StoreEntitySet="Fatura_Detay">
+                <ScalarProperty Name="İndirim" ColumnName="İndirim" />
+                <ScalarProperty Name="Kdv" ColumnName="Kdv" />
+                <ScalarProperty Name="Tutar" ColumnName="Tutar" />
+                <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+                <ScalarProperty Name="Birim" ColumnName="Birim" />
+                <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+                <ScalarProperty Name="Urun_ID" ColumnName="Urun_ID" />
+                <ScalarProperty Name="Fatura_ID" ColumnName="Fatura_ID" />
+                <ScalarProperty Name="Detay_ID" ColumnName="Detay_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
