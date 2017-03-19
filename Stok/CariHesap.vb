@@ -43,7 +43,8 @@ Public Class CariHesap
             MsgBox("Düzenleme işlemi yapabilmek için kayıt seçiniz", MsgBoxStyle.Exclamation, "Uyarı")
             Return
         End If
-
+        CariHesapDuzenle.Show()
+        CariHesapDuzenle.lblid.Text = Convert.ToString(dgListe.CurrentRow.Cells("Firma_ID").Value)
     End Sub
 
     Private Sub btnSil_Click(sender As Object, e As EventArgs) Handles btnSil.Click
@@ -51,9 +52,22 @@ Public Class CariHesap
             MsgBox("Silme işlemi yapabilmek için kayıt seçiniz", MsgBoxStyle.Exclamation, "Uyarı")
             Return
         End If
-        If MsgBox("Ürünü Silmek İstiyor musunuz?", MsgBoxStyle.YesNo, "Uyarı") = MsgBoxResult.No Then
+        Dim id As Integer = Convert.ToInt32(lblid.Text)
+        Dim silHesapDetay = db.Cari_Detay.Where(Function(c) c.Firma_ID = id).FirstOrDefault()
+        If silHesapDetay.Bakiye > 0 Then
+            MsgBox("Firmanın" & " " & silHesapDetay.Bakiye.ToString() & " TL " & " bakiyesi bulunmaktadır. Firmayı silebilmek için bakiye düzenlemesi yapılmalıdır.", MsgBoxStyle.Exclamation, "Uyarı")
             Return
         End If
+        If MsgBox("Firmayı Silmek İstiyor musunuz?", MsgBoxStyle.YesNo, "Uyarı") = MsgBoxResult.No Then
+            Return
+        End If
+        db.Cari_Detay.Remove(silHesapDetay)
+        db.SaveChanges()
+        Dim silHesap = db.Cari.Where(Function(c) c.Firma_ID = id).FirstOrDefault()
+        db.Cari.Remove(silHesap)
+        db.SaveChanges()
+        MsgBox("Silme İşlemi Başarılı", MsgBoxStyle.Information, "Bilgi")
+        listele()
     End Sub
 
     Private Sub btnSec_Click(sender As Object, e As EventArgs) Handles btnSec.Click

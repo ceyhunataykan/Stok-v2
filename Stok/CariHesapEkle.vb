@@ -32,6 +32,12 @@
         temizle()
         MsgBox("Kayıt Başarılı", MsgBoxStyle.Information, "Bilgi")
         Me.Close()
+        CariHesap.dgListe.DataSource = (From f In db.Cari_Detay Select f.Detay_ID, f.Firma_ID, firmaKodu = f.Cari.Firma_Kodu, firmaAdi = f.Cari.Firma_Adi, f.Bakiye).ToList()
+        CariHesap.dgListe.Columns("Detay_ID").Visible = False
+        CariHesap.dgListe.Columns("Firma_ID").Visible = False
+        CariHesap.dgListe.Columns("firmaKodu").HeaderText = "Firma Kodu"
+        CariHesap.dgListe.Columns("firmaAdi").HeaderText = "Firma Adı"
+        CariHesap.dgListe.Columns("Bakiye").HeaderText = "Bakiye"
     End Sub
 
     Private Sub btnIptal_Click(sender As Object, e As EventArgs) Handles btnIptal.Click

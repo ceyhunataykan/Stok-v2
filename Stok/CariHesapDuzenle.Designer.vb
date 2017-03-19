@@ -48,11 +48,11 @@ Partial Class CariHesapDuzenle
         Me.cmbIlce = New System.Windows.Forms.ComboBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.txtFirAdres = New System.Windows.Forms.TextBox()
-        Me.lblid = New System.Windows.Forms.Label()
         Me.txtFirKod = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtFirAd = New System.Windows.Forms.TextBox()
+        Me.lblid = New System.Windows.Forms.Label()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
         Me.btnKaydet = New DevExpress.XtraEditors.SimpleButton()
@@ -203,7 +203,6 @@ Partial Class CariHesapDuzenle
         Me.GroupBox1.Controls.Add(Me.cmbIlce)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.txtFirAdres)
-        Me.GroupBox1.Controls.Add(Me.lblid)
         Me.GroupBox1.Controls.Add(Me.txtFirKod)
         Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.Label1)
@@ -330,15 +329,6 @@ Partial Class CariHesapDuzenle
         Me.txtFirAdres.Size = New System.Drawing.Size(217, 58)
         Me.txtFirAdres.TabIndex = 51
         '
-        'lblid
-        '
-        Me.lblid.AutoSize = True
-        Me.lblid.Location = New System.Drawing.Point(128, 17)
-        Me.lblid.Name = "lblid"
-        Me.lblid.Size = New System.Drawing.Size(0, 13)
-        Me.lblid.TabIndex = 50
-        Me.lblid.Visible = False
-        '
         'txtFirKod
         '
         Me.txtFirKod.Location = New System.Drawing.Point(100, 47)
@@ -375,6 +365,15 @@ Partial Class CariHesapDuzenle
         Me.txtFirAd.Size = New System.Drawing.Size(217, 21)
         Me.txtFirAd.TabIndex = 48
         '
+        'lblid
+        '
+        Me.lblid.AutoSize = True
+        Me.lblid.Location = New System.Drawing.Point(144, 31)
+        Me.lblid.Name = "lblid"
+        Me.lblid.Size = New System.Drawing.Size(0, 13)
+        Me.lblid.TabIndex = 50
+        Me.lblid.Visible = False
+        '
         'Panel2
         '
         Me.Panel2.BackColor = System.Drawing.Color.DimGray
@@ -404,7 +403,7 @@ Partial Class CariHesapDuzenle
         Me.btnKaydet.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.btnKaydet.Size = New System.Drawing.Size(85, 26)
         Me.btnKaydet.TabIndex = 73
-        Me.btnKaydet.Text = "Kaydet"
+        Me.btnKaydet.Text = "Güncelle"
         '
         'CariHesapDuzenle
         '
@@ -418,6 +417,7 @@ Partial Class CariHesapDuzenle
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.btnKaydet)
+        Me.Controls.Add(Me.lblid)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.Name = "CariHesapDuzenle"
@@ -428,6 +428,7 @@ Partial Class CariHesapDuzenle
         Me.GroupBox1.ResumeLayout(False)
         Me.GroupBox1.PerformLayout()
         Me.ResumeLayout(False)
+        Me.PerformLayout()
 
     End Sub
 

@@ -26,11 +26,11 @@ Partial Class CariHesap
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.dgListe = New System.Windows.Forms.DataGridView()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.txtAra = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.cmbDurum = New System.Windows.Forms.ComboBox()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.btnDetay = New DevExpress.XtraEditors.SimpleButton()
         Me.btnSil = New DevExpress.XtraEditors.SimpleButton()
         Me.btnDuzenle = New DevExpress.XtraEditors.SimpleButton()
@@ -89,6 +89,16 @@ Partial Class CariHesap
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Filtre"
         '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(562, 29)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(104, 17)
+        Me.CheckBox1.TabIndex = 18
+        Me.CheckBox1.Text = "Borçlu Olanlar"
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
         'txtAra
         '
         Me.txtAra.Location = New System.Drawing.Point(328, 26)
@@ -126,16 +136,6 @@ Partial Class CariHesap
         Me.cmbDurum.Name = "cmbDurum"
         Me.cmbDurum.Size = New System.Drawing.Size(155, 21)
         Me.cmbDurum.TabIndex = 16
-        '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(562, 29)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(104, 17)
-        Me.CheckBox1.TabIndex = 18
-        Me.CheckBox1.Text = "Borçlu Olanlar"
-        Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'btnDetay
         '
@@ -231,6 +231,7 @@ Partial Class CariHesap
         Me.lblid.Name = "lblid"
         Me.lblid.Size = New System.Drawing.Size(0, 13)
         Me.lblid.TabIndex = 37
+        Me.lblid.Visible = False
         '
         'CariHesap
         '
