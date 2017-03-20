@@ -225,6 +225,12 @@
     <Compile Include="Fatura.vb">
       <DependentUpon>StokModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Faturalar.Designer.vb">
+      <DependentUpon>Faturalar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Faturalar.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Fatura_Detay.vb">
       <DependentUpon>StokModel.tt</DependentUpon>
     </Compile>
@@ -233,6 +239,12 @@
     </Compile>
     <Compile Include="Fis_Detay.vb">
       <DependentUpon>StokModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GirisFaturasi.Designer.vb">
+      <DependentUpon>GirisFaturasi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="GirisFaturasi.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="il.vb">
       <DependentUpon>StokModel.tt</DependentUpon>
@@ -261,6 +273,12 @@
     <Compile Include="ortak.vb" />
     <Compile Include="Rol.vb">
       <DependentUpon>StokModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SatisFaturasi.Designer.vb">
+      <DependentUpon>SatisFaturasi.vb</DependentUpon>
+    </Compile>
+    <Compile Include="SatisFaturasi.vb">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="sp_helpdiagramdefinition_Result.vb">
       <DependentUpon>StokModel.tt</DependentUpon>
@@ -397,6 +415,12 @@
     <EmbeddedResource Include="Depolar.resx">
       <DependentUpon>Depolar.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Faturalar.resx">
+      <DependentUpon>Faturalar.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GirisFaturasi.resx">
+      <DependentUpon>GirisFaturasi.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Kategoriler.resx">
       <DependentUpon>Kategoriler.vb</DependentUpon>
     </EmbeddedResource>
@@ -404,6 +428,9 @@
       <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="SatisFaturasi.resx">
+      <DependentUpon>SatisFaturasi.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="StokCikis.resx">
       <DependentUpon>StokCikis.vb</DependentUpon>
     </EmbeddedResource>

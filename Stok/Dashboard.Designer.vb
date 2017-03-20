@@ -260,7 +260,7 @@ Partial Class Dashboard
         Me.MaximizeBox = False
         Me.Name = "Dashboard"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Dashboard"
+        Me.Text = "Stok Takip"
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.Panel1.ResumeLayout(False)
         Me.Panel1.PerformLayout()

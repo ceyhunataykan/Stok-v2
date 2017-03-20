@@ -316,3 +316,6 @@ C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.DepoAktarEkle.
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.CariHesap.resources
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.CariHesapDuzenle.resources
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.CariHesapEkle.resources
+C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.Faturalar.resources
+C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.GirisFaturasi.resources
+C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.SatisFaturasi.resources

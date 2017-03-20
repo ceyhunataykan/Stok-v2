@@ -213,7 +213,7 @@ Partial Class StokCikis
         Me.Label11.AutoSize = True
         Me.Label11.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.Label11.ForeColor = System.Drawing.Color.DimGray
-        Me.Label11.Location = New System.Drawing.Point(514, 60)
+        Me.Label11.Location = New System.Drawing.Point(514, 54)
         Me.Label11.Name = "Label11"
         Me.Label11.Size = New System.Drawing.Size(20, 13)
         Me.Label11.TabIndex = 22
@@ -274,7 +274,7 @@ Partial Class StokCikis
         Me.Label10.AutoSize = True
         Me.Label10.Font = New System.Drawing.Font("Tahoma", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(162, Byte))
         Me.Label10.ForeColor = System.Drawing.Color.DimGray
-        Me.Label10.Location = New System.Drawing.Point(514, 34)
+        Me.Label10.Location = New System.Drawing.Point(514, 28)
         Me.Label10.Name = "Label10"
         Me.Label10.Size = New System.Drawing.Size(20, 13)
         Me.Label10.TabIndex = 19

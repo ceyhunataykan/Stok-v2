@@ -101,7 +101,7 @@ Public Class CariHesap
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
         If CheckBox1.Checked = True Then
             dgListe.DataSource = (From f In db.Cari_Detay
-                                  Where f.Bakiye < 0
+                                  Where f.Bakiye > 0
                                   Select f.Detay_ID, f.Firma_ID, firmaKodu = f.Cari.Firma_Kodu, firmaAdi = f.Cari.Firma_Adi, f.Bakiye).ToList()
             dgDuzenle()
         ElseIf CheckBox1.Checked = False Then
