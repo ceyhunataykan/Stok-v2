@@ -105,4 +105,26 @@ Partial Public Class StokEntities
         Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction("sp_upgraddiagrams")
     End Function
 
+    Public Overridable Function StokHareketListe() As ObjectResult(Of StokHareketListe_Result)
+        Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction(Of StokHareketListe_Result)("StokHareketListe")
+    End Function
+
+    Public Overridable Function StokHareketRapor(basTarih As Nullable(Of Date), bitTarih As Nullable(Of Date)) As ObjectResult(Of StokHareketRapor_Result)
+        Dim basTarihParameter As ObjectParameter = If(basTarih.HasValue, New ObjectParameter("basTarih", basTarih), New ObjectParameter("basTarih", GetType(Date)))
+
+        Dim bitTarihParameter As ObjectParameter = If(bitTarih.HasValue, New ObjectParameter("bitTarih", bitTarih), New ObjectParameter("bitTarih", GetType(Date)))
+
+        Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction(Of StokHareketRapor_Result)("StokHareketRapor", basTarihParameter, bitTarihParameter)
+    End Function
+
+    Public Overridable Function stokDurum() As ObjectResult(Of stokDurum_Result)
+        Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction(Of stokDurum_Result)("stokDurum")
+    End Function
+
+    Public Overridable Function stokListe(miktar As Nullable(Of Integer)) As ObjectResult(Of stokListe_Result)
+        Dim miktarParameter As ObjectParameter = If(miktar.HasValue, New ObjectParameter("miktar", miktar), New ObjectParameter("miktar", GetType(Integer)))
+
+        Return DirectCast(Me, IObjectContextAdapter).ObjectContext.ExecuteFunction(Of stokListe_Result)("stokListe", miktarParameter)
+    End Function
+
 End Class

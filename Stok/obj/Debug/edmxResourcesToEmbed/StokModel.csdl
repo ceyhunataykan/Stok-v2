@@ -31,6 +31,11 @@
       <Parameter Name="new_diagramname" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="StokHareketListe" ReturnType="Collection(StokModel.StokHareketListe_Result)" />
+    <FunctionImport Name="StokHareketRapor" ReturnType="Collection(StokModel.StokHareketRapor_Result)">
+      <Parameter Name="basTarih" Mode="In" Type="DateTime" />
+      <Parameter Name="bitTarih" Mode="In" Type="DateTime" />
+    </FunctionImport>
     <EntitySet Name="Aktarim_Detay" EntityType="StokModel.Aktarim_Detay" />
     <EntitySet Name="Aktarim_Fis" EntityType="StokModel.Aktarim_Fis" />
     <EntitySet Name="Birim" EntityType="StokModel.Birim" />
@@ -129,6 +134,10 @@
       <End Role="Rol" EntitySet="Rol" />
       <End Role="Kullanici" EntitySet="Kullanici" />
     </AssociationSet>
+    <FunctionImport Name="stokDurum" ReturnType="Collection(StokModel.stokDurum_Result)" />
+    <FunctionImport Name="stokListe" ReturnType="Collection(StokModel.stokListe_Result)">
+      <Parameter Name="miktar" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -140,6 +149,20 @@
     <Property Type="Int32" Name="ID" Nullable="false" />
     <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
     <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="StokHareketListe_Result">
+    <Property Type="Int32" Name="Fiş_No" Nullable="true" />
+    <Property Type="DateTime" Name="Fiş_Tarih" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Fiş_Türü" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Depo" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Bölüm" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="StokHareketRapor_Result">
+    <Property Type="Int32" Name="Fis_No" Nullable="true" />
+    <Property Type="DateTime" Name="Fis_Tarih" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Fis_Türü" Nullable="true" MaxLength="15" />
+    <Property Type="String" Name="Depo_Adi" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Bolum_Adi" Nullable="true" MaxLength="50" />
   </ComplexType>
   <EntityType Name="Aktarim_Detay">
     <Key>
@@ -629,4 +652,20 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <ComplexType Name="stokDurum_Result">
+    <Property Type="Int32" Name="Stok_Kodu" Nullable="true" />
+    <Property Type="String" Name="Stok_Adı" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Miktar" Nullable="true" />
+    <Property Type="String" Name="Birim" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="Alış_Fiyatı" Nullable="true" Precision="19" />
+    <Property Type="Decimal" Name="Satış_Fiyatı" Nullable="true" Precision="19" />
+  </ComplexType>
+  <ComplexType Name="stokListe_Result">
+    <Property Type="Int32" Name="Stok_Kodu" Nullable="true" />
+    <Property Type="String" Name="Stok_Adı" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Miktar" Nullable="true" />
+    <Property Type="String" Name="Birim" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="Alış_Fiyatı" Nullable="true" Precision="19" />
+    <Property Type="Decimal" Name="Satış_Fiyatı" Nullable="true" Precision="19" />
+  </ComplexType>
 </Schema>

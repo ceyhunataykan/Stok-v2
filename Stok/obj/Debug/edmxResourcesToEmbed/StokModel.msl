@@ -25,6 +25,28 @@
     </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="StokModel.Store.sp_renamediagram" />
     <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="StokModel.Store.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="StokHareketListe" FunctionName="StokModel.Store.StokHareketListe">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="StokModel.StokHareketListe_Result">
+          <ScalarProperty Name="Fiş_No" ColumnName="Fiş No" />
+          <ScalarProperty Name="Fiş_Tarih" ColumnName="Fiş Tarih" />
+          <ScalarProperty Name="Fiş_Türü" ColumnName="Fiş Türü" />
+          <ScalarProperty Name="Depo" ColumnName="Depo" />
+          <ScalarProperty Name="Bölüm" ColumnName="Bölüm" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="StokHareketRapor" FunctionName="StokModel.Store.StokHareketRapor">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="StokModel.StokHareketRapor_Result">
+          <ScalarProperty Name="Fis_No" ColumnName="Fis_No" />
+          <ScalarProperty Name="Fis_Tarih" ColumnName="Fis_Tarih" />
+          <ScalarProperty Name="Fis_Türü" ColumnName="Fis_Türü" />
+          <ScalarProperty Name="Depo_Adi" ColumnName="Depo_Adi" />
+          <ScalarProperty Name="Bolum_Adi" ColumnName="Bolum_Adi" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <EntitySetMapping Name="Aktarim_Detay">
       <EntityTypeMapping TypeName="StokModel.Aktarim_Detay">
         <MappingFragment StoreEntitySet="Aktarim_Detay">
@@ -251,5 +273,29 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="stokDurum" FunctionName="StokModel.Store.stokDurum">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="StokModel.stokDurum_Result">
+          <ScalarProperty Name="Stok_Kodu" ColumnName="Stok Kodu" />
+          <ScalarProperty Name="Stok_Adı" ColumnName="Stok Adı" />
+          <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+          <ScalarProperty Name="Birim" ColumnName="Birim" />
+          <ScalarProperty Name="Alış_Fiyatı" ColumnName="Alış Fiyatı" />
+          <ScalarProperty Name="Satış_Fiyatı" ColumnName="Satış Fiyatı" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="stokListe" FunctionName="StokModel.Store.stokListe">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="StokModel.stokListe_Result">
+          <ScalarProperty Name="Stok_Kodu" ColumnName="Stok Kodu" />
+          <ScalarProperty Name="Stok_Adı" ColumnName="Stok Adı" />
+          <ScalarProperty Name="Miktar" ColumnName="Miktar" />
+          <ScalarProperty Name="Birim" ColumnName="Birim" />
+          <ScalarProperty Name="Alış_Fiyatı" ColumnName="Alış Fiyatı" />
+          <ScalarProperty Name="Satış_Fiyatı" ColumnName="Satış Fiyatı" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

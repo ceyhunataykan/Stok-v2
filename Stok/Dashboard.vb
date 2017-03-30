@@ -17,4 +17,8 @@
     Private Sub SimpleButton4_Click(sender As Object, e As EventArgs) Handles SimpleButton4.Click
         Faturalar.ShowDialog()
     End Sub
+
+    Private Sub SimpleButton7_Click(sender As Object, e As EventArgs) Handles SimpleButton7.Click
+        Raporlar.ShowDialog()
+    End Sub
 End Class

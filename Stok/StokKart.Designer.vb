@@ -32,13 +32,12 @@ Partial Class StokKart
         Me.cmbDurum = New System.Windows.Forms.ComboBox()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
+        Me.lblId = New System.Windows.Forms.Label()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.dgListe = New System.Windows.Forms.DataGridView()
         Me.Panel2 = New System.Windows.Forms.Panel()
         Me.Panel1 = New System.Windows.Forms.Panel()
-        Me.btnDetay = New DevExpress.XtraEditors.SimpleButton()
         Me.btnYenile = New DevExpress.XtraEditors.SimpleButton()
-        Me.lblId = New System.Windows.Forms.Label()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         CType(Me.dgListe, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -154,6 +153,15 @@ Partial Class StokKart
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Filtre"
         '
+        'lblId
+        '
+        Me.lblId.AutoSize = True
+        Me.lblId.Location = New System.Drawing.Point(278, 22)
+        Me.lblId.Name = "lblId"
+        Me.lblId.Size = New System.Drawing.Size(0, 13)
+        Me.lblId.TabIndex = 9
+        Me.lblId.Visible = False
+        '
         'GroupBox2
         '
         Me.GroupBox2.Controls.Add(Me.dgListe)
@@ -201,20 +209,6 @@ Partial Class StokKart
         Me.Panel1.Size = New System.Drawing.Size(703, 28)
         Me.Panel1.TabIndex = 28
         '
-        'btnDetay
-        '
-        Me.btnDetay.Appearance.ForeColor = System.Drawing.Color.Black
-        Me.btnDetay.Appearance.Options.UseForeColor = True
-        Me.btnDetay.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat
-        Me.btnDetay.Image = CType(resources.GetObject("btnDetay.Image"), System.Drawing.Image)
-        Me.btnDetay.Location = New System.Drawing.Point(424, 437)
-        Me.btnDetay.Name = "btnDetay"
-        Me.btnDetay.RightToLeft = System.Windows.Forms.RightToLeft.No
-        Me.btnDetay.ShowFocusRectangle = DevExpress.Utils.DefaultBoolean.[False]
-        Me.btnDetay.Size = New System.Drawing.Size(85, 26)
-        Me.btnDetay.TabIndex = 29
-        Me.btnDetay.Text = "Detay"
-        '
         'btnYenile
         '
         Me.btnYenile.Appearance.ForeColor = System.Drawing.Color.Black
@@ -229,15 +223,6 @@ Partial Class StokKart
         Me.btnYenile.TabIndex = 30
         Me.btnYenile.Text = "Yenile"
         '
-        'lblId
-        '
-        Me.lblId.AutoSize = True
-        Me.lblId.Location = New System.Drawing.Point(278, 22)
-        Me.lblId.Name = "lblId"
-        Me.lblId.Size = New System.Drawing.Size(0, 13)
-        Me.lblId.TabIndex = 9
-        Me.lblId.Visible = False
-        '
         'StokKart
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -245,7 +230,6 @@ Partial Class StokKart
         Me.BackColor = System.Drawing.Color.Silver
         Me.ClientSize = New System.Drawing.Size(703, 504)
         Me.Controls.Add(Me.btnYenile)
-        Me.Controls.Add(Me.btnDetay)
         Me.Controls.Add(Me.Panel1)
         Me.Controls.Add(Me.Panel2)
         Me.Controls.Add(Me.GroupBox2)
@@ -278,7 +262,6 @@ Partial Class StokKart
     Friend WithEvents GroupBox2 As GroupBox
     Friend WithEvents Panel2 As Panel
     Friend WithEvents Panel1 As Panel
-    Friend WithEvents btnDetay As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents dgListe As DataGridView
     Friend WithEvents btnYenile As DevExpress.XtraEditors.SimpleButton
     Friend WithEvents lblId As Label

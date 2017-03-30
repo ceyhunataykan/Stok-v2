@@ -271,6 +271,12 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ortak.vb" />
+    <Compile Include="Raporlar.Designer.vb">
+      <DependentUpon>Raporlar.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Raporlar.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Rol.vb">
       <DependentUpon>StokModel.tt</DependentUpon>
     </Compile>
@@ -298,6 +304,9 @@
     <Compile Include="StokCikisDuzenle.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="stokDurum_Result.vb">
+      <DependentUpon>StokModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="StokGiris.Designer.vb">
       <DependentUpon>StokGiris.vb</DependentUpon>
     </Compile>
@@ -315,6 +324,18 @@
     </Compile>
     <Compile Include="StokHareket.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StokHareketDetay.Designer.vb">
+      <DependentUpon>StokHareketDetay.vb</DependentUpon>
+    </Compile>
+    <Compile Include="StokHareketDetay.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StokHareketListe_Result.vb">
+      <DependentUpon>StokModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StokHareketRapor_Result.vb">
+      <DependentUpon>StokModel.tt</DependentUpon>
     </Compile>
     <Compile Include="StokKart.vb">
       <SubType>Form</SubType>
@@ -349,6 +370,15 @@
     </Compile>
     <Compile Include="StokKartEkle.vb">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StokListeRapor.Designer.vb">
+      <DependentUpon>StokListeRapor.vb</DependentUpon>
+    </Compile>
+    <Compile Include="StokListeRapor.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="stokListe_Result.vb">
+      <DependentUpon>StokModel.tt</DependentUpon>
     </Compile>
     <Compile Include="StokModel.Context.vb">
       <AutoGen>True</AutoGen>
@@ -428,9 +458,14 @@
       <DependentUpon>Login.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\licenses.licx" />
+    <EmbeddedResource Include="Raporlar.resx">
+      <DependentUpon>Raporlar.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SatisFaturasi.resx">
       <DependentUpon>SatisFaturasi.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="sh.rdlc" />
+    <EmbeddedResource Include="sl.rdlc" />
     <EmbeddedResource Include="StokCikis.resx">
       <DependentUpon>StokCikis.vb</DependentUpon>
     </EmbeddedResource>
@@ -445,6 +480,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StokHareket.resx">
       <DependentUpon>StokHareket.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StokHareketDetay.resx">
+      <DependentUpon>StokHareketDetay.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StokKart.resx">
       <DependentUpon>StokKart.vb</DependentUpon>
@@ -461,6 +499,9 @@
     <EmbeddedResource Include="StokKartEkle.resx">
       <DependentUpon>StokKartEkle.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="StokListeRapor.resx">
+      <DependentUpon>StokListeRapor.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Tanimlar.resx">
       <DependentUpon>Tanimlar.vb</DependentUpon>
     </EmbeddedResource>
@@ -470,7 +511,8 @@
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>
     </None>
-    <None Include="My Project\DataSources\Urun.datasource" />
+    <None Include="My Project\DataSources\StokHareketRapor_Result.datasource" />
+    <None Include="My Project\DataSources\stokListe_Result.datasource" />
     <None Include="My Project\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <CustomToolNamespace>My</CustomToolNamespace>

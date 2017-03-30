@@ -132,7 +132,6 @@ C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.pdb
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.StokGirisDuzenle.resources
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.StokCikisDuzenle.resources
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.StokKartDuzenle.resources
-C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.vbprojResolveAssemblyReference.cache
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.Login.resources
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.Kategoriler.resources
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.Birimler.resources
@@ -173,7 +172,6 @@ C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\bin\Debug\DevExpress.Diagram.
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\bin\Debug\DevExpress.Pdf.v16.1.Drawing.dll
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\bin\Debug\DevExpress.XtraVerticalGrid.v16.1.dll
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\bin\Debug\DevExpress.XtraNavBar.v16.1.dll
-C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\bin\Debug\Microsoft.SqlServer.Types.dll
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\bin\Debug\DevExpress.Dashboard.v16.1.Core.xml
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\bin\Debug\DevExpress.Dashboard.v16.1.Win.xml
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\bin\Debug\DevExpress.DataAccess.v16.1.xml
@@ -300,16 +298,6 @@ C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\bin\Debug\de\DevExpress.XtraN
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\bin\Debug\es\DevExpress.XtraNavBar.v16.1.resources.dll
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\bin\Debug\ja\DevExpress.XtraNavBar.v16.1.resources.dll
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\bin\Debug\ru\DevExpress.XtraNavBar.v16.1.resources.dll
-C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\bin\Debug\de\Microsoft.SqlServer.Types.resources.dll
-C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\bin\Debug\es\Microsoft.SqlServer.Types.resources.dll
-C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\bin\Debug\fr\Microsoft.SqlServer.Types.resources.dll
-C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\bin\Debug\it\Microsoft.SqlServer.Types.resources.dll
-C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\bin\Debug\ja\Microsoft.SqlServer.Types.resources.dll
-C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\bin\Debug\ko\Microsoft.SqlServer.Types.resources.dll
-C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\bin\Debug\pt\Microsoft.SqlServer.Types.resources.dll
-C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\bin\Debug\ru\Microsoft.SqlServer.Types.resources.dll
-C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\bin\Debug\zh-Hans\Microsoft.SqlServer.Types.resources.dll
-C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\bin\Debug\zh-Hant\Microsoft.SqlServer.Types.resources.dll
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.DepoAktar.resources
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.DepoAktarDuzenle.resources
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.DepoAktarEkle.resources
@@ -319,3 +307,8 @@ C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.CariHesapEkle.
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.Faturalar.resources
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.GirisFaturasi.resources
 C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.SatisFaturasi.resources
+C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.StokHareketDetay.resources
+C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.Raporlar.resources
+C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\RdlCompile.cache
+C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\RdlCompile.compiled
+C:\Users\Ceyhun Ataykan\Source\Github\Stok-v2\Stok\obj\Debug\Stok.StokListeRapor.resources

@@ -479,6 +479,15 @@
     <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="stokDurum" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="StokHareketListe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="StokHareketRapor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="basTarih" Type="datetime" Mode="In" />
+    <Parameter Name="bitTarih" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="stokListe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="miktar" Type="int" Mode="In" />
+  </Function>
   <EntityContainer Name="StokModelStoreContainer">
     <EntitySet Name="Aktarim_Detay" EntityType="Self.Aktarim_Detay" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Aktarim_Fis" EntityType="Self.Aktarim_Fis" Schema="dbo" store:Type="Tables" />
